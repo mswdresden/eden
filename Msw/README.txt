@@ -1,0 +1,96 @@
+
+
+##########################################
+# installation of web2py and sahana-eden # 
+##########################################
+
+# following istructions found in:
+# wget https://raw.githubusercontent.com/nursix/sahana-setup/master/prod/debian/cherokee-postgis-install.sh
+
+# update your system an get all needed python stuff
+# Update system
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get clean
+
+# Install Admin Tools
+# fails due to missing elinks-lite: sudo apt-get install -y unzip psmisc mlocate telnet lrzsz vim elinks-lite rcconf htop sudo p7zip dos2unix curl
+sudo apt-get install unzip psmisc mlocate telnet lrzsz vim  rcconf htop sudo p7zip dos2unix curl
+
+# Install Git
+sudo apt-get install git-core
+sudo apt-get clean
+
+# Email
+sudo apt-get install exim4-config exim4-daemon-light
+sudo apt-get clean
+
+# Python
+sudo apt-get install libgeos-c1
+sudo apt-get install libgeos-dev
+
+sudo apt-get install python-dev
+sudo apt-get install python-lxml python-setuptools python-dateutil python-pip
+sudo apt-get install python-serial
+sudo apt-get install python-imaging
+sudo apt-get -y install python-imaging
+sudo apt-get -y install python-matplotlib
+sudo apt-get -y install python-requests
+sudo apt-get -y install python-xlwt
+sudo apt-get -y install build-essential
+sudo apt-get clean
+
+# Web2Py
+sudo apt-get install libodbc1
+
+# get web2py and reset it to last stable version, which is compatible with sahana-eden
+git clone --recursive git://github.com/web2py/web2py.git
+cd web2py/
+git reset --hard cda35fd
+git submodule update
+(in an older manual it read: git submodule update --init --recursive )
+
+# get sahana-eden
+cd applications
+git clone git://github.com/mswdresden/eden
+
+# run web2py (setting admin password to "pass")
+python web2py.py -a pass
+
+go to URL: http://127.0.0.1:8000/
+	- you can here login to web2py interface with the password ("pass") set earlier.
+	  then you can go to the admin area, check 'eden' and edit things
+	  
+	  however, before everything runs, you have to edit web2py/applications/eden/models/000_config.py
+	  ACTION REQUIRED: The following files were copied from templates and should be edited: models/000_config.py 
+	  therefore: edit line (17) to read: FINISHED_EDITING_CONFIG_FILE = True
+	  
+	  now editing works from within the web2py interface.
+	  now also works calling eden from your browser: http://127.0.0.1:8000/eden
+	  
+	  'register for an account' for the first time:
+	  ATTENTION: the first user registered will be the administrator
+		 - give some email (any random mail works, I use a real one, however)
+		 - give a admin password (as long as you work only locally, do not bother too much with complex passwords)
+		 - after 'OK' you should be logged in, ... log out and test if login works
+		 
+
+
+
+#########
+# links #
+#########
+
+https://sahanafoundation.org/        # sahana foundation main page
+http://eden.sahanafoundation.org/    # eden at sahana foundation (and wiki)
+https://github.com/sahana/eden       # sahana eden on github
+http://flossmanuals.net/sahana-eden/ # sahana book!
+
+# insalling local sahana instance on suse
+https://github.com/nursix/sahana-setup/wiki/Developer-Setup#opensuse
+
+# sahana components explained
+https://github.com/nursix/sahana-setup/wiki/Components
+
+# first long sahana tutorial
+# https://www.youtube.com/watch?v=UhvlxZFnUM8
