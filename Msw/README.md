@@ -43,6 +43,9 @@ sudo apt-get clean
 # Web2Py
 sudo apt-get install libodbc1
 
+# for some reason insalled also (msw):
+sudo apt-get install python-openid
+
 # get web2py and reset it to last stable version, which is compatible with sahana-eden
 git clone --recursive git://github.com/web2py/web2py.git
 cd web2py/
@@ -73,18 +76,46 @@ go to URL: http://127.0.0.1:8000/
 		 - give some email (any random mail works, I use a real one, however)
 		 - give a admin password (as long as you work only locally, do not bother too much with complex passwords)
 		 - after 'OK' you should be logged in, ... log out and test if login works
-		 
+	
+	It most probably is usefull to edit also settings.base.debug to match
+	settings.base.debug = True
+	in 000_config.py
 
+Passwords for development:
+web2py: pass
+eden:   msw@3dd2.de 1234	
+	 
+
+#######
+# Git #
+#######
+
+https://github.com/mswdresden/eden # repository
+
+# push and pull
+git push https://github.com/mswdresden/eden.git
+git pull [seems to work w/o https://github.com/mswdresden/eden.git]
+
+# updating from original master? 
+#http://www.flossmanuals.net/sahana-eden/installing-a-developer-environment/
+#
+# once do: git remote add upstream git://github.com/flavour/eden.git
+git pull upstream master # this should do the job?!
 
 
 #########
 # links #
 #########
 
+# Sahana Eden
+
 https://sahanafoundation.org/        # sahana foundation main page
 http://eden.sahanafoundation.org/    # eden at sahana foundation (and wiki)
 https://github.com/sahana/eden       # sahana eden on github
 http://flossmanuals.net/sahana-eden/ # sahana book!
+
+# sahana-eden google groups mailing list
+https://groups.google.com/forum/#!forum/sahana-eden
 
 # insalling local sahana instance on suse
 https://github.com/nursix/sahana-setup/wiki/Developer-Setup#opensuse
@@ -94,3 +125,15 @@ https://github.com/nursix/sahana-setup/wiki/Components
 
 # first long sahana tutorial
 # https://www.youtube.com/watch?v=UhvlxZFnUM8
+
+# gis (maps?) is something very cool and a little different
+http://eden.sahanafoundation.org/wiki/GIS
+
+########
+# TODO #
+########
+- create and improve a model
+- figure out how languages work (browser settings or setting within eden or setting within web2py?)
+	- github anmelden (account wiederfinden)
+	- sahana eden in git und workflow testen
+	- erste eigene entwicklungen (z.B. spreadsheet beispiel von web2py)
