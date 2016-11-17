@@ -5,6 +5,8 @@ from collections import OrderedDict
 from gluon import current
 from gluon.storage import Storage
 
+
+ 
 def config(settings):
     """
         Template settings for a default system
@@ -38,9 +40,9 @@ def config(settings):
     # Should users be allowed to register themselves?
     settings.security.self_registration = False
     # Do new users need to verify their email address?
-    settings.auth.registration_requires_verification = False
+    #settings.auth.registration_requires_verification = True
     # Do new users need to be approved by an administrator prior to being able to login?
-    settings.auth.registration_requires_approval = False
+    #settings.auth.registration_requires_approval = True
 
     # Allow a new user to be linked to a record (and a new record will be created if it doesn't already exist)
     settings.auth.registration_link_user_to = {"staff":T("Staff"),
@@ -178,16 +180,15 @@ def config(settings):
     # Make last name in person/user records mandatory
     #settings.L10n.mandatory_lastname = True
     # Configure the list of Religions
-    #msw
-    settings.L10n.religions = {"none": T("none"),
-                            "christian": T("Christian"),
-                            "muslim": T("Muslim"),
-                            "jewish": T("Jewish"),
-                            "buddhist": T("Buddhist"),
-                            "hindu": T("Hindu"),
-                            "bahai": T("Bahai"),
-                            "other": T("other")
-                            }
+    #settings.L10n.religions = {"none": T("none"),
+                            #"christian": T("Christian"),
+                            #"muslim": T("Muslim"),
+                            #"jewish": T("Jewish"),
+                            #"buddhist": T("Buddhist"),
+                            #"hindu": T("Hindu"),
+                            #"bahai": T("Bahai"),
+                            #"other": T("other")
+                            #}
     # Uncomment this to Translate CMS Series Names
     #settings.L10n.translate_cms_series = True
     # Uncomment this to Translate Layer Names
@@ -215,9 +216,7 @@ def config(settings):
     #settings.base.paper_size = T("Letter")
     # Location of Logo used in pdfs headers
     #settings.ui.pdf_logo = "static/img/mylogo.png"
-    #msw
-    settings.ui.pdf_logo = "eden/Msw/msw_schild_spinne.png"
-    
+
     #Uncomment to add a title row to XLS exports
     #settings.base.xls_title_row = True
 
@@ -357,8 +356,7 @@ def config(settings):
     # 7: Apply Controller, Function, Table ACLs and Entity Realm + Hierarchy
     # 8: Apply Controller, Function, Table ACLs, Entity Realm + Hierarchy and Delegations
     #
-    # msw
-    settings.security.policy = 2 # Organisation-ACLs
+    #settings.security.policy = 7 # Organisation-ACLs
 
     # Ownership-rule for records without owner:
     # True = not owned by any user (strict ownership, default)
@@ -1070,109 +1068,109 @@ def config(settings):
             #description = "Used within Inventory Management, Request Management and Asset Management",
             restricted = True,
             module_type = None, # Not displayed
-        )),
-        ("inv", Storage(
-            name_nice = T("Warehouses"),
-            #description = "Receiving and Sending Items",
-            restricted = True,
-            module_type = 4
-        )),
-        #("proc", Storage(
-        #        name_nice = T("Procurement"),
-        #        #description = "Ordering & Purchasing of Goods & Services",
-        #        restricted = True,
-        #        module_type = 10
-        #    )),
-        ("asset", Storage(
-            name_nice = T("Assets"),
-            #description = "Recording and Assigning Assets",
-            restricted = True,
-            module_type = 5,
-        )),
-        # Vehicle depends on Assets
-        ("vehicle", Storage(
-            name_nice = T("Vehicles"),
-            #description = "Manage Vehicles",
-            restricted = True,
-            module_type = 10,
-        )),
-        ("req", Storage(
-            name_nice = T("Requests"),
-            #description = "Manage requests for supplies, assets, staff or other resources. Matches against Inventories where supplies are requested.",
-            restricted = True,
-            module_type = 10,
-        )),
-        ("project", Storage(
-            name_nice = T("Projects"),
-            #description = "Tracking of Projects, Activities and Tasks",
-            restricted = True,
-            module_type = 2
-        )),
-        ("survey", Storage(
-            name_nice = T("Surveys"),
-            #description = "Create, enter, and manage surveys.",
-            restricted = True,
-            module_type = 5,
-        )),
+        ))#,
+#        ("inv", Storage(
+#            name_nice = T("Warehouses"),
+#            #description = "Receiving and Sending Items",
+#            restricted = True,
+#            module_type = 4
+#        )),
+#        #("proc", Storage(
+#        #        name_nice = T("Procurement"),
+#        #        #description = "Ordering & Purchasing of Goods & Services",
+#        #        restricted = True,
+#        #        module_type = 10
+#        #    )),
+#        ("asset", Storage(
+#            name_nice = T("Assets"),
+#            #description = "Recording and Assigning Assets",
+#            restricted = True,
+#            module_type = 5,
+#        )),
+#        # Vehicle depends on Assets
+#        ("vehicle", Storage(
+#            name_nice = T("Vehicles"),
+#            #description = "Manage Vehicles",
+#            restricted = True,
+#            module_type = 10,
+#        )),
+#        ("req", Storage(
+#            name_nice = T("Requests"),
+#            #description = "Manage requests for supplies, assets, staff or other resources. Matches against Inventories where supplies are requested.",
+#            restricted = True,
+#           module_type = 10,
+#        )),
+#        ("project", Storage(
+#            name_nice = T("Projects"),
+#            #description = "Tracking of Projects, Activities and Tasks",
+#            restricted = True,
+#            module_type = 2
+#        )),
+#        ("survey", Storage(
+#            name_nice = T("Surveys"),
+#            #description = "Create, enter, and manage surveys.",
+#            restricted = True,
+#            module_type = 5,
+#        )),
         #("dc", Storage(
         #   name_nice = T("Data Collection"),
         #   #description = "Data collection tool",
         #   restricted = True,
         #   module_type = 10
         #)),
-        ("cr", Storage(
-            name_nice = T("Shelters"),
-            #description = "Tracks the location, capacity and breakdown of victims in Shelters",
-            restricted = True,
-            module_type = 10
-        )),
-        ("hms", Storage(
-            name_nice = T("Hospitals"),
-            #description = "Helps to monitor status of hospitals",
-            restricted = True,
-            module_type = 10
-        )),
-        #("disease", Storage(
-        #    name_nice = T("Disease Tracking"),
-        #    #description = "Helps to track cases and trace contacts in disease outbreaks",
-        #    restricted = True,
-        #    module_type = 10
-        #)),
-        ("dvr", Storage(
-        name_nice = T("Disaster Victim Registry"),
-        #description = "Allow affected individuals & households to register to receive compensation and distributions",
-        restricted = True,
-        module_type = 10,
-        )),
-        ("event", Storage(
-            name_nice = T("Events"),
-            #description = "Activate Events (e.g. from Scenario templates) for allocation of appropriate Resources (Human, Assets & Facilities).",
-            restricted = True,
-            module_type = 10,
-        )),
-        ("transport", Storage(
-        name_nice = T("Transport"),
-        restricted = True,
-        module_type = 10,
-        )),
-        ("stats", Storage(
-            name_nice = T("Statistics"),
-            #description = "Manages statistics",
-            restricted = True,
-            module_type = None,
-        )),
-        ("member", Storage(
-        name_nice = T("Members"),
-        #description = "Membership Management System",
-        restricted = True,
-        module_type = 10,
-        )),
-        ("budget", Storage(
-            name_nice = T("Budgeting Module"),
-            #description = "Allows a Budget to be drawn up",
-            restricted = True,
-            module_type = 10
-        )),
+#        ("cr", Storage(
+#            name_nice = T("Shelters"),
+#            #description = "Tracks the location, capacity and breakdown of victims in Shelters",
+#            restricted = True,
+#            module_type = 10
+#        )),
+#        ("hms", Storage(
+#            name_nice = T("Hospitals"),
+#            #description = "Helps to monitor status of hospitals",
+#            restricted = True,
+#            module_type = 10
+#        )),
+#        #("disease", Storage(
+#        #    name_nice = T("Disease Tracking"),
+#        #    #description = "Helps to track cases and trace contacts in disease outbreaks",
+#        #    restricted = True,
+#        #    module_type = 10
+#        #)),
+#        ("dvr", Storage(
+#        name_nice = T("Disaster Victim Registry"),
+#        #description = "Allow affected individuals & households to register to receive compensation and distributions",
+#        restricted = True,
+#        module_type = 10,
+#        )),
+#        ("event", Storage(
+#            name_nice = T("Events"),
+#            #description = "Activate Events (e.g. from Scenario templates) for allocation of appropriate Resources (Human, Assets & Facilities).",
+#            restricted = True,
+#            module_type = 10,
+#        )),
+#        ("transport", Storage(
+#        name_nice = T("Transport"),
+#        restricted = True,
+#        module_type = 10,
+#        )),
+#        ("stats", Storage(
+#            name_nice = T("Statistics"),
+#            #description = "Manages statistics",
+#            restricted = True,
+#            module_type = None,
+#        )),
+#        ("member", Storage(
+#        name_nice = T("Members"),
+#        #description = "Membership Management System",
+#        restricted = True,
+#        module_type = 10,
+#        )),
+#        ("budget", Storage(
+#            name_nice = T("Budgeting Module"),
+#            #description = "Allows a Budget to be drawn up",
+#            restricted = True,
+#            module_type = 10
+#        )),
         #("deploy", Storage(
         #    name_nice = T("Deployments"),
         #    #description = "Manage Deployments",
@@ -1229,12 +1227,12 @@ def config(settings):
         #    restricted = True,
         #    module_type = 10
         #)),
-        ("patient", Storage(
-            name_nice = T("Patient Tracking"),
-            #description = "Tracking of Patients",
-            restricted = True,
-            module_type = 10
-        )),
+        #("patient", Storage(
+        #    name_nice = T("Patient Tracking"),
+        #    #description = "Tracking of Patients",
+        #    restricted = True,
+        #    module_type = 10
+        #)),
         #("po", Storage(
         #    name_nice = T("Population Outreach"),
         #    #description = "Population Outreach",
@@ -1300,46 +1298,30 @@ def config(settings):
         #   restricted = False,
         #   module_type = None,
         #)),
-        # msw's new modules
-        ("asylumseeker", Storage(
-        name_nice = T("Asylumseeker"),
-        module_type = 10,
-        )),
-        ("residential", Storage(
-        name_nice = T("Residential"),
-        module_type = 10,
-        )),                            
     ])
-    
-    # msw change label in organisation 
+
+#def customise_org_organisation_controller(**attr):
+#    table = current.s3db.org_organisation
+#    table.year.label = T("Year Founded")
+#    table.year.comment = DIV(_class="tooltip",
+#              _title="%s|%s" % (T("Year Founded"),
+#                                T("Year that the organization was founded, natually."))),
+#    return attr
+#settings.customise_org_organisation_controller = customise_org_organisation_controller()
+
+#def customise_org_organization_controller(**attr):
+#    table = current.s3db.org_organisation
+#    table.year.label = T("Year Founded")
+#    return attr
+#settings.customise_org_organization_controller = customise_org_organization_controller
     def customise_org_organisation_controller(**attr):
         table = current.s3db.org_organisation
         table.year.label = T("Year Founded")
-        #table.year.comment = DIV(_class="tooltip",_title="%s|%s" % (T("Year Founded"), T("Year that the organization was founded, naturally")))
+        table.year.comment = DIV(_class="tooltip",
+                                         _title="%s|%s" % (T("Year Founded"),
+                                                           T("Year that the organization was founded, naturally")))
+                           
+        
         return attr
     settings.customise_org_organisation_controller = customise_org_organisation_controller
-    
-    # deselect/select (does this work?) single fields
-    def customise_org_organisation_resource(r, tablename):
-        table = current.s3db.org_organisation
-        table.website.readable  = False 
-        table.website.writable  = False
-        table.phone.readable  = False
-        table.phone.writable  = False
-        
-        table.contact.readable  = True
-        table.contact.writable  = True
-    settings.customise_org_organisation_resource = customise_org_organisation_resource
-    
-  
-    # msw: adding Asylumseeker to main menue (above)
-    settings.modules["asylumseeker"] = Storage(
-        name_nice=T("Asylumseeker"),
-        module_type=2)
-
-    # msw: adding residential to main menue (above)
-    settings.modules["residential"] = Storage(
-        name_nice=T("Residential"),
-        module_type=2)
-
 # END =========================================================================

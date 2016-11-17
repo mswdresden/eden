@@ -80,8 +80,8 @@ import s3menus as default
         #]
 
 # =============================================================================
-class S3OptionsMenu(default.S3OptionsMenu):
-    """
+#class S3OptionsMenu(default.S3OptionsMenu):
+    #"""
         #Custom Controller Menus
 
         #The options menu (left-hand options menu) is individual for each
@@ -99,7 +99,7 @@ class S3OptionsMenu(default.S3OptionsMenu):
         #Make sure additional helper functions in this class don't match
         #any current or future controller prefix (e.g. by using an
         #underscore prefix).
-    """
+    #"""
 
     #def cr(self):
         #""" CR / Shelter Registry """
@@ -112,54 +112,5 @@ class S3OptionsMenu(default.S3OptionsMenu):
                         #M("Import", m="import"),
                     #)
                 #)
-                
-                
-    #msw
-    def org(self):
-        #""" ORG / Organization Registry """
-        return M(c="org")(
-            M("Organizations", f="organisation")(
-                M("New", m="create"),
-                M("List All"),
-                M("Search", m="search"),
-                M("Import", m="import")
-            ),
-            M("Venues", f="office")(
-                M("New", m="create"),
-                M("List All"),
-                #M("Map", m="map"),
-                #M("Search", m="search"),
-                M("Import", m="import")
-            ),
-        )
 
-    # msw
-    def asylumseeker(self):
-        return M(c="asylumseeker")(
-            M("Asylumseeker", f="person")(
-                M("Create", m="create"),
-                M("Import", m="import"),
-                M("Report", m="report")
-            )
-        )
-        
-    # msw
-    def residential(self):
-        return M(c="residential")(
-            M("Residential", f="dorm")( 
-                M("Create", m="create"),
-                M("List All"),
-                M("Import", m="import"),
-                M("Report", m="report"),
-                M("Export", m="export")
-            ),
-            M("Asylumseeker", f="person")(
-                #M("Create", m="create"),
-                M("List All"),
-                #M("Import", m="import"),
-                #M("Report", m="report")
-            ),
-        )
-        
-        
 # END =========================================================================

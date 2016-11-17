@@ -387,6 +387,9 @@ class S3OrganisationModel(S3Model):
                            represent = s3_url_represent,
                            requires = IS_EMPTY_OR(IS_URL()),
                            ),
+                     Field("facebooook",
+                           label = T("Facebooook")),
+                     
                      Field("year", "integer",
                            label = T("Year"),
                            represent = lambda v: v or NONE,
@@ -429,6 +432,8 @@ class S3OrganisationModel(S3Model):
                        "region_id",
                        "country",
                        "phone",
+                       "facebooook", # msw! a new entrie has to be added also here!!
+                       "contact",
                        "website",
                        "year",
                        "logo",
@@ -542,12 +547,13 @@ class S3OrganisationModel(S3Model):
                                           sortby = "name",
                                           widgets = org_widgets,
                                           )
-
+        # msw: here we set which info is displayed in the summary table
         list_fields = ["id",
                        "name",
                        "acronym",
                        "organisation_organisation_type.organisation_type_id",
-                       "website"
+                       "website",
+                       "facebooook"
                        ]
 
         if use_sector:

@@ -113,6 +113,7 @@ https://sahanafoundation.org/        # sahana foundation main page
 http://eden.sahanafoundation.org/    # eden at sahana foundation (and wiki)
 https://github.com/sahana/eden       # sahana eden on github
 http://flossmanuals.net/sahana-eden/ # sahana book!
+http://booki.flossmanuals.net/sahana-eden/
 
 # sahana-eden google groups mailing list
 https://groups.google.com/forum/#!forum/sahana-eden
@@ -129,6 +130,10 @@ https://github.com/nursix/sahana-setup/wiki/Components
 # gis (maps?) is something very cool and a little different
 http://eden.sahanafoundation.org/wiki/GIS
 
+# s3 documentation
+http://pub.nursix.org/eden/s3/
+http://eden.sahanafoundation.org/wiki/S3/S3Model/SuperEntities
+
 ########
 # TODO #
 ########
@@ -137,3 +142,58 @@ http://eden.sahanafoundation.org/wiki/GIS
 	- github anmelden (account wiederfinden)
 	- sahana eden in git und workflow testen
 	- erste eigene entwicklungen (z.B. spreadsheet beispiel von web2py)
+- neue module machen	
+- module syntax lernen
+- styles und links und menues lernen
+
+###
+# msw's howto:
+Incorporate a new model:
+
+yourtaskhere: what you are trying to do
+namebody    : something 'bigger' than your task
+
+1. You need two files:
+
+	models/<namebody>.py
+	controllers/<namebody>.py
+	edit text according to examples (e.g. asylumseeker.py)
+	
+	It is very important that the 'namebody' of your file matches
+	the fist part of tablename = "<namebody>_<yourtaskhere>"
+
+2. update CRUD texts
+	see examles (e.g. models/asylumseeker.py)
+
+	- you can see your page at eden/<namebody>/<yourtaskhere>
+	
+3. 	add an index.html
+#cd eden/views
+#mkdir <namebody>
+#cp asylumseeker/index.html <namebody>
+# edit <namebody>/index.html
+# add to controller file:
+	def index():
+    	return dict()
+	
+	- now it should be possible to see: eden/<namebody>
+
+4. Add a link in the main menu
+add to your config.py (in your template directory)
+settings.modules["<namebody>"] = Storage(
+        name_nice=T("<Namebody>"),
+        module_type=2)
+
+5. Add a menu at the side
+	- edit modules/s3menus.py or <mytemplate>/menues.py => see examples there
+	- add new module to active modules in <mytemplate>/confg.py
+
+6. Write data to file
+	- create one entry
+	- click export as XLS
+	- some soffice will open,
+	- save file as csv (set filter to: delimiter "," (comma) and embrace text with '"')
+	- edit 
+	- save
+7. Read data from file
+		

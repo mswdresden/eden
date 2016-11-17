@@ -1,16 +1,6 @@
 # -*- coding: utf-8 -*-
 {
 '(Recipient)': '(Empfänger)',
-# custom section for template FLR
-"Year Founded": "Gründungsjahr",
-"Dormitories":"Schlafhallen",
-"Dormitory":"Schlafhalle",
-"Create Dormitory":"Schlafhalle hinzufügen",
-"List of Dormitories":"Liste der Schlafhallen",
-"Here we organize our dormitories":"Hier organisieren wir unsere Schlafhallen",
-"Welcome to the Residential Module":"Willkommen beim Schlafhallen Modul",
-#"":"",
-#
 "'Cancel' will indicate an asset log entry did not occur": "'Abbrechen' zeigt an, dass ein Asset Log Eintrag nicht eingetreten ist",
 "A location that specifies the geographic area for this region. This can be a location from the location hierarchy, or a 'group location', or a location that has a boundary for the area.": 'Eine Position, die den geografischen Bereich für diese Region definiert. Dies kann ein Standort aus der Standorthierarchie, oder ein Gruppenstandort, oder ein Standort mit Grenzbereich sein.',
 "Acronym of the organization's name, eg. IFRC.": 'Abkürzung des Organisationsnamen, z. B. IFRC.',

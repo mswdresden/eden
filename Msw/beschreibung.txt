@@ -1,0 +1,65 @@
+
+	ENTWURF AUFGABENBESCHREIBUNG UND ZIELSTELLUNG
+
+
+# Ziel: Eine Webanwendung (fuer Intranet), welche die Daten von ca. 800 Menschen mit jeweils
+        ca. 100 Parametern verwaltet. Diese Daten werden von ca. 8 Mitarbeitern
+		bearbeitet und genutzt.
+
+	# Anforderung: muss sein
+
+		
+		Notwendige Datenbanken (min):
+		- Asylumseeker  (Asylsuchender)
+		- Home          (Wohnort)
+		- Assistance    (Betreuer)
+		- Organisation  (Organsiation)
+		- Staff         (Mitarbeiter)
+		
+# Zeitraum:
+	# muss sein
+	
+	- erste Ergebnisse 15.11.2016
+	- funktionsfaehiges System: Ende November		
+	- voll funktionierendes System: Anfang Januar
+
+
+# Diffenzierte Zugangsberechtigung
+	# Anforderung: muss sein
+
+	- Administrator     - (alle Rechte, legt Benutzer an)
+	- Editor            - (Dateien bearbeiten, aber keine Admin-Rechte)
+	- Authentifiziert   - (nur lesen)
+	- nicht registriert - kein Zugang
+		
+# Einlesen von Daten in einem sinnhaften Format (z.B. .csv)
+	# Anforderung: muss sein
+
+# Ausgeben von Daten in einem sinnhaften Format (z.B. .csv)
+	# Anforderung: muss sein
+
+# Drucken von Datensaetzen (pdf)
+	# Anforderung: muss sein
+
+# Tutorial
+	# Kurzanleitung muss es geben
+
+# Schulung von MA
+	# optional
+		
+# Support
+	# optional
+
+# Darstellung von Orten auf Karte:
+	# Anforderung: waere schoen	
+
+# Mehrsprachlichkeit:
+	# Anforderung: waere schoen	
+
+
+# Netzwerksadministration
+	# nein		 		
+
+	
+		
+	
