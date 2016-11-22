@@ -1,0 +1,1300 @@
+
+
+
+ --------------------------
+settings <Storage {'supply': <Storage {}>, 'req': <Storage {}>, 'L10n': <Storage {'languages': OrderedDict([('ar'                                           ,                             '\xd8\xa7\xd9\x84\xd8\xb9\xd8\xb1\xd8\xa8\xd9\x8a\xd8\xa9'), ('bs'                                           ,                             'Bosanski'), ('en'                                           ,                             'English'), ('fr'                                           ,                             'Fran\xc3\xa7ais'), ('de'                                           ,                             'Deutsch'), ('el'                                           ,                             '\xce\xb5\xce\xbb\xce\xbb\xce\xb7\xce\xbd\xce\xb9\xce\xba\xce\xac'), ('es'                                           ,                             'Espa\xc3\xb1ol'), ('it'                                           ,                             'Italiano'), ('ja'                                           ,                             '\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e'), ('km'                                           ,                             '\xe1\x9e\x97\xe1\x9e\xb6\xe1\x9e\x9f\xe1\x9e\xb6\xe1\x9e\x81\xe1\x9f\x92\xe1\x9e\x98\xe1\x9f\x82\xe1\x9e\x9a'), ('ko'                                           ,                             '\xed\x95\x9c\xea\xb5\xad\xec\x96\xb4'), ('mn'                                           ,                             '\xd0\x9c\xd0\xbe\xd0\xbd\xd0\xb3\xd0\xbe\xd0\xbb \xd1\x85\xd1\x8d\xd0\xbb'), ('my'                                           ,                             '\xe1\x80\x99\xe1\x80\xbc\xe1\x80\x94\xe1\x80\xba\xe1\x80\x99\xe1\x80\xac\xe1\x80\x85\xe1\x80\xac'), ('ne'                                           ,                             '\xe0\xa4\xa8\xe0\xa5\x87\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xb2\xe0\xa5\x80'), ('prs'                                           ,                             '\xd8\xaf\xd8\xb1\xdb\x8c'), ('ps'                                           ,                             '\xd9\xbe\xda\x9a\xd8\xaa\xd9\x88'), ('pt'                                           ,                             'Portugu\xc3\xaas'), ('pt-br'                                           ,                             'Portugu\xc3\xaas (Brasil)'), ('ru'                                           ,                             '\xd1\x80\xd1\x83\xd1\x81\xd1\x81\xd0\xba\xd0\xb8\xd0\xb9'), ('tet'                                           ,                             'Tetum'), ('tl'                                           ,                             'Tagalog'), ('tr'                                           ,                             'T\xc3\xbcrk\xc3\xa7e'), ('ur'                                           ,                             '\xd8\xa7\xd8\xb1\xd8\xaf\xd9\x88'), ('vi'                                           ,                             'Ti\xe1\xba\xbfng Vi\xe1\xbb\x87t'), ('zh-cn'                                           ,                             '\xe4\xb8\xad\xe6\x96\x87 (\xe7\xae\x80\xe4\xbd\x93)'), ('zh-tw'                                           ,                             '\xe4\xb8\xad\xe6\x96\x87 (\xe7\xb9\x81\xe9\xab\x94)')]), 'religions': {'none': <lazyT 'none'>, 'buddhist': <lazyT 'Buddhist'>, 'christian': <lazyT 'Christian'>, 'jewish': <lazyT 'Jewish'>, 'hindu': <lazyT 'Hindu'>, 'muslim': <lazyT 'Muslim'>, 'other': <lazyT 'other'>, 'bahai': <lazyT 'Bahai'>}, 'decimal_separator': '.'}>, 'inv': <Storage {}>, 'sync': <Storage {}>, 'police': <Storage {}>, 'edu': <Storage {}>, 'cr': <Storage {}>, 'event': <Storage {}>, 'transport': <Storage {}>, 'customise_org_organisation_controller': <function customise_org_organisation_controller at 0xaf34a1ec>, 'pr': <Storage {}>, 'member': <Storage {}>, 'gis': <Storage {'geonames_username': 'eden_test'                                           ,                             'countries': []}>, 'log': <Storage {'logfile': 'mswFLR.log'                                           ,                             'level': 'DEBUG'}>, '_debug': True, 'irs': <Storage {}>, 'hrm': <Storage {}>, 'asset': <Storage {}>, '_lazy_unwrapped': [], 'msg': <Storage {}>, 'mail': <Storage {}>, 'fin': <Storage {'currencies': {}}>, 'proc': <Storage {}>, 'deploy': <Storage {}>, 'fire': <Storage {}>, 'dc': <Storage {}>, 'auth': <Storage {'hmac_key': '9d6f2601-4c2a-4e6d-b7c3-d5dbdefc4637'                                           ,                             'registration_requires_verification': False, 'registration_requires_approval': False, 'registration_link_user_to': {'member': <lazyT 'Member'>, 'volunteer': <lazyT 'Volunteer'>, 'staff': <lazyT 'Staff'>}, 'email_domains': []}>, 'hms': <Storage {}>, 'base': <Storage {'system_name': <lazyT 'Flüchtlingsrat e.V.'>, 'guided_tour': True, 'migrate': True, 'template': 'MSW'                                           ,                             'debug': True, 'prepopulate': ['default/base'                                           ,                             'default']}>, 'org': <Storage {}>, 'security': <Storage {'policy': 2, 'self_registration': False}>, 'search': <Storage {}>, 'database': <Storage {}>, 'mobile': <Storage {}>, 'doc': <Storage {}>, 'cap': <Storage {}>, 'modules': OrderedDict([('default'                                           ,                             <Storage {'access': None, 'restricted': False, 'module_type': None, 'name_nice': <lazyT 'Home'>}>), ('admin'                                           ,                             <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Administration'>}>), ('appadmin'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Administration'>}>), ('errors'                                           ,                             <Storage {'restricted': False, 'module_type': None, 'name_nice': <lazyT 'Ticket Viewer'>}>), ('sync'                                           ,                             <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Synchronization'>}>), ('tour'                                           ,                             <Storage {'module_type': None, 'name_nice': <lazyT 'Guided Tour Functionality'>}>), ('translate'                                           ,                             <Storage {'module_type': None, 'name_nice': <lazyT 'Translation Functionality'>}>), ('gis'                                           ,                             <Storage {'restricted': True, 'module_type': 6, 'name_nice': <lazyT 'Map'>}>), ('pr'                                           ,                             <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Person Registry'>}>), ('org'                                           ,                             <Storage {'restricted': True, 'module_type': 1, 'name_nice': <lazyT 'Organizations'>}>), ('hrm'                                           ,                             <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Staff'>}>), ('vol'                                           ,                             <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Volunteers'>}>), ('cms'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Content Management'>}>), ('doc'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Documents'>}>), ('msg'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Messaging'>}>), ('supply'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Supply Chain Management'>}>), ('inv'                                           ,                             <Storage {'restricted': True, 'module_type': 4, 'name_nice': <lazyT 'Warehouses'>}>), ('asset'                                           ,                             <Storage {'restricted': True, 'module_type': 5, 'name_nice': <lazyT 'Assets'>}>), ('vehicle'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Vehicles'>}>), ('req'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Requests'>}>), ('project'                                           ,                             <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Projects'>}>), ('survey'                                           ,                             <Storage {'restricted': True, 'module_type': 5, 'name_nice': <lazyT 'Surveys'>}>), ('cr'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Shelters'>}>), ('hms'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Hospitals'>}>), ('dvr'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Disaster Victim Registry'>}>), ('event'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Events'>}>), ('transport'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Transport'>}>), ('stats'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Statistics'>}>), ('member'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Members'>}>), ('budget'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Budgeting Module'>}>), ('patient'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Patient Tracking'>}>), ('asylumseeker'                                           ,                             <Storage {'module_type': 2, 'name_nice': <lazyT 'Asylumseeker'>}>), ('residential'                                           ,                             <Storage {'module_type': 2, 'name_nice': <lazyT 'Residential'>}>), ('housing'                                           ,                             <Storage {'module_type': 2, 'name_nice': <lazyT 'Housing'>}>)]), 'project': <Storage {}>, 'customise_org_organisation_resource': <function customise_org_organisation_resource at 0xaf34a224>, 'ui': <Storage {'pdf_logo': 'eden/Msw/msw_schild_spinne.png'}>, 'vulnerability': <Storage {}>, 'evr': <Storage {}>, 'xforms': <Storage {}>, 'cms': <Storage {}>, 'frontpage': <Storage {'rss': [{'url': 'http://eden.sahanafoundation.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss'                                           ,                             'title': 'Eden'}, {'url': 'http://www.rssitfor.me/getrss?name=@SahanaFOSS'                                           ,                             'title': 'Twitter'}]}>, 'dvr': <Storage {}>}>
+
+
+ --------------------------
+settings.modules OrderedDict([('default'                                           ,                             <Storage {'access': None, 'restricted': False, 'module_type': None, 'name_nice': <lazyT 'Home'>}>), ('admin'                                           ,                             <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Administration'>}>), ('appadmin'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Administration'>}>), ('errors'                                           ,                             <Storage {'restricted': False, 'module_type': None, 'name_nice': <lazyT 'Ticket Viewer'>}>), ('sync'                                           ,                             <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Synchronization'>}>), ('tour'                                           ,                             <Storage {'module_type': None, 'name_nice': <lazyT 'Guided Tour Functionality'>}>), ('translate'                                           ,                             <Storage {'module_type': None, 'name_nice': <lazyT 'Translation Functionality'>}>), ('gis'                                           ,                             <Storage {'restricted': True, 'module_type': 6, 'name_nice': <lazyT 'Map'>}>), ('pr'                                           ,                             <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Person Registry'>}>), ('org'                                           ,                             <Storage {'restricted': True, 'module_type': 1, 'name_nice': <lazyT 'Organizations'>}>), ('hrm'                                           ,                             <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Staff'>}>), ('vol'                                           ,                             <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Volunteers'>}>), ('cms'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Content Management'>}>), ('doc'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Documents'>}>), ('msg'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Messaging'>}>), ('supply'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Supply Chain Management'>}>), ('inv'                                           ,                             <Storage {'restricted': True, 'module_type': 4, 'name_nice': <lazyT 'Warehouses'>}>), ('asset'                                           ,                             <Storage {'restricted': True, 'module_type': 5, 'name_nice': <lazyT 'Assets'>}>), ('vehicle'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Vehicles'>}>), ('req'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Requests'>}>), ('project'                                           ,                             <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Projects'>}>), ('survey'                                           ,                             <Storage {'restricted': True, 'module_type': 5, 'name_nice': <lazyT 'Surveys'>}>), ('cr'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Shelters'>}>), ('hms'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Hospitals'>}>), ('dvr'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Disaster Victim Registry'>}>), ('event'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Events'>}>), ('transport'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Transport'>}>), ('stats'                                           ,                             <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Statistics'>}>), ('member'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Members'>}>), ('budget'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Budgeting Module'>}>), ('patient'                                           ,                             <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Patient Tracking'>}>), ('asylumseeker'                                           ,                             <Storage {'module_type': 2, 'name_nice': <lazyT 'Asylumseeker'>}>), ('residential'                                           ,                             <Storage {'module_type': 2, 'name_nice': <lazyT 'Residential'>}>), ('housing'                                           ,                             <Storage {'module_type': 2, 'name_nice': <lazyT 'Housing'>}>)])
+
+
+ --------------------------
+settings.base <Storage {'system_name': <lazyT 'Flüchtlingsrat e.V.'>, 'guided_tour': True, 'migrate': True, 'template': 'MSW'                                           ,                             'debug': True, 'prepopulate': ['default/base'                                           ,                             'default']}>
+
+
+ --------------------------
+ print(settings.base)
+<Storage {'system_name': <lazyT 'Flüchtlingsrat e.V.'>, 'guided_tour': True, 'migrate': True, 'template': 'MSW'                                           ,                             'debug': True, 'prepopulate': ['default/base'                                           ,                             'default']}>
+ 
+
+ --------------------------
+settings.frontpage:
+<Storage {'rss': [{'url': 'http://eden.sahanafoundation.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss'                                           ,                             'title': 'Eden'}, {'url': 'http://www.rssitfor.me/getrss?name=@SahanaFOSS'                                           ,                             'title': 'Twitter'}]}>
+ 
+
+ --------------------------
+ settings.get_theme() 
+default
+
+
+ printing the settings ...
+2   settings.L10n.languages   : OrderedDict([('ar'                                           ,                             '\xd8\xa7\xd9\x84\xd8\xb9\xd8\xb1\xd8\xa8\xd9\x8a\xd8\xa9'), ('bs'                                           ,                             'Bosanski'), ('en'                                           ,                             'English'), ('fr'                                           ,                             'Fran\xc3\xa7ais'), ('de'                                           ,                             'Deutsch'), ('el'                                           ,                             '\xce\xb5\xce\xbb\xce\xbb\xce\xb7\xce\xbd\xce\xb9\xce\xba\xce\xac'), ('es'                                           ,                             'Espa\xc3\xb1ol'), ('it'                                           ,                             'Italiano'), ('ja'                                           ,                             '\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e'), ('km'                                           ,                             '\xe1\x9e\x97\xe1\x9e\xb6\xe1\x9e\x9f\xe1\x9e\xb6\xe1\x9e\x81\xe1\x9f\x92\xe1\x9e\x98\xe1\x9f\x82\xe1\x9e\x9a'), ('ko'                                           ,                             '\xed\x95\x9c\xea\xb5\xad\xec\x96\xb4'), ('mn'                                           ,                             '\xd0\x9c\xd0\xbe\xd0\xbd\xd0\xb3\xd0\xbe\xd0\xbb \xd1\x85\xd1\x8d\xd0\xbb'), ('my'                                           ,                             '\xe1\x80\x99\xe1\x80\xbc\xe1\x80\x94\xe1\x80\xba\xe1\x80\x99\xe1\x80\xac\xe1\x80\x85\xe1\x80\xac'), ('ne'                                           ,                             '\xe0\xa4\xa8\xe0\xa5\x87\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xb2\xe0\xa5\x80'), ('prs'                                           ,                             '\xd8\xaf\xd8\xb1\xdb\x8c'), ('ps'                                           ,                             '\xd9\xbe\xda\x9a\xd8\xaa\xd9\x88'), ('pt'                                           ,                             'Portugu\xc3\xaas'), ('pt-br'                                           ,                             'Portugu\xc3\xaas (Brasil)'), ('ru'                                           ,                             '\xd1\x80\xd1\x83\xd1\x81\xd1\x81\xd0\xba\xd0\xb8\xd0\xb9'), ('tet'                                           ,                             'Tetum'), ('tl'                                           ,                             'Tagalog'), ('tr'                                           ,                             'T\xc3\xbcrk\xc3\xa7e'), ('ur'                                           ,                             '\xd8\xa7\xd8\xb1\xd8\xaf\xd9\x88'), ('vi'                                           ,                             'Ti\xe1\xba\xbfng Vi\xe1\xbb\x87t'), ('zh-cn'                                           ,                             '\xe4\xb8\xad\xe6\x96\x87 (\xe7\xae\x80\xe4\xbd\x93)'), ('zh-tw'                                           ,                             '\xe4\xb8\xad\xe6\x96\x87 (\xe7\xb9\x81\xe9\xab\x94)')])
+2   settings.L10n.religions   : {'none': <lazyT 'none'>, 'buddhist': <lazyT 'Buddhist'>, 'christian': <lazyT 'Christian'>, 'jewish': <lazyT 'Jewish'>, 'hindu': <lazyT 'Hindu'>, 'muslim': <lazyT 'Muslim'>, 'other': <lazyT 'other'>, 'bahai': <lazyT 'Bahai'>}
+2   settings.L10n.decimal_separator: .
+10  settings.customise_org_organisation_controller: <function customise_org_organisation_controller at 0xaf34a1ec>
+13  settings.gis.geonames_username: eden_test
+13  settings.gis.countries    : []
+14  settings.log.logfile      : mswFLR.log
+14  settings.log.level        : DEBUG
+15  settings._debug           : True
+22  settings.fin.currencies   : {}
+27  settings.auth.hmac_key    : 9d6f2601-4c2a-4e6d-b7c3-d5dbdefc4637
+27  settings.auth.registration_requires_verification: False
+27  settings.auth.registration_requires_approval: False
+27  settings.auth.registration_link_user_to: {'member': <lazyT 'Member'>, 'volunteer': <lazyT 'Volunteer'>, 'staff': <lazyT 'Staff'>}
+27  settings.auth.email_domains: []
+29  settings.base.system_name : Flüchtlingsrat e.V.
+29  settings.base.guided_tour : True
+29  settings.base.migrate     : True
+29  settings.base.template    : MSW
+29  settings.base.debug       : True
+29  settings.base.prepopulate : ['default/base'                                           ,                             'default']
+31  settings.security.policy  : 2
+31  settings.security.self_registration: False
+37  settings.modules.default  : <Storage {'access': None, 'restricted': False, 'module_type': None, 'name_nice': <lazyT 'Home'>}>
+37  settings.modules.admin    : <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Administration'>}>
+37  settings.modules.appadmin : <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Administration'>}>
+37  settings.modules.errors   : <Storage {'restricted': False, 'module_type': None, 'name_nice': <lazyT 'Ticket Viewer'>}>
+37  settings.modules.sync     : <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Synchronization'>}>
+37  settings.modules.tour     : <Storage {'module_type': None, 'name_nice': <lazyT 'Guided Tour Functionality'>}>
+37  settings.modules.translate: <Storage {'module_type': None, 'name_nice': <lazyT 'Translation Functionality'>}>
+37  settings.modules.gis      : <Storage {'restricted': True, 'module_type': 6, 'name_nice': <lazyT 'Map'>}>
+37  settings.modules.pr       : <Storage {'access': '|1|'                                           ,                             'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Person Registry'>}>
+37  settings.modules.org      : <Storage {'restricted': True, 'module_type': 1, 'name_nice': <lazyT 'Organizations'>}>
+37  settings.modules.hrm      : <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Staff'>}>
+37  settings.modules.vol      : <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Volunteers'>}>
+37  settings.modules.cms      : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Content Management'>}>
+37  settings.modules.doc      : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Documents'>}>
+37  settings.modules.msg      : <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Messaging'>}>
+37  settings.modules.supply   : <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Supply Chain Management'>}>
+37  settings.modules.inv      : <Storage {'restricted': True, 'module_type': 4, 'name_nice': <lazyT 'Warehouses'>}>
+37  settings.modules.asset    : <Storage {'restricted': True, 'module_type': 5, 'name_nice': <lazyT 'Assets'>}>
+37  settings.modules.vehicle  : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Vehicles'>}>
+37  settings.modules.req      : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Requests'>}>
+37  settings.modules.project  : <Storage {'restricted': True, 'module_type': 2, 'name_nice': <lazyT 'Projects'>}>
+37  settings.modules.survey   : <Storage {'restricted': True, 'module_type': 5, 'name_nice': <lazyT 'Surveys'>}>
+37  settings.modules.cr       : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Shelters'>}>
+37  settings.modules.hms      : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Hospitals'>}>
+37  settings.modules.dvr      : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Disaster Victim Registry'>}>
+37  settings.modules.event    : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Events'>}>
+37  settings.modules.transport: <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Transport'>}>
+37  settings.modules.stats    : <Storage {'restricted': True, 'module_type': None, 'name_nice': <lazyT 'Statistics'>}>
+37  settings.modules.member   : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Members'>}>
+37  settings.modules.budget   : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Budgeting Module'>}>
+37  settings.modules.patient  : <Storage {'restricted': True, 'module_type': 10, 'name_nice': <lazyT 'Patient Tracking'>}>
+37  settings.modules.asylumseeker: <Storage {'module_type': 2, 'name_nice': <lazyT 'Asylumseeker'>}>
+37  settings.modules.residential: <Storage {'module_type': 2, 'name_nice': <lazyT 'Residential'>}>
+37  settings.modules.housing  : <Storage {'module_type': 2, 'name_nice': <lazyT 'Housing'>}>
+39  settings.customise_org_organisation_resource: <function customise_org_organisation_resource at 0xaf34a224>
+40  settings.ui.pdf_logo      : eden/Msw/msw_schild_spinne.png
+45  settings.frontpage.rss    : [{'url': 'http://eden.sahanafoundation.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss'                                           ,                             'title': 'Eden'}, {'url': 'http://www.rssitfor.me/getrss?name=@SahanaFOSS'                                           ,                             'title': 'Twitter'}]
+... printing the settings ... end
+2016-11-20 04:21:32 S3LOG WARNING: ansible module needed for Setup
+msw: call to S3HousingDataModel
+
+
+pppp
+
+
+
+
+
+print "%-32s: %r" % ('get_template()'                           ,settings.get_template())
+print "%-32s: %r" % ('get_template_location'                    ,       settings.get_template_location())
+print "%-32s: %r" % ('get_theme'                                        , settings.get_theme())
+print "%-32s: %r" % ('get_base_xtheme'                                  , settings.get_base_xtheme())
+print "%-32s: %r" % ('get_google_analytics_tracking_id'                 , settings.get_google_analytics_tracking_id())
+print "%-32s: %r" % ('get_youtube_id'                                   , settings.get_youtube_id())
+print "%-32s: %r" % ('get_auth_hmac_key'                                , settings.get_auth_hmac_key())
+print "%-32s: %r" % ('get_auth_password_changes'                        , settings.get_auth_password_changes())
+print "%-32s: %r" % ('get_auth_password_min_length'                     , settings.get_auth_password_min_length())
+print "%-32s: %r" % ('get_auth_gmail_domains'                           , settings.get_auth_gmail_domains())
+print "%-32s: %r" % ('get_auth_office365_domains'                       , settings.get_auth_office365_domains())
+print "%-32s: %r" % ('get_auth_google'                                  , settings.get_auth_google())
+print "%-32s: %r" % ('get_auth_humanitarian_id'                         , settings.get_auth_humanitarian_id())
+print "%-32s: %r" % ('get_auth_openid'                                  , settings.get_auth_openid())
+print "%-32s: %r" % ('get_security_self_registration'                   , settings.get_security_self_registration())
+print "%-32s: %r" % ('get_security_registration_visible'                , settings.get_security_registration_visible())
+print "%-32s: %r" % ('get_security_version_info'                        , settings.get_security_version_info())
+print "%-32s: %r" % ('get_security_version_info_requires_login'         , settings.get_security_version_info_requires_login())
+print "%-32s: %r" % ('get_auth_registration_requires_verification'      , settings.get_auth_registration_requires_verification())
+print "%-32s: %r" % ('get_auth_registration_requires_approval'          , settings.get_auth_registration_requires_approval())
+print "%-32s: %r" % ('get_auth_always_notify_approver'                  , settings.get_auth_always_notify_approver())
+print "%-32s: %r" % ('get_auth_login_next'                              , settings.get_auth_login_next())
+print "%-32s: %r" % ('get_auth_show_link'                               , settings.get_auth_show_link())
+print "%-32s: %r" % ('get_auth_registration_link_user_to'               , settings.get_auth_registration_link_user_to())
+print "%-32s: %r" % ('get_auth_registration_link_user_to_default'       , settings.get_auth_registration_link_user_to_default())
+print "%-32s: %r" % ('get_auth_opt_in_team_list'                        , settings.get_auth_opt_in_team_list())
+print "%-32s: %r" % ('get_auth_opt_in_to_email'                         , settings.get_auth_opt_in_to_email())
+print "%-32s: %r" % ('get_auth_opt_in_default'                          , settings.get_auth_opt_in_default())
+print "%-32s: %r" % ('get_auth_registration_requests_home_phone'        , settings.get_auth_registration_requests_home_phone())
+print "%-32s: %r" % ('get_auth_registration_requests_mobile_phone'		, settings.get_auth_registration_requests_mobile_phone())
+print "%-32s: %r" % ('get_auth_registration_mobile_phone_mandatory'		, settings.get_auth_registration_mobile_phone_mandatory())
+print "%-32s: %r" % ('get_auth_registration_requests_organisation'		, settings.get_auth_registration_requests_organisation())
+print "%-32s: %r" % ('get_auth_admin_sees_organisation'         		, settings.get_auth_admin_sees_organisation())
+print "%-32s: %r" % ('get_auth_registration_organisation_required'		, settings.get_auth_registration_organisation_required())
+print "%-32s: %r" % ('get_auth_registration_organisation_hidden'		, settings.get_auth_registration_organisation_hidden())
+print "%-32s: %r" % ('get_auth_registration_organisation_default'		, settings.get_auth_registration_organisation_default())
+print "%-32s: %r" % ('get_auth_registration_organisation_id_default'	, settings.get_auth_registration_organisation_id_default())
+print "%-32s: %r" % ('get_auth_registration_requests_organisation_group', settings.get_auth_registration_requests_organisation_group())
+print "%-32s: %r" % ('get_auth_registration_organisation_group_required', settings.get_auth_registration_organisation_group_required())
+print "%-32s: %r" % ('get_auth_registration_requests_site'              , settings.get_auth_registration_requests_site())
+print "%-32s: %r" % ('get_auth_registration_site_required'              , settings.get_auth_registration_site_required())
+print "%-32s: %r" % ('get_auth_registration_requests_image'             , settings.get_auth_registration_requests_image())
+print "%-32s: %r" % ('get_auth_registration_pending'                    , settings.get_auth_registration_pending())
+print "%-32s: %r" % ('get_auth_registration_pending_approval'           , settings.get_auth_registration_pending_approval())
+print "%-32s: %r" % ('get_auth_registration_roles'                      , settings.get_auth_registration_roles())
+print "%-32s: %r" % ('get_auth_org_admin_to_first'                      , settings.get_auth_org_admin_to_first())
+print "%-32s: %r" % ('get_auth_terms_of_service'                        , settings.get_auth_terms_of_service())
+print "%-32s: %r" % ('get_auth_registration_volunteer'                  , settings.get_auth_registration_volunteer())
+print "%-32s: %r" % ('get_auth_record_approval'                         , settings.get_auth_record_approval())
+print "%-32s: %r" % ('get_auth_record_approval_required_for'            , settings.get_auth_record_approval_required_for())
+print "%-32s: %r" % ('get_auth_record_approval_manual'                  , settings.get_auth_record_approval_manual())
+print "%-32s: %r" % ('get_auth_realm_entity_types'                      , settings.get_auth_realm_entity_types())
+print "%-32s: %r" % ('get_auth_realm_entity'                            , settings.get_auth_realm_entity())
+print "%-32s: %r" % ('get_auth_person_real .... ource_site_then_org'    , settings.get_auth_person_real....ource_site_then_org())
+print "%-32s: %r" % ('get_auth_person_realm_member_org'                 , settings.get_auth_person_realm_member_org())
+print "%-32s: %r" % ('get_auth_entity_role_manager'                     , settings.get_auth_entity_role_manager())
+print "%-32s: %r" % ('get_auth_role_modules'                            , settings.get_auth_role_modules())
+print "%-32s: %r" % ('get_auth_access_levels'                           , settings.get_auth_access_levels())
+print "%-32s: %r" % ('get_auth_set_presence_on_login'                   , settings.get_auth_set_presence_on_login())
+print "%-32s: %r" % ('get_auth_ignore_levels_for_presence'              , settings.get_auth_ignore_levels_for_presence())
+print "%-32s: %r" % ('get_auth_create_unknown_locations'                , settings.get_auth_create_unknown_locations())
+print "%-32s: %r" % ('get_auth_show_utc_offset'                         , settings.get_auth_show_utc_offset())
+print "%-32s: %r" % ('get_security_archive_not_delete'                  , settings.get_security_archive_not_delete())
+print "%-32s: %r" % ('get_security_audit_read'                          , settings.get_security_audit_read())
+print "%-32s: %r" % ('get_security_audit_write'                         , settings.get_security_audit_write())
+print "%-32s: %r" % ('get_security_policy'                              , settings.get_security_policy())
+print "%-32s: %r" % ('get_security_strict_ownership'                    , settings.get_security_strict_ownership())
+print "%-32s: %r" % ('get_security_map'                                 , settings.get_security_map())
+print "%-32s: %r" % ('get_instance_name'                                , settings.get_instance_name())
+print "%-32s: %r" % ('get_system_name'                                  , settings.get_system_name())
+print "%-32s: %r" % ('get_system_name_short'                            , settings.get_system_name_short())
+print "%-32s: %r" % ('get_base_debug'                                   , settings.get_base_debug())
+print "%-32s: %r" % ('get_base_allow_testing'                           , settings.get_base_allow_testing())
+print "%-32s: %r" % ('get_base_migrate'                                 , settings.get_base_migrate())
+print "%-32s: %r" % ('get_base_fake_migrate'                            , settings.get_base_fake_migrate())
+print "%-32s: %r" % ('get_base_prepopulate'                             , settings.get_base_prepopulate())
+print "%-32s: %r" % ('get_base_guided_tour'                             , settings.get_base_guided_tour())
+print "%-32s: %r" % ('get_base_public_url'                              , settings.get_base_public_url())
+print "%-32s: %r" % ('get_base_cdn'                                     , settings.get_base_cdn())
+print "%-32s: %r" % ('get_chat_server'                                  , settings.get_chat_server())
+print "%-32s: %r" % ('get_chatdb_string'                                , settings.get_chatdb_string())
+print "%-32s: %r" % ('get_base_session_db'                              , settings.get_base_session_db())
+print "%-32s: %r" % ('get_base_session_memcache'                        , settings.get_base_session_memcache())
+print "%-32s: %r" % ('get_base_solr_url'                                , settings.get_base_solr_url())
+# parameters needed: get_import_callback(self, tablename, callback):			   et_import_callback(self,tablename,callback):
+print "%-32s: %r" % ('get_log_level'                                    , settings.get_log_level())
+print "%-32s: %r" % ('get_log_console'                                  , settings.get_log_console())
+print "%-32s: %r" % ('get_log_logfile'                                  , settings.get_log_logfile())
+print "%-32s: %r" % ('get_log_caller_info'                              , settings.get_log_caller_info())
+print "%-32s: %r" % ('get_database_type'                                , settings.get_database_type())
+print "%-32s: %r" % ('get_database_airegex'                             , settings.get_database_airegex())
+print "%-32s: %r" % ('get_database_string'                              , settings.get_database_string())
+print "%-32s: %r" % ('get_fin_currency_writable'                        , settings.get_fin_currency_writable())
+print "%-32s: %r" % ('get_fin_currencies'                               , settings.get_fin_currencies())
+print "%-32s: %r" % ('get_fin_currency_default'                         , settings.get_fin_currency_default())
+print "%-32s: %r" % ('get_gis_api_bing'                                 , settings.get_gis_api_bing())
+print "%-32s: %r" % ('get_gis_api_google'                               , settings.get_gis_api_google())
+print "%-32s: %r" % ('get_gis_bbox_min_size'                            , settings.get_gis_bbox_min_size())
+print "%-32s: %r" % ('get_gis_bbox_inset'                               , settings.get_gis_bbox_inset())
+print "%-32s: %r" % ('get_gis_building_name'                            , settings.get_gis_building_name())
+print "%-32s: %r" % ('get_gis_check_within_parent_boundaries'           , settings.get_gis_check_within_parent_boundaries())
+print "%-32s: %r" % ('get_gis_cluster_fill'                             , settings.get_gis_cluster_fill())
+print "%-32s: %r" % ('get_gis_cluster_label'                            , settings.get_gis_cluster_label())
+print "%-32s: %r" % ('get_gis_cluster_stroke'                           , settings.get_gis_cluster_stroke())
+print "%-32s: %r" % ('get_gis_select_fill'                              , settings.get_gis_select_fill())
+print "%-32s: %r" % ('get_gis_select_stroke'                            , settings.get_gis_select_stroke())
+print "%-32s: %r" % ('get_gis_clear_layers'                             , settings.get_gis_clear_layers())
+print "%-32s: %r" % ('get_gis_config_screenshot'                        , settings.get_gis_config_screenshot())
+print "%-32s: %r" % ('get_gis_countries'                                , settings.get_gis_countries())
+print "%-32s: %r" % ('get_gis_display_l0'                               , settings.get_gis_display_l0())
+print "%-32s: %r" % ('get_gis_display_l1'                               , settings.get_gis_display_l1())
+print "%-32s: %r" % ('get_gis_duplicate_features'                       , settings.get_gis_duplicate_features())
+print "%-32s: %r" % ('get_gis_edit_group'                               , settings.get_gis_edit_group())
+print "%-32s: %r" % ('get_gis_geocode_imported_addresses'               , settings.get_gis_geocode_imported_addresses())
+print "%-32s: %r" % ('get_gis_ignore_geocode_errors'                    , settings.get_gis_ignore_geocode_errors())
+print "%-32s: %r" % ('get_gis_geolocate_control'                        , settings.get_gis_geolocate_control())
+print "%-32s: %r" % ('get_gis_geonames_username'                        , settings.get_gis_geonames_username())
+print "%-32s: %r" % ('get_gis_geoserver_url'                            , settings.get_gis_geoserver_url())
+print "%-32s: %r" % ('get_gis_geoserver_username'                       , settings.get_gis_geoserver_username())
+print "%-32s: %r" % ('get_gis_geoserver_password'                       , settings.get_gis_geoserver_password())
+print "%-32s: %r" % ('get_gis_getfeature_control'                       , settings.get_gis_getfeature_control())
+print "%-32s: %r" % ('get_gis_latlon_selector'                          , settings.get_gis_latlon_selector())
+print "%-32s: %r" % ('get_gis_layer_metadata'                           , settings.get_gis_layer_metadata())
+print "%-32s: %r" % ('get_gis_layer_properties'                         , settings.get_gis_layer_properties())
+print "%-32s: %r" % ('get_gis_layer_tree_base'                          , settings.get_gis_layer_tree_base())
+print "%-32s: %r" % ('get_gis_layer_tree_overlays'                      , settings.get_gis_layer_tree_overlays())
+print "%-32s: %r" % ('get_gis_layer_tree_expanded'                      , settings.get_gis_layer_tree_expanded())
+print "%-32s: %r" % ('get_gis_layer_tree_radio'                         , settings.get_gis_layer_tree_radio())
+print "%-32s: %r" % ('get_gis_layers_label'                             , settings.get_gis_layers_label())
+print "%-32s: %r" % ('get_gis_location_represent_address_only'          , settings.get_gis_location_represent_address_only())
+print "%-32s: %r" % ('get_gis_map_height'                               , settings.get_gis_map_height())
+print "%-32s: %r" % ('get_gis_map_width'                                , settings.get_gis_map_width())
+print "%-32s: %r" % ('get_gis_map_selector'                             , settings.get_gis_map_selector())
+print "%-32s: %r" % ('get_gis_map_selector_height'                      , settings.get_gis_map_selector_height())
+print "%-32s: %r" % ('get_gis_map_selector_width'                       , settings.get_gis_map_selector_width())
+print "%-32s: %r" % ('get_gis_marker_max_height'                        , settings.get_gis_marker_max_height())
+print "%-32s: %r" % ('get_gis_marker_max_width'                         , settings.get_gis_marker_max_width())
+print "%-32s: %r" % ('get_gis_max_features'                             , settings.get_gis_max_features())
+print "%-32s: %r" % ('get_gis_legend'                                   , settings.get_gis_legend())
+print "%-32s: %r" % ('get_gis_menu'                                     , settings.get_gis_menu())
+print "%-32s: %r" % ('get_gis_mouse_position'                           , settings.get_gis_mouse_position())
+print "%-32s: %r" % ('get_gis_nav_controls'                             , settings.get_gis_nav_controls())
+print "%-32s: %r" % ('get_gis_label_overlays'                           , settings.get_gis_label_overlays())
+print "%-32s: %r" % ('get_gis_overview'                                 , settings.get_gis_overview())
+print "%-32s: %r" % ('get_gis_permalink'                                , settings.get_gis_permalink())
+print "%-32s: %r" % ('get_gis_poi_create_resources'                     , settings.get_gis_poi_create_resources())
+print "%-32s: %r" % ('get_gis_poi_export_resources'                     , settings.get_gis_poi_export_resources())
+print "%-32s: %r" % ('get_gis_postcode_selector'                        , settings.get_gis_postcode_selector())
+print "%-32s: %r" % ('get_gis_print'                                    , settings.get_gis_print())
+    #def get_gis_print_service'                                         , settings._service())
+print "%-32s: %r" % ('get_gis_save'                                     , settings.get_gis_save())
+print "%-32s: %r" % ('get_gis_scaleline'                                , settings.get_gis_scaleline())
+print "%-32s: %r" % ('get_gis_search_geonames'                          , settings.get_gis_search_geonames())
+print "%-32s: %r" % ('get_gis_simplify_tolerance'                       , settings.get_gis_simplify_tolerance())
+print "%-32s: %r" % ('get_gis_precision'                                , settings.get_gis_precision())
+print "%-32s: %r" % ('get_gis_spatialdb'                                , settings.get_gis_spatialdb())
+print "%-32s: %r" % ('get_gis_widget_catalogue_layers'                  , settings.get_gis_widget_catalogue_layers())
+print "%-32s: %r" % ('get_gis_widget_wms_browser'                       , settings.get_gis_widget_wms_browser())
+print "%-32s: %r" % ('get_gis_toolbar'                                  , settings.get_gis_toolbar())
+print "%-32s: %r" % ('get_gis_zoomcontrol'                              , settings.get_gis_zoomcontrol())
+print "%-32s: %r" % ('get_gis_lookup_code'                              , settings.get_gis_lookup_code())
+print "%-32s: %r" % ('get_gis_popup_location_link'                      , settings.get_gis_popup_location_link())
+print "%-32s: %r" % ('get_L10n_default_language'                        , settings.get_L10n_default_language())
+print "%-32s: %r" % ('get_L10n_display_toolbar'                         , settings.get_L10n_display_toolbar())
+print "%-32s: %r" % ('get_L10n_extra_codes'                             , settings.get_L10n_extra_codes())
+print "%-32s: %r" % ('get_L10n_languages'                               , settings.get_L10n_languages())
+print "%-32s: %r" % ('get_L10n_languages_readonly'                      , settings.get_L10n_languages_readonly())
+print "%-32s: %r" % ('get_L10n_religions'                               , settings.get_L10n_religions())
+print "%-32s: %r" % ('get_L10n_date_format'                             , settings.get_L10n_date_format())
+print "%-32s: %r" % ('get_L10n_time_format'                             , settings.get_L10n_time_format())
+print "%-32s: %r" % ('get_L10n_datetime_separator'                      , settings.get_L10n_datetime_separator())
+print "%-32s: %r" % ('get_L10n_datetime_format'                         , settings.get_L10n_datetime_format())
+print "%-32s: %r" % ('get_L10n_utc_offset'                              , settings.get_L10n_utc_offset())
+print "%-32s: %r" % ('get_L10n_firstDOW'                                , settings.get_L10n_firstDOW())
+print "%-32s: %r" % ('get_L10n_calendar'                                , settings.get_L10n_calendar())
+print "%-32s: %r" % ('get_L10n_lat_lon_format'                          , settings.get_L10n_lat_lon_format())
+print "%-32s: %r" % ('get_L10n_default_country_code'                    , settings.get_L10n_default_country_code())
+print "%-32s: %r" % ('get_L10n_mandatory_lastname'                      , settings.get_L10n_mandatory_lastname())
+print "%-32s: %r" % ('get_L10n_mandatory_middlename'                    , settings.get_L10n_mandatory_middlename())
+print "%-32s: %r" % ('get_L10n_decimal_separator'                       , settings.get_L10n_decimal_separator())
+print "%-32s: %r" % ('get_L10n_thousands_separator'                     , settings.get_L10n_thousands_separator())
+print "%-32s: %r" % ('get_L10n_thousands_grouping'                      , settings.get_L10n_thousands_grouping())
+print "%-32s: %r" % ('get_L10n_translate_cms_series'                    , settings.get_L10n_translate_cms_series())
+print "%-32s: %r" % ('get_L10n_translate_gis_layer'                     , settings.get_L10n_translate_gis_layer())
+print "%-32s: %r" % ('get_L10n_translate_gis_location'                  , settings.get_L10n_translate_gis_location())
+print "%-32s: %r" % ('get_L10n_name_alt_gis_location'                   , settings.get_L10n_name_alt_gis_location())
+print "%-32s: %r" % ('get_L10n_translate_org_organisation'              , settings.get_L10n_translate_org_organisation())
+print "%-32s: %r" % ('get_L10n_translate_org_site'                      , settings.get_L10n_translate_org_site())
+print "%-32s: %r" % ('get_L10n_translate_cap_area'                      , settings.get_L10n_translate_cap_area())
+print "%-32s: %r" % ('get_L10n_pootle_url'                              , settings.get_L10n_pootle_url())
+print "%-32s: %r" % ('get_L10n_pootle_username'                         , settings.get_L10n_pootle_username())
+print "%-32s: %r" % ('get_L10n_pootle_password'                         , settings.get_L10n_pootle_password())
+print "%-32s: %r" % ('get_paper_size'                                   , settings.get_paper_size())
+print "%-32s: %r" % ('get_pdf_bidi'                                     , settings.get_pdf_bidi())
+print "%-32s: %r" % ('get_pdf_logo'                                     , settings.get_pdf_logo())
+print "%-32s: %r" % ('get_pdf_export_font'                              , settings.get_pdf_export_font())
+# parameters needed: get_pdf_excluded_fields(self, resourcename):				   et_pdf_excluded_fields(self,resourcename):
+print "%-32s: %r" % ('get_xls_title_row'                                , settings.get_xls_title_row())
+print "%-32s: %r" % ('get_ui_formstyle'                                 , settings.get_ui_formstyle())
+print "%-32s: %r" % ('get_ui_formstyle_read'                            , settings.get_ui_formstyle_read())
+print "%-32s: %r" % ('get_ui_filter_formstyle'                          , settings.get_ui_filter_formstyle())
+print "%-32s: %r" % ('get_ui_report_formstyle'                          , settings.get_ui_report_formstyle())
+print "%-32s: %r" % ('get_ui_inline_formstyle'                          , settings.get_ui_inline_formstyle())
+print "%-32s: %r" % ('get_ui_datatables_dom'                            , settings.get_ui_datatables_dom())
+print "%-32s: %r" % ('get_ui_datatables_initComplete'                   , settings.get_ui_datatables_initComplete())
+print "%-32s: %r" % ('get_ui_datatables_pagingType'                     , settings.get_ui_datatables_pagingType())
+print "%-32s: %r" % ('get_ui_datatables_responsive'                     , settings.get_ui_datatables_responsive())
+print "%-32s: %r" % ('get_ui_default_cancel_button'                     , settings.get_ui_default_cancel_button())
+print "%-32s: %r" % ('get_ui_filter_clear'                              , settings.get_ui_filter_clear())
+print "%-32s: %r" % ('get_ui_icons'                                     , settings.get_ui_icons())
+print "%-32s: %r" % ('get_ui_custom_icons'                              , settings.get_ui_custom_icons())
+print "%-32s: %r" % ('get_ui_icon_layout'                               , settings.get_ui_icon_layout())
+print "%-32s: %r" % ('get_ui_auto_keyvalue'                             , settings.get_ui_auto_keyvalue())
+print "%-32s: %r" % ('get_ui_auth_user_represent'                       , settings.get_ui_auth_user_represent())
+print "%-32s: %r" % ('get_ui_confirm'                                   , settings.get_ui_confirm())
+print "%-32s: %r" % ('get_ui_export_formats'                            , settings.get_ui_export_formats())
+print "%-32s: %r" % ('get_ui_hide_report_filter_options'                , settings.get_ui_hide_report_filter_options())
+print "%-32s: %r" % ('get_ui_hide_report_options'                       , settings.get_ui_hide_report_options())
+print "%-32s: %r" % ('get_ui_iframe_opens_full'                         , settings.get_ui_iframe_opens_full())
+print "%-32s: %r" % ('get_ui_interim_save'                              , settings.get_ui_interim_save())
+print "%-32s: %r" % ('get_ui_label_attachments'                         , settings.get_ui_label_attachments())
+print "%-32s: %r" % ('get_ui_label_camp'                                , settings.get_ui_label_camp())
+print "%-32s: %r" % ('get_ui_label_cluster'                             , settings.get_ui_label_cluster())
+print "%-32s: %r" % ('get_ui_label_locationselector_map_point_add'      , settings.get_ui_label_locationselector_map_point_add())
+print "%-32s: %r" % ('get_ui_label_locationselector_map_point_view'     , settings.get_ui_label_locationselector_map_point_view())
+print "%-32s: %r" % ('get_ui_label_locationselector_map_polygon_add'    , settings.get_ui_label_locationselector_map_polygon_add())
+print "%-32s: %r" % ('get_ui_label_locationselector_map_polygon_view'   , settings.get_ui_label_locationselector_map_polygon_view())
+print "%-32s: %r" % ('get_ui_label_mobile_phone'                        , settings.get_ui_label_mobile_phone())
+print "%-32s: %r" % ('get_ui_label_permalink'                           , settings.get_ui_label_permalink())
+print "%-32s: %r" % ('get_ui_label_postcode'                            , settings.get_ui_label_postcode())
+print "%-32s: %r" % ('get_ui_label_read'                                , settings.get_ui_label_read())
+print "%-32s: %r" % ('get_ui_label_update'                              , settings.get_ui_label_update())
+print "%-32s: %r" % ('get_ui_multiselect_widget'                        , settings.get_ui_multiselect_widget())
+print "%-32s: %r" % ('get_ui_navigate_away_confirm'                     , settings.get_ui_navigate_away_confirm())
+print "%-32s: %r" % ('get_ui_search_submit_button'                      , settings.get_ui_search_submit_button())
+print "%-32s: %r" % ('get_ui_social_buttons'                            , settings.get_ui_social_buttons())
+print "%-32s: %r" % ('get_ui_summary'                                   , settings.get_ui_summary())
+print "%-32s: %r" % ('get_ui_autocomplete_delay'                        , settings.get_ui_autocomplete_delay())
+print "%-32s: %r" % ('get_ui_autocomplete_min_chars'                    , settings.get_ui_autocomplete_min_chars())
+print "%-32s: %r" % ('get_ui_filter_auto_submit'                        , settings.get_ui_filter_auto_submit())
+print "%-32s: %r" % ('get_ui_report_auto_submit'                        , settings.get_ui_report_auto_submit())
+print "%-32s: %r" % ('get_ui_report_timeout'                            , settings.get_ui_report_timeout())
+print "%-32s: %r" % ('get_ui_use_button_icons'                          , settings.get_ui_use_button_icons())
+print "%-32s: %r" % ('get_ui_hierarchy_theme'                           , settings.get_ui_hierarchy_theme())
+print "%-32s: %r" % ('get_ui_hierarchy_cascade_option_in_tree'          , settings.get_ui_hierarchy_cascade_option_in_tree())
+print "%-32s: %r" % ('get_ui_hierarchy_filter_bulk_select_option'       , settings.get_ui_hierarchy_filter_bulk_select_option())
+print "%-32s: %r" % ('get_ui_location_filter_bulk_select_option'        , settings.get_ui_location_filter_bulk_select_option())
+print "%-32s: %r" % ('get_ui_inline_component_layout'                   , settings.get_ui_inline_component_layout())
+# parameter needed: get_ui_profile_header(self, r): 							   t_ui_profile_header(self,r):
+print "%-32s: %r" % ('get_ui_menu_logo'                                 , settings.get_ui_menu_logo())
+print "%-32s: %r" % ('get_msg_max_send_retries'                         , settings.get_msg_max_send_retries())
+print "%-32s: %r" % ('get_msg_basestation_code_unique'                  , settings.get_msg_basestation_code_unique())
+print "%-32s: %r" % ('get_mail_server'                                  , settings.get_mail_server())
+print "%-32s: %r" % ('get_mail_server_login'                            , settings.get_mail_server_login())
+print "%-32s: %r" % ('get_mail_server_tls'                              , settings.get_mail_server_tls())
+print "%-32s: %r" % ('get_mail_sender'                                  , settings.get_mail_sender())
+print "%-32s: %r" % ('get_mail_approver'                                , settings.get_mail_approver())
+print "%-32s: %r" % ('get_mail_default_subject'                         , settings.get_mail_default_subject())
+print "%-32s: %r" % ('get_mail_auth_user_in_subject'                    , settings.get_mail_auth_user_in_subject())
+print "%-32s: %r" % ('get_mail_limit'                                   , settings.get_mail_limit())
+print "%-32s: %r" % ('get_msg_parser'                                   , settings.get_msg_parser())
+print "%-32s: %r" % ('get_msg_notify_subject'                           , settings.get_msg_notify_subject())
+print "%-32s: %r" % ('get_msg_notify_email_format'                      , settings.get_msg_notify_email_format())
+print "%-32s: %r" % ('get_msg_notify_renderer'                          , settings.get_msg_notify_renderer())
+print "%-32s: %r" % ('get_msg_require_international_phone_numbers'      , settings.get_msg_require_international_phone_numbers())
+print "%-32s: %r" % ('get_search_max_results'                           , settings.get_search_max_results())
+print "%-32s: %r" % ('get_search_filter_manager'                        , settings.get_search_filter_manager())
+print "%-32s: %r" % ('get_search_filter_manager_allow_delete'           , settings.get_search_filter_manager_allow_delete())
+print "%-32s: %r" % ('get_search_filter_manager_save'                   , settings.get_search_filter_manager_save())
+print "%-32s: %r" % ('get_search_filter_manager_update'                 , settings.get_search_filter_manager_update())
+print "%-32s: %r" % ('get_search_filter_manager_delete'                 , settings.get_search_filter_manager_delete())
+print "%-32s: %r" % ('get_search_filter_manager_load'                   , settings.get_search_filter_manager_load())
+print "%-32s: %r" % ('get_sync_mcb_resource_identifiers'                , settings.get_sync_mcb_resource_identifiers())
+print "%-32s: %r" % ('get_sync_mcb_domain_identifiers'                  , settings.get_sync_mcb_domain_identifiers())
+print "%-32s: %r" % ('get_sync_upload_filename'                         , settings.get_sync_upload_filename())
+print "%-32s: %r" % ('get_asset_telephones'                             , settings.get_asset_telephones())
+print "%-32s: %r" % ('get_cap_identifier_prefix'                        , settings.get_cap_identifier_prefix())
+print "%-32s: %r" % ('get_cap_identifier_oid'                           , settings.get_cap_identifier_oid())
+print "%-32s: %r" % ('get_cap_identifier_suffix'                        , settings.get_cap_identifier_suffix())
+print "%-32s: %r" % ('get_cap_expire_offset'                            , settings.get_cap_expire_offset())
+print "%-32s: %r" % ('get_cap_codes'                                    , settings.get_cap_codes())
+print "%-32s: %r" % ('get_cap_event_codes'                              , settings.get_cap_event_codes())
+print "%-32s: %r" % ('get_cap_parameters'                               , settings.get_cap_parameters())
+print "%-32s: %r" % ('get_cap_geocodes'                                 , settings.get_cap_geocodes())
+print "%-32s: %r" % ('get_cap_base64'                                   , settings.get_cap_base64())
+print "%-32s: %r" % ('get_cap_languages'                                , settings.get_cap_languages())
+print "%-32s: %r" % ('get_cap_authorisation'                            , settings.get_cap_authorisation())
+print "%-32s: %r" % ('get_cap_restrict_fields'                          , settings.get_cap_restrict_fields())
+print "%-32s: %r" % ('get_cap_post_to_twitter'                          , settings.get_cap_post_to_twitter())
+print "%-32s: %r" % ('get_cap_same_code'                                , settings.get_cap_same_code())
+print "%-32s: %r" % ('get_cap_post_to_facebook'                         , settings.get_cap_post_to_facebook())
+print "%-32s: %r" % ('get_cap_rss_use_links'                            , settings.get_cap_rss_use_links())
+print "%-32s: %r" % ('get_cap_use_ack'                                  , settings.get_cap_use_ack())
+print "%-32s: %r" % ('get_cap_alert_hub_title'                          , settings.get_cap_alert_hub_title())
+print "%-32s: %r" % ('get_cms_bookmarks'                                , settings.get_cms_bookmarks())
+print "%-32s: %r" % ('get_cms_filter_open'                              , settings.get_cms_filter_open())
+print "%-32s: %r" % ('get_cms_location_click_filters'                   , settings.get_cms_location_click_filters())
+print "%-32s: %r" % ('get_cms_organisation'                             , settings.get_cms_organisation())
+print "%-32s: %r" % ('get_cms_organisation_group'                       , settings.get_cms_organisation_group())
+print "%-32s: %r" % ('get_cms_person'                                   , settings.get_cms_person())
+print "%-32s: %r" % ('get_cms_richtext'                                 , settings.get_cms_richtext())
+print "%-32s: %r" % ('get_cms_show_events'                              , settings.get_cms_show_events())
+print "%-32s: %r" % ('get_cms_show_attachments'                         , settings.get_cms_show_attachments())
+print "%-32s: %r" % ('get_cms_show_links'                               , settings.get_cms_show_links())
+print "%-32s: %r" % ('get_cms_show_tags'                                , settings.get_cms_show_tags())
+print "%-32s: %r" % ('get_cms_show_titles'                              , settings.get_cms_show_titles())
+# parameter needed: get_cms_hide_index(self, module):							   t_cms_hide_index(self,module):
+print "%-32s: %r" % ('get_cr_day_and_night'                             , settings.get_cr_day_and_night())
+print "%-32s: %r" % ('get_cr_shelter_people_registration'               , settings.get_cr_shelter_people_registration())
+print "%-32s: %r" % ('get_cr_shelter_population_dynamic'                , settings.get_cr_shelter_population_dynamic())
+print "%-32s: %r" % ('get_cr_shelter_housing_unit_management'           , settings.get_cr_shelter_housing_unit_management())
+print "%-32s: %r" % ('get_cr_check_out_is_final'                        , settings.get_cr_check_out_is_final())
+print "%-32s: %r" % ('get_cr_tags'                                      , settings.get_cr_tags())
+print "%-32s: %r" % ('get_dc_collection_label'                          , settings.get_dc_collection_label())
+print "%-32s: %r" % ('get_deploy_cc_groups'                             , settings.get_deploy_cc_groups())
+print "%-32s: %r" % ('get_deploy_hr_label'                              , settings.get_deploy_hr_label())
+print "%-32s: %r" % ('get_deploy_manual_recipients'                     , settings.get_deploy_manual_recipients())
+print "%-32s: %r" % ('get_deploy_post_to_twitter'                       , settings.get_deploy_post_to_twitter())
+print "%-32s: %r" % ('get_deploy_responses_via_web'                     , settings.get_deploy_responses_via_web())
+print "%-32s: %r" % ('get_deploy_select_ratings'                        , settings.get_deploy_select_ratings())
+print "%-32s: %r" % ('get_deploy_team_label'                            , settings.get_deploy_team_label())
+print "%-32s: %r" % ('get_doc_label'                                    , settings.get_doc_label())
+print "%-32s: %r" % ('get_dvr_label'                                    , settings.get_dvr_label())
+print "%-32s: %r" % ('get_dvr_track_transfer_sites'                     , settings.get_dvr_track_transfer_sites())
+print "%-32s: %r" % ('get_dvr_transfer_site_types'                      , settings.get_dvr_transfer_site_types())
+print "%-32s: %r" % ('get_dvr_manage_transferability'                   , settings.get_dvr_manage_transferability())
+print "%-32s: %r" % ('get_dvr_case_flags'                               , settings.get_dvr_case_flags())
+print "%-32s: %r" % ('get_dvr_household_size'                           , settings.get_dvr_household_size())
+print "%-32s: %r" % ('get_dvr_mandatory_appointments'                   , settings.get_dvr_mandatory_appointments())
+print "%-32s: %r" % ('get_dvr_appointments_update_last_seen_on'         , settings.get_dvr_appointments_update_last_seen_on())
+print "%-32s: %r" % ('get_dvr_appointments_update_case_status'          , settings.get_dvr_appointments_update_case_status())
+print "%-32s: %r" % ('get_dvr_case_events_close_appointments'           , settings.get_dvr_case_events_close_appointments())
+print "%-32s: %r" % ('get_dvr_payments_update_last_seen_on'             , settings.get_dvr_payments_update_last_seen_on())
+print "%-32s: %r" % ('get_dvr_multiple_case_groups'                     , settings.get_dvr_multiple_case_groups())
+print "%-32s: %r" % ('get_dvr_id_code_pattern'                          , settings.get_dvr_id_code_pattern())
+print "%-32s: %r" % ('get_dvr_event_registration_checkin_warning'       , settings.get_dvr_event_registration_checkin_warning())
+print "%-32s: %r" % ('get_dvr_activity_use_service_type'                , settings.get_dvr_activity_use_service_type())
+print "%-32s: %r" % ('get_dvr_activity_types'                           , settings.get_dvr_activity_types())
+print "%-32s: %r" % ('get_dvr_activity_types_hierarchical'              , settings.get_dvr_activity_types_hierarchical())
+print "%-32s: %r" % ('get_edu_school_code_unique'                       , settings.get_edu_school_code_unique())
+print "%-32s: %r" % ('get_event_label'                                  , settings.get_event_label())
+print "%-32s: %r" % ('get_event_exercise'                               , settings.get_event_exercise())
+print "%-32s: %r" % ('get_event_types_hierarchical'                     , settings.get_event_types_hierarchical())
+print "%-32s: %r" % ('get_incident_types_hierarchical'                  , settings.get_incident_types_hierarchical())
+print "%-32s: %r" % ('get_event_collection_tab'                         , settings.get_event_collection_tab())
+print "%-32s: %r" % ('get_event_target_tab'                             , settings.get_event_target_tab())
+print "%-32s: %r" % ('get_event_impact_tab'                             , settings.get_event_impact_tab())
+print "%-32s: %r" % ('get_incident_impact_tab'                          , settings.get_incident_impact_tab())
+print "%-32s: %r" % ('get_event_dispatch_tab'                           , settings.get_event_dispatch_tab())
+print "%-32s: %r" % ('get_incident_dispatch_tab'                        , settings.get_incident_dispatch_tab())
+print "%-32s: %r" % ('get_incident_teams_tab'                           , settings.get_incident_teams_tab())
+print "%-32s: %r" % ('get_evr_group_types'                              , settings.get_evr_group_types())
+print "%-32s: %r" % ('get_evr_show_physical_description'                , settings.get_evr_show_physical_description())
+print "%-32s: %r" % ('get_evr_link_to_organisation'                     , settings.get_evr_link_to_organisation())
+print "%-32s: %r" % ('get_fire_station_code_unique'                     , settings.get_fire_station_code_unique())
+print "%-32s: %r" % ('get_hms_track_ctc'                                , settings.get_hms_track_ctc())
+print "%-32s: %r" % ('get_hms_activity_reports'                         , settings.get_hms_activity_reports())
+print "%-32s: %r" % ('get_hrm_course_grades'                            , settings.get_hrm_course_grades())
+print "%-32s: %r" % ('get_hrm_course_pass_marks'                        , settings.get_hrm_course_pass_marks())
+print "%-32s: %r" % ('get_hrm_course_types'                             , settings.get_hrm_course_types())
+print "%-32s: %r" % ('get_hrm_staff_label'                              , settings.get_hrm_staff_label())
+print "%-32s: %r" % ('get_hrm_organisation_label'                       , settings.get_hrm_organisation_label())
+print "%-32s: %r" % ('get_hrm_root_organisation_label'                  , settings.get_hrm_root_organisation_label())
+print "%-32s: %r" % ('get_hrm_email_required'                           , settings.get_hrm_email_required())
+print "%-32s: %r" % ('get_hrm_location_staff'                           , settings.get_hrm_location_staff())
+print "%-32s: %r" % ('get_hrm_location_vol'                             , settings.get_hrm_location_vol())
+print "%-32s: %r" % ('get_hrm_multiple_contracts'                       , settings.get_hrm_multiple_contracts())
+print "%-32s: %r" % ('get_hrm_org_dependent_job_titles'                 , settings.get_hrm_org_dependent_job_titles())
+print "%-32s: %r" % ('get_hrm_org_required'                             , settings.get_hrm_org_required())
+print "%-32s: %r" % ('get_hrm_multiple_orgs'                            , settings.get_hrm_multiple_orgs())
+print "%-32s: %r" % ('get_hrm_compose_button'                           , settings.get_hrm_compose_button())
+print "%-32s: %r" % ('get_hrm_deletable'                                , settings.get_hrm_deletable())
+print "%-32s: %r" % ('get_hrm_multiple_job_titles'                      , settings.get_hrm_multiple_job_titles())
+print "%-32s: %r" % ('get_hrm_show_staff'                               , settings.get_hrm_show_staff())
+print "%-32s: %r" % ('get_hrm_mix_staff'                                , settings.get_hrm_mix_staff())
+print "%-32s: %r" % ('get_hrm_site_contact_unique'                      , settings.get_hrm_site_contact_unique())
+print "%-32s: %r" % ('get_hrm_skill_types'                              , settings.get_hrm_skill_types())
+print "%-32s: %r" % ('get_hrm_staff_departments'                        , settings.get_hrm_staff_departments())
+print "%-32s: %r" % ('get_hrm_staff_experience'                         , settings.get_hrm_staff_experience())
+print "%-32s: %r" % ('get_hrm_salary'                                   , settings.get_hrm_salary())
+print "%-32s: %r" % ('get_hrm_show_organisation'                        , settings.get_hrm_show_organisation())
+print "%-32s: %r" % ('get_hrm_teams'                                    , settings.get_hrm_teams())
+print "%-32s: %r" % ('get_hrm_teams_orgs'                               , settings.get_hrm_teams_orgs())
+print "%-32s: %r" % ('get_hrm_trainings_external'                       , settings.get_hrm_trainings_external())
+print "%-32s: %r" % ('get_hrm_cv_tab'                                   , settings.get_hrm_cv_tab())
+print "%-32s: %r" % ('get_hrm_record_tab'                               , settings.get_hrm_record_tab())
+print "%-32s: %r" % ('get_hrm_record_label'                             , settings.get_hrm_record_label())
+print "%-32s: %r" % ('get_hrm_use_awards'                               , settings.get_hrm_use_awards())
+print "%-32s: %r" % ('get_hrm_use_certificates'                         , settings.get_hrm_use_certificates())
+print "%-32s: %r" % ('get_hrm_create_certificates_from_courses'         , settings.get_hrm_create_certificates_from_courses())
+print "%-32s: %r" % ('get_hrm_filter_certificates'                      , settings.get_hrm_filter_certificates())
+print "%-32s: %r" % ('get_hrm_use_address'                              , settings.get_hrm_use_address())
+print "%-32s: %r" % ('get_hrm_use_code'                                 , settings.get_hrm_use_code())
+print "%-32s: %r" % ('get_hrm_use_credentials'                          , settings.get_hrm_use_credentials())
+print "%-32s: %r" % ('get_hrm_use_description'                          , settings.get_hrm_use_description())
+print "%-32s: %r" % ('get_hrm_use_education'                            , settings.get_hrm_use_education())
+print "%-32s: %r" % ('get_hrm_use_id'                                   , settings.get_hrm_use_id())
+print "%-32s: %r" % ('get_hrm_use_job_titles'                           , settings.get_hrm_use_job_titles())
+print "%-32s: %r" % ('get_hrm_use_skills'                               , settings.get_hrm_use_skills())
+print "%-32s: %r" % ('get_hrm_certificate_skill'                        , settings.get_hrm_certificate_skill())
+print "%-32s: %r" % ('get_hrm_use_trainings'                            , settings.get_hrm_use_trainings())
+print "%-32s: %r" % ('get_hrm_training_instructors'                     , settings.get_hrm_training_instructors())
+print "%-32s: %r" % ('get_hrm_activity_types'                           , settings.get_hrm_activity_types())
+print "%-32s: %r" % ('get_hrm_vol_active'                               , settings.get_hrm_vol_active())
+print "%-32s: %r" % ('get_hrm_vol_active_tooltip'                       , settings.get_hrm_vol_active_tooltip())
+    #def get_hrm_vol_affiliation'                                       , settings.ffiliation())
+print "%-32s: %r" % ('get_hrm_vol_availability_tab'                     , settings.get_hrm_vol_availability_tab())
+print "%-32s: %r" % ('get_hrm_vol_experience'                           , settings.get_hrm_vol_experience())
+print "%-32s: %r" % ('get_hrm_vol_departments'                          , settings.get_hrm_vol_departments())
+print "%-32s: %r" % ('get_hrm_vol_roles'                                , settings.get_hrm_vol_roles())
+print "%-32s: %r" % ('get_hrm_vol_service_record_manager'               , settings.get_hrm_vol_service_record_manager())
+print "%-32s: %r" % ('get_inv_collapse_tabs'                            , settings.get_inv_collapse_tabs())
+print "%-32s: %r" % ('get_inv_facility_label'                           , settings.get_inv_facility_label())
+print "%-32s: %r" % ('get_inv_facility_manage_staff'                    , settings.get_inv_facility_manage_staff())
+print "%-32s: %r" % ('get_inv_recv_tab_label'                           , settings.get_inv_recv_tab_label())
+print "%-32s: %r" % ('get_inv_send_tab_label'                           , settings.get_inv_send_tab_label())
+print "%-32s: %r" % ('get_inv_direct_stock_edits'                       , settings.get_inv_direct_stock_edits())
+print "%-32s: %r" % ('get_inv_org_dependent_warehouse_types'            , settings.get_inv_org_dependent_warehouse_types())
+print "%-32s: %r" % ('get_inv_send_show_mode_of_transport'              , settings.get_inv_send_show_mode_of_transport())
+print "%-32s: %r" % ('get_inv_send_show_org'                            , settings.get_inv_send_show_org())
+print "%-32s: %r" % ('get_inv_send_show_time_in'                        , settings.get_inv_send_show_time_in())
+print "%-32s: %r" % ('get_inv_stock_count'                              , settings.get_inv_stock_count())
+print "%-32s: %r" % ('get_inv_track_pack_values'                        , settings.get_inv_track_pack_values())
+print "%-32s: %r" % ('get_inv_item_status'                              , settings.get_inv_item_status())
+print "%-32s: %r" % ('get_inv_shipment_name'                            , settings.get_inv_shipment_name())
+print "%-32s: %r" % ('get_inv_shipment_types'                           , settings.get_inv_shipment_types())
+print "%-32s: %r" % ('get_inv_send_types'                               , settings.get_inv_send_types())
+print "%-32s: %r" % ('get_inv_send_type_default'                        , settings.get_inv_send_type_default())
+print "%-32s: %r" % ('get_inv_recv_types'                               , settings.get_inv_recv_types())
+print "%-32s: %r" % ('get_inv_send_form_name'                           , settings.get_inv_send_form_name())
+print "%-32s: %r" % ('get_inv_send_ref_field_name'                      , settings.get_inv_send_ref_field_name())
+print "%-32s: %r" % ('get_inv_send_shortname'                           , settings.get_inv_send_shortname())
+print "%-32s: %r" % ('get_inv_recv_form_name'                           , settings.get_inv_recv_form_name())
+print "%-32s: %r" % ('get_inv_recv_shortname'                           , settings.get_inv_recv_shortname())
+print "%-32s: %r" % ('get_inv_warehouse_code_unique'                    , settings.get_inv_warehouse_code_unique())
+print "%-32s: %r" % ('get_irs_vehicle'                                  , settings.get_irs_vehicle())
+print "%-32s: %r" % ('get_member_cv_tab'                                , settings.get_member_cv_tab())
+print "%-32s: %r" % ('get_member_membership_types'                      , settings.get_member_membership_types())
+print "%-32s: %r" % ('get_mobile_forms'                                 , settings.get_mobile_forms())
+print "%-32s: %r" % ('get_org_autocomplete'                             , settings.get_org_autocomplete())
+print "%-32s: %r" % ('get_org_default_organisation'                     , settings.get_org_default_organisation())
+print "%-32s: %r" % ('get_org_default_site'                             , settings.get_org_default_site())
+print "%-32s: %r" % ('get_org_sector'                                   , settings.get_org_sector())
+print "%-32s: %r" % ('get_org_branches'                                 , settings.get_org_branches())
+print "%-32s: %r" % ('get_org_branches_tree_view'                       , settings.get_org_branches_tree_view())
+print "%-32s: %r" % ('get_org_facility_types_hierarchical'              , settings.get_org_facility_types_hierarchical())
+print "%-32s: %r" % ('get_org_organisation_location_context'            , settings.get_org_organisation_location_context())
+print "%-32s: %r" % ('get_org_organisation_types_hierarchical'          , settings.get_org_organisation_types_hierarchical())
+print "%-32s: %r" % ('get_org_organisation_types_multiple'              , settings.get_org_organisation_types_multiple())
+print "%-32s: %r" % ('get_org_facilities_tab'                           , settings.get_org_facilities_tab())
+print "%-32s: %r" % ('get_org_groups'                                   , settings.get_org_groups())
+print "%-32s: %r" % ('get_org_group_team_represent'                     , settings.get_org_group_team_represent())
+print "%-32s: %r" % ('get_org_needs_tab'                                , settings.get_org_needs_tab())
+print "%-32s: %r" % ('get_org_offices_tab'                              , settings.get_org_offices_tab())
+print "%-32s: %r" % ('get_org_regions'                                  , settings.get_org_regions())
+print "%-32s: %r" % ('get_org_region_countries'                         , settings.get_org_region_countries())
+print "%-32s: %r" % ('get_org_regions_hierarchical'                     , settings.get_org_regions_hierarchical())
+print "%-32s: %r" % ('get_org_resources_tab'                            , settings.get_org_resources_tab())
+print "%-32s: %r" % ('get_org_services_hierarchical'                    , settings.get_org_services_hierarchical())
+print "%-32s: %r" % ('get_org_service_locations'                        , settings.get_org_service_locations())
+print "%-32s: %r" % ('get_org_site_code_len'                            , settings.get_org_site_code_len())
+print "%-32s: %r" % ('get_org_site_label'                               , settings.get_org_site_label())
+print "%-32s: %r" % ('get_org_site_inv_req_tabs'                        , settings.get_org_site_inv_req_tabs())
+print "%-32s: %r" % ('get_org_site_autocomplete'                        , settings.get_org_site_autocomplete())
+print "%-32s: %r" % ('get_org_site_autocomplete_fields'                 , settings.get_org_site_autocomplete_fields())
+print "%-32s: %r" % ('get_org_site_last_contacted'                      , settings.get_org_site_last_contacted())
+print "%-32s: %r" % ('get_org_site_volunteers'                          , settings.get_org_site_volunteers())
+print "%-32s: %r" % ('get_org_site_check'                               , settings.get_org_site_check())
+print "%-32s: %r" % ('get_org_summary'                                  , settings.get_org_summary())
+print "%-32s: %r" % ('get_org_office_code_unique'                       , settings.get_org_office_code_unique())
+print "%-32s: %r" % ('get_org_facility_code_unique'                     , settings.get_org_facility_code_unique())
+print "%-32s: %r" % ('get_org_tags'                                     , settings.get_org_tags())
+print "%-32s: %r" % ('get_police_station_code_unique'                   , settings.get_police_station_code_unique())
+# parameter needed: get_pr_age_group(self, age):								   t_pr_age_group(self,age):
+print "%-32s: %r" % ('get_pr_person_availability_options'               , settings.get_pr_person_availability_options())
+print "%-32s: %r" % ('get_pr_hide_third_gender'                         , settings.get_pr_hide_third_gender())
+print "%-32s: %r" % ('get_pr_import_update_requires_email'              , settings.get_pr_import_update_requires_email())
+print "%-32s: %r" % ('get_pr_label_fullname'                            , settings.get_pr_label_fullname())
+print "%-32s: %r" % ('get_pr_lookup_duplicates'                         , settings.get_pr_lookup_duplicates())
+print "%-32s: %r" % ('get_pr_request_dob'                               , settings.get_pr_request_dob())
+print "%-32s: %r" % ('get_pr_dob_required'                              , settings.get_pr_dob_required())
+print "%-32s: %r" % ('get_pr_request_email'                             , settings.get_pr_request_email())
+print "%-32s: %r" % ('get_pr_request_father_name'                       , settings.get_pr_request_father_name())
+print "%-32s: %r" % ('get_pr_request_grandfather_name'                  , settings.get_pr_request_grandfather_name())
+print "%-32s: %r" % ('get_pr_request_gender'                            , settings.get_pr_request_gender())
+print "%-32s: %r" % ('get_pr_request_home_phone'                        , settings.get_pr_request_home_phone())
+print "%-32s: %r" % ('get_pr_request_mobile_phone'                      , settings.get_pr_request_mobile_phone())
+print "%-32s: %r" % ('get_pr_request_year_of_birth'                     , settings.get_pr_request_year_of_birth())
+print "%-32s: %r" % ('get_pr_name_format'                               , settings.get_pr_name_format())
+print "%-32s: %r" % ('get_pr_search_shows_hr_details'                   , settings.get_pr_search_shows_hr_details())
+print "%-32s: %r" % ('get_pr_select_existing'                           , settings.get_pr_select_existing())
+print "%-32s: %r" % ('get_pr_separate_name_fields'                      , settings.get_pr_separate_name_fields())
+print "%-32s: %r" % ('get_pr_use_address'                               , settings.get_pr_use_address())
+print "%-32s: %r" % ('get_pr_show_emergency_contacts'                   , settings.get_pr_show_emergency_contacts())
+print "%-32s: %r" % ('get_pr_contacts_tabs'                             , settings.get_pr_contacts_tabs())
+print "%-32s: %r" % ('get_proc_form_name'                               , settings.get_proc_form_name())
+print "%-32s: %r" % ('get_proc_shortname'                               , settings.get_proc_shortname())
+print "%-32s: %r" % ('get_project_mode_3w'                              , settings.get_project_mode_3w())
+print "%-32s: %r" % ('get_project_mode_task'                            , settings.get_project_mode_task())
+print "%-32s: %r" % ('get_project_mode_drr'                             , settings.get_project_mode_drr())
+print "%-32s: %r" % ('get_project_activities'                           , settings.get_project_activities())
+print "%-32s: %r" % ('get_project_activity_sectors'                     , settings.get_project_activity_sectors())
+print "%-32s: %r" % ('get_project_activity_types'                       , settings.get_project_activity_types())
+print "%-32s: %r" % ('get_project_activity_filter_year'                 , settings.get_project_activity_filter_year())
+print "%-32s: %r" % ('get_project_assign_staff_tab'                     , settings.get_project_assign_staff_tab())
+print "%-32s: %r" % ('get_project_budget_monitoring'                    , settings.get_project_budget_monitoring())
+print "%-32s: %r" % ('get_project_codes'                                , settings.get_project_codes())
+print "%-32s: %r" % ('get_project_community'                            , settings.get_project_community())
+print "%-32s: %r" % ('get_project_community_volunteers'                 , settings.get_project_community_volunteers())
+print "%-32s: %r" % ('get_project_demographics'                         , settings.get_project_demographics())
+print "%-32s: %r" % ('get_project_details_tab'                          , settings.get_project_details_tab())
+print "%-32s: %r" % ('get_project_goals'                                , settings.get_project_goals())
+print "%-32s: %r" % ('get_project_hazards'                              , settings.get_project_hazards())
+print "%-32s: %r" % ('get_project_hfa'                                  , settings.get_project_hfa())
+print "%-32s: %r" % ('get_project_indicators'                           , settings.get_project_indicators())
+    #def get_project_locations_from_countries'                          , settings.ocations_from_countries())
+print "%-32s: %r" % ('get_project_milestones'                           , settings.get_project_milestones())
+print "%-32s: %r" % ('get_project_outcomes'                             , settings.get_project_outcomes())
+print "%-32s: %r" % ('get_project_outputs'                              , settings.get_project_outputs())
+print "%-32s: %r" % ('get_project_planning_ondelete'                    , settings.get_project_planning_ondelete())
+print "%-32s: %r" % ('get_project_projects'                             , settings.get_project_projects())
+print "%-32s: %r" % ('get_project_programmes'                           , settings.get_project_programmes())
+print "%-32s: %r" % ('get_project_programme_budget'                     , settings.get_project_programme_budget())
+print "%-32s: %r" % ('get_project_sectors'                              , settings.get_project_sectors())
+print "%-32s: %r" % ('get_project_themes'                               , settings.get_project_themes())
+print "%-32s: %r" % ('get_project_theme_percentages'                    , settings.get_project_theme_percentages())
+print "%-32s: %r" % ('get_project_multiple_budgets'                     , settings.get_project_multiple_budgets())
+print "%-32s: %r" % ('get_project_multiple_organisations'               , settings.get_project_multiple_organisations())
+print "%-32s: %r" % ('get_project_organisation_roles'                   , settings.get_project_organisation_roles())
+print "%-32s: %r" % ('get_project_organisation_lead_role'               , settings.get_project_organisation_lead_role())
+print "%-32s: %r" % ('get_project_task_tag'                             , settings.get_project_task_tag())
+print "%-32s: %r" % ('get_project_task_status_opts'                     , settings.get_project_task_status_opts())
+print "%-32s: %r" % ('get_project_task_priority_opts'                   , settings.get_project_task_priority_opts())
+print "%-32s: %r" % ('get_project_task_time'                            , settings.get_project_task_time())
+print "%-32s: %r" % ('get_req_req_type'                                 , settings.get_req_req_type())
+print "%-32s: %r" % ('get_req_type_inv_label'                           , settings.get_req_type_inv_label())
+print "%-32s: %r" % ('get_req_type_hrm_label'                           , settings.get_req_type_hrm_label())
+print "%-32s: %r" % ('get_req_copyable'                                 , settings.get_req_copyable())
+print "%-32s: %r" % ('get_req_recurring'                                , settings.get_req_recurring())
+print "%-32s: %r" % ('get_req_requester_label'                          , settings.get_req_requester_label())
+print "%-32s: %r" % ('get_req_requester_optional'                       , settings.get_req_requester_optional())
+print "%-32s: %r" % ('get_req_requester_is_author'                      , settings.get_req_requester_is_author())
+print "%-32s: %r" % ('get_req_requester_from_site'                      , settings.get_req_requester_from_site())
+print "%-32s: %r" % ('get_req_requester_to_site'                        , settings.get_req_requester_to_site())
+print "%-32s: %r" % ('get_req_date_writable'                            , settings.get_req_date_writable())
+print "%-32s: %r" % ('get_req_status_writable'                          , settings.get_req_status_writable())
+print "%-32s: %r" % ('get_req_item_quantities_writable'                 , settings.get_req_item_quantities_writable())
+print "%-32s: %r" % ('get_req_skill_quantities_writable'                , settings.get_req_skill_quantities_writable())
+print "%-32s: %r" % ('get_req_pack_values'                              , settings.get_req_pack_values())
+print "%-32s: %r" % ('get_req_multiple_req_items'                       , settings.get_req_multiple_req_items())
+print "%-32s: %r" % ('get_req_show_quantity_transit'                    , settings.get_req_show_quantity_transit())
+#print "%-32s: %r" % ('get_req_inline_forms'                     				   get_req_inline_forms
+print "%-32s: %r" % ('get_req_prompt_match'                             , settings.get_req_prompt_match())
+#def get_req_summary' 
+print "%-32s: %r" % ('get_req_use_commit'                               , settings.get_req_use_commit())
+print "%-32s: %r" % ('get_req_commit_people'                            , settings.get_req_commit_people())
+print "%-32s: %r" % ('get_req_commit_value'                             , settings.get_req_commit_value())
+print "%-32s: %r" % ('get_req_commit_without_request'                   , settings.get_req_commit_without_request())
+print "%-32s: %r" % ('get_req_committer_is_author'                      , settings.get_req_committer_is_author())
+print "%-32s: %r" % ('get_req_ask_security'                             , settings.get_req_ask_security())
+print "%-32s: %r" % ('get_req_ask_transport'                            , settings.get_req_ask_transport())
+print "%-32s: %r" % ('get_req_items_ask_purpose'                        , settings.get_req_items_ask_purpose())
+print "%-32s: %r" % ('get_req_req_crud_strings(type = None)             , settings.get_req_req_crud_strings(type=None)())
+print "%-32s: %r" % ('get_req_use_req_number'                           , settings.get_req_use_req_number())
+print "%-32s: %r" % ('get_req_generate_req_number'             	        , settings.get_req_generate_req_number())
+print "%-32s: %r" % ('get_req_form_name'                                , settings.get_req_form_name())
+print "%-32s: %r" % ('get_req_shortname'                                , settings.get_req_shortname())
+print "%-32s: %r" % ('get_req_restrict_on_complete'                     , settings.get_req_restrict_on_complete())
+print "%-32s: %r" % ('get_supply_catalog_default'                       , settings.get_supply_catalog_default())
+print "%-32s: %r" % ('get_supply_use_alt_name'                          , settings.get_supply_use_alt_name())
+print "%-32s: %r" % ('get_vulnerability_indicator_hierarchical'	        , settings.get_vulnerability_indicator_hierarchical())
+print "%-32s: %r" % ('get_transport_airport_code_unique'		        , settings.get_transport_airport_code_unique())
+print "%-32s: %r" % ('get_transport_heliport_code_unique'		        , settings.get_transport_heliport_code_unique())
+print "%-32s: %r" % ('get_transport_seaport_code_unique'		        , settings.get_transport_seaport_code_unique())
+print "%-32s: %r" % ('get_xforms_resources'						        , settings.get_xforms_resources())
+print "%-32s: %r" % ('get_frontpage()'						            , settings.get_frontpage())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+
+
+
+
+get_template()                  : 'MSW2'
+get_template_location           : 'modules'
+get_frontpage()                 : None
+get_theme                       : 'MSW2'
+get_base_xtheme                 : None
+get_auth_password_changes       : True
+get_auth_password_min_length    : 4
+get_auth_gmail_domains          : []
+get_auth_office365_domains      : []
+get_auth_google                 : False
+get_auth_humanitarian_id        : False
+get_auth_openid                 : False
+get_security_self_registration  : False
+get_security_registration_visible: False
+get_security_version_info       : True
+get_security_version_info_requires_login: True
+get_auth_registration_requires_verification: False
+get_auth_registration_requires_approval: False
+get_auth_always_notify_approver : True
+get_auth_login_next             : '/eden/default/index'
+get_auth_show_link              : True
+get_auth_registration_link_user_to: {'volunteer': <lazyT 'Volunteer'>, 'staff': <lazyT 'Staff'>}
+get_auth_registration_link_user_to_default: None
+get_auth_opt_in_team_list       : []
+get_auth_opt_in_to_email        : False
+get_auth_opt_in_default         : False
+get_auth_registration_requests_home_phone: False
+get_auth_registration_requests_mobile_phone: False
+get_auth_registration_mobile_phone_mandatory: False
+get_auth_registration_requests_organisation: True
+get_auth_admin_sees_organisation: True
+get_auth_registration_organisation_required: False  msw
+get_auth_registration_organisation_hidden: False
+get_auth_registration_organisation_default: None
+get_auth_registration_organisation_id_default: None
+get_auth_registration_requests_organisation_group: False
+get_auth_registration_organisation_group_required: False
+get_auth_registration_requests_site: False
+get_auth_registration_site_required: False
+get_auth_registration_requests_image: False
+get_auth_registration_pending   : <lazyT 'Registration is still pending approval from Approver (useradmin@example.org) - please wait until confirmation received.'>
+get_auth_registration_pending_approval: <lazyT 'Thank you for validating your email. Your user account is still pending for approval by the system administrator (useradmin@example.org). You will get a notification by email when your account is activated.'>
+get_auth_registration_roles     : []  msw
+get_auth_org_admin_to_first     : False
+get_auth_terms_of_service       : False
+get_auth_registration_volunteer : False
+get_auth_record_approval        : False
+get_auth_record_approval_required_for: []
+get_auth_record_approval_manual : []
+get_auth_realm_entity_types     : ('org_group', 'org_organisation', 'org_office', 'inv_warehouse', 'pr_group')
+get_auth_realm_entity           : None
+get_auth_person_realm_member_org: False
+get_auth_entity_role_manager    : False
+get_auth_role_modules           : OrderedDict([('staff', <lazyT 'Staff'>), ('vol', <lazyT 'Volunteers'>), ('member', <lazyT 'Members'>), ('inv', <lazyT 'Warehouses'>), ('asset', <lazyT 'Assets'>), ('project', <lazyT 'Projects'>), ('survey', <lazyT 'Assessments'>), ('irs', <lazyT 'Incidents'>)])
+get_auth_access_levels          : OrderedDict([('reader', <lazyT 'Reader'>), ('data_entry', <lazyT 'Data Entry'>), ('editor', <lazyT 'Editor'>), ('super', <lazyT 'Super Editor'>)])
+get_auth_set_presence_on_login  : False
+get_auth_ignore_levels_for_presence: ('L0',)
+get_auth_create_unknown_locations: False
+get_auth_show_utc_offset        : True
+get_security_archive_not_delete : True
+get_security_audit_read         : False
+get_security_audit_write        : False
+get_security_policy             : 5
+get_security_strict_ownership   : True
+get_security_map                : False
+get_instance_name               : ''  msw
+get_system_name                 : <lazyT 'Flüchtlingsrat e.V.'>
+get_system_name_short           : <lazyT 'Sahana Eden FLR'>
+get_base_debug                  : True
+get_base_allow_testing          : True
+get_base_migrate                : True
+get_base_fake_migrate           : False
+get_base_prepopulate            : ['default/base']  msw
+get_base_guided_tour            : False
+get_base_public_url             : 'http://127.0.0.1:8000'
+get_base_cdn                    : False
+get_chat_server                 : False
+get_base_session_db             : False
+get_base_session_memcache       : False
+get_base_solr_url               : False
+get_log_level                   : 'DEBUG'
+get_log_console                 : True
+get_log_logfile                 : 'mswFLR.log'
+get_log_caller_info             : False
+get_database_type               : 'sqlite'
+get_database_airegex            : False
+get_database_string             : ('sqlite://storage.db', 30)
+get_fin_currency_writable       : True
+get_fin_currencies              : {'EUR': 'Euros'}
+get_fin_currency_default        : 'EUR'
+get_gis_api_bing                : None
+get_gis_api_google              : 'ABQIAAAAgB-1pyZu7pKAZrMGv3nksRTpH3CbXHjuCVmaTc5MkkU4wO1RRhQWqp1VGwrG8yPE2KhLCPYhD7itFw'
+get_gis_bbox_min_size           : 0.001
+get_gis_bbox_inset              : 0.007
+get_gis_building_name           : True
+get_gis_check_within_parent_boundaries: True
+get_gis_cluster_fill            : None
+get_gis_cluster_label           : True
+get_gis_cluster_stroke          : None
+get_gis_select_fill             : None
+get_gis_select_stroke           : None
+get_gis_clear_layers            : False
+get_gis_config_screenshot       : None
+get_gis_countries               : ('DE',)
+get_gis_display_l0              : False
+get_gis_display_l1              : True
+get_gis_duplicate_features      : False
+get_gis_edit_group              : False
+get_gis_geocode_imported_addresses: False
+get_gis_ignore_geocode_errors   : False
+get_gis_geolocate_control       : True
+get_gis_geonames_username       : None
+get_gis_geoserver_url           : ''
+get_gis_geoserver_username      : 'admin'
+get_gis_geoserver_password      : ''
+get_gis_getfeature_control      : True
+get_gis_latlon_selector         : False
+get_gis_layer_metadata          : False
+get_gis_layer_properties        : True
+get_gis_layer_tree_base         : True
+get_gis_layer_tree_overlays     : True
+get_gis_layer_tree_expanded     : True
+get_gis_layer_tree_radio        : False
+get_gis_layers_label            : 'Layers'
+get_gis_location_represent_address_only: False
+get_gis_map_height              : 600
+get_gis_map_width               : 1000
+get_gis_map_selector            : True
+get_gis_map_selector_height     : 340
+get_gis_map_selector_width      : 480
+get_gis_marker_max_height       : 35
+get_gis_marker_max_width        : 30
+get_gis_max_features            : 2000
+get_gis_legend                  : 'float'
+get_gis_menu                    : False
+get_gis_mouse_position          : 'normal'
+get_gis_nav_controls            : False
+get_gis_label_overlays          : 'Overlays'
+get_gis_overview                : True
+get_gis_permalink               : True
+get_gis_poi_create_resources    : [{'c': 'gis', 'f': 'poi', 'layer': 'PoIs', 'label': <lazyT 'Add PoI'>, 'location': 'button', 'table': 'gis_poi'}]
+get_gis_poi_export_resources    : ['cr_shelter', 'hms_hospital', 'org_office']
+get_gis_postcode_selector       : True
+get_gis_print                   : False
+get_gis_save                    : True
+get_gis_scaleline               : True
+get_gis_search_geonames         : True
+get_gis_simplify_tolerance      : 0
+get_gis_precision               : 5
+get_gis_spatialdb               : False
+get_gis_widget_catalogue_layers : False
+get_gis_widget_wms_browser      : False
+get_gis_toolbar                 : True
+get_gis_zoomcontrol             : True
+get_gis_lookup_code             : False
+get_gis_popup_location_link     : False
+get_L10n_default_language       : 'de'
+get_L10n_display_toolbar        : True
+get_L10n_extra_codes            : None
+get_L10n_languages              : OrderedDict([('ar', '\xd8\xa7\xd9\x84\xd8\xb9\xd8\xb1\xd8\xa8\xd9\x8a\xd8\xa9'), ('bs', 'Bosanski'), ('en', 'English'), ('fr', 'Fran\xc3\xa7ais'), ('de', 'Deutsch'), ('el', '\xce\xb5\xce\xbb\xce\xbb\xce\xb7\xce\xbd\xce\xb9\xce\xba\xce\xac'), ('es', 'Espa\xc3\xb1ol'), ('it', 'Italiano'), ('ja', '\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e'), ('km', '\xe1\x9e\x97\xe1\x9e\xb6\xe1\x9e\x9f\xe1\x9e\xb6\xe1\x9e\x81\xe1\x9f\x92\xe1\x9e\x98\xe1\x9f\x82\xe1\x9e\x9a'), ('ko', '\xed\x95\x9c\xea\xb5\xad\xec\x96\xb4'), ('mn', '\xd0\x9c\xd0\xbe\xd0\xbd\xd0\xb3\xd0\xbe\xd0\xbb \xd1\x85\xd1\x8d\xd0\xbb'), ('my', '\xe1\x80\x99\xe1\x80\xbc\xe1\x80\x94\xe1\x80\xba\xe1\x80\x99\xe1\x80\xac\xe1\x80\x85\xe1\x80\xac'), ('ne', '\xe0\xa4\xa8\xe0\xa5\x87\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xb2\xe0\xa5\x80'), ('prs', '\xd8\xaf\xd8\xb1\xdb\x8c'), ('ps', '\xd9\xbe\xda\x9a\xd8\xaa\xd9\x88'), ('pt', 'Portugu\xc3\xaas'), ('pt-br', 'Portugu\xc3\xaas (Brasil)'), ('ru', '\xd1\x80\xd1\x83\xd1\x81\xd1\x81\xd0\xba\xd0\xb8\xd0\xb9'), ('tet', 'Tetum'), ('tl', 'Tagalog'), ('tr', 'T\xc3\xbcrk\xc3\xa7e'), ('ur', '\xd8\xa7\xd8\xb1\xd8\xaf\xd9\x88'), ('vi', 'Ti\xe1\xba\xbfng Vi\xe1\xbb\x87t'), ('zh-cn', '\xe4\xb8\xad\xe6\x96\x87 (\xe7\xae\x80\xe4\xbd\x93)'), ('zh-tw', '\xe4\xb8\xad\xe6\x96\x87 (\xe7\xb9\x81\xe9\xab\x94)')])
+get_L10n_languages_readonly     : True
+get_L10n_religions              : {'none': <lazyT 'none'>, 'buddhist': <lazyT 'Buddhist'>, 'christian': <lazyT 'Christian'>, 'jewish': <lazyT 'Jewish'>, 'hindu': <lazyT 'Hindu'>, 'muslim': <lazyT 'Muslim'>, 'other': <lazyT 'other'>, 'bahai': <lazyT 'Bahai'>}
+get_L10n_date_format            : '%Y-%m-%d'
+get_L10n_time_format            : '%H:%M'
+get_L10n_datetime_separator     : ' '
+get_L10n_datetime_format        : '%Y-%m-%d %H:%M'
+get_L10n_utc_offset             : '+0000'
+get_L10n_firstDOW               : None
+get_L10n_calendar               : None
+get_L10n_lat_lon_format         : '%f'
+get_L10n_default_country_code   : 1
+get_L10n_mandatory_lastname     : False
+get_L10n_mandatory_middlename   : False
+get_L10n_decimal_separator      : '.'
+get_L10n_thousands_separator    : ','
+get_L10n_thousands_grouping     : 3
+get_L10n_translate_cms_series   : False
+get_L10n_translate_gis_layer    : False
+get_L10n_translate_gis_location : False
+get_L10n_name_alt_gis_location  : False
+get_L10n_translate_org_organisation: False
+get_L10n_translate_org_site     : False
+get_L10n_translate_cap_area     : False
+get_L10n_pootle_url             : 'http://pootle.sahanafoundation.org/'
+get_L10n_pootle_username        : False
+get_L10n_pootle_password        : False
+get_paper_size                  : 'A4'
+get_pdf_bidi                    : False
+get_pdf_logo                    : None
+get_pdf_export_font             : None
+get_xls_title_row               : False
+get_ui_formstyle                : <function formstyle_foundation at 0xaf0c1bc4>
+get_ui_formstyle_read           : <function formstyle_foundation at 0xaf0c1bc4>
+get_ui_filter_formstyle         : <function formstyle_foundation_inline at 0xaf0c1c34>
+get_ui_report_formstyle         : None
+get_ui_inline_formstyle         : <function formstyle_foundation_inline at 0xaf0c1c34>
+get_ui_datatables_dom           : "fril<'dataTable_table't>pi"
+get_ui_datatables_initComplete  : None
+get_ui_datatables_pagingType    : 'full_numbers'
+get_ui_datatables_responsive    : True
+get_ui_default_cancel_button    : False
+get_ui_filter_clear             : True
+get_ui_icons                    : 'font-awesome'
+get_ui_custom_icons             : None
+get_ui_icon_layout              : None
+get_ui_auto_keyvalue            : False
+get_ui_auth_user_represent      : 'email'
+get_ui_confirm                  : True
+get_ui_export_formats           : ('cap', 'have', 'kml', 'map', 'pdf', 'rss', 'xls', 'xml')
+get_ui_hide_report_filter_options: False
+get_ui_hide_report_options      : True
+get_ui_iframe_opens_full        : False
+get_ui_interim_save             : False
+get_ui_label_attachments        : <lazyT 'Attachments'>
+get_ui_label_camp               : False
+get_ui_label_cluster            : False
+get_ui_label_locationselector_map_point_add: <lazyT 'Place on Map'>
+get_ui_label_locationselector_map_point_view: <lazyT 'View on Map'>
+get_ui_label_locationselector_map_polygon_add: <lazyT 'Draw on Map'>
+get_ui_label_locationselector_map_polygon_view: <lazyT 'View on Map'>
+get_ui_label_mobile_phone       : <lazyT 'Mobile Phone'>
+get_ui_label_permalink          : <lazyT 'Link to this result'>
+get_ui_label_postcode           : <lazyT 'Postcode'>
+get_ui_label_read               : 'Open'
+get_ui_label_update             : 'Open'
+get_ui_multiselect_widget       : False
+get_ui_navigate_away_confirm    : True
+get_ui_search_submit_button     : 'search-button'
+get_ui_social_buttons           : False
+get_ui_summary                  : ({'widgets': [{'method': 'create'}], 'common': True, 'name': 'add'}, {'widgets': [{'method': 'cms'}], 'common': True, 'name': 'cms'}, {'widgets': [{'method': 'datatable'}], 'name': 'table', 'label': 'Table'}, {'widgets': [{'ajax_init': True, 'method': 'report'}], 'name': 'charts', 'label': 'Report'}, {'widgets': [{'ajax_init': True, 'method': 'map'}], 'name': 'map', 'label': 'Map'})
+get_ui_autocomplete_delay       : 800
+get_ui_autocomplete_min_chars   : 2
+get_ui_filter_auto_submit       : 800
+get_ui_report_auto_submit       : 800
+get_ui_report_timeout           : 10000
+get_ui_use_button_icons         : False
+get_ui_hierarchy_theme          : {'stripes': True, 'css': 'plugins', 'icons': False}
+get_ui_hierarchy_cascade_option_in_tree: True
+get_ui_hierarchy_filter_bulk_select_option: None
+get_ui_location_filter_bulk_select_option: None
+get_ui_inline_component_layout  : <applications.eden.modules.s3.s3forms.S3SQLSubFormLayout object at 0xaf17e70c>
+get_ui_menu_logo                : '/eden/static/img/S3menu_logo.png'
+get_msg_max_send_retries        : 9
+get_msg_basestation_code_unique : False
+get_mail_server                 : '127.0.0.1:25'
+get_mail_server_login           : False
+get_mail_server_tls             : False
+get_mail_sender                 : None
+get_mail_approver               : 'useradmin@example.org'
+get_mail_default_subject        : False
+get_mail_auth_user_in_subject   : False
+get_mail_limit                  : None
+get_msg_parser                  : 'default'
+get_msg_notify_subject          : '$s Update Notification: $r'
+get_msg_notify_email_format     : 'text'
+get_msg_notify_renderer         : None
+get_msg_require_international_phone_numbers: True
+get_search_max_results          : 200
+get_search_filter_manager       : True
+get_search_filter_manager_allow_delete: True
+get_search_filter_manager_save  : None
+get_search_filter_manager_update: None
+get_search_filter_manager_delete: None
+get_search_filter_manager_load  : None
+get_sync_mcb_resource_identifiers: {}
+get_sync_mcb_domain_identifiers : {}
+get_sync_upload_filename        : '$s $r'
+get_asset_telephones            : False
+get_cap_identifier_prefix       : ''
+get_cap_identifier_suffix       : ''
+get_cap_expire_offset           : 2
+get_cap_codes                   : []
+get_cap_event_codes             : []
+get_cap_parameters              : []
+get_cap_geocodes                : []
+get_cap_base64                  : False
+get_cap_languages               : OrderedDict([('ar', '\xd8\xa7\xd9\x84\xd8\xb9\xd8\xb1\xd8\xa8\xd9\x8a\xd8\xa9'), ('en-US', 'English'), ('es', 'Espa\xc3\xb1ol'), ('fr', 'Fran\xc3\xa7ais'), ('pt', 'Portugu\xc3\xaas'), ('ru', '\xd1\x80\xd1\x83\xd1\x81\xd1\x81\xd0\xba\xd0\xb8\xd0\xb9')])
+get_cap_authorisation           : True
+get_cap_restrict_fields         : False
+get_cap_post_to_twitter         : False
+get_cap_same_code               : None
+get_cap_post_to_facebook        : False
+get_cap_rss_use_links           : False
+get_cap_use_ack                 : False
+get_cap_alert_hub_title         : <lazyT 'SAMBRO Alert Hub Common Operating Picture'>
+get_cms_bookmarks               : False
+get_cms_filter_open             : False
+get_cms_location_click_filters  : False
+get_cms_organisation            : 'created_by$organisation_id'
+get_cms_organisation_group      : None
+get_cms_person                  : 'created_by'
+get_cms_richtext                : False
+get_cms_show_events             : False
+get_cms_show_attachments        : True
+get_cms_show_links              : False
+get_cms_show_tags               : False
+get_cms_show_titles             : False
+get_cr_day_and_night            : False
+get_cr_shelter_people_registration: True
+get_cr_shelter_population_dynamic: True
+get_cr_shelter_housing_unit_management: True
+get_cr_check_out_is_final       : False
+get_cr_tags                     : False
+get_dc_collection_label         : 'Assessment'
+get_deploy_cc_groups            : []
+get_deploy_hr_label             : 'Staff'
+get_deploy_manual_recipients    : True
+get_deploy_post_to_twitter      : False
+get_deploy_responses_via_web    : True
+get_deploy_select_ratings       : False
+get_deploy_team_label           : 'Deployable'
+get_doc_label                   : 'Document'
+get_dvr_label                   : None
+get_dvr_track_transfer_sites    : True
+get_dvr_transfer_site_types     : ('cr_shelter', 'org_office', 'org_facility')
+get_dvr_manage_transferability  : True
+get_dvr_case_flags              : True
+get_dvr_household_size          : 'auto'
+get_dvr_mandatory_appointments  : True
+get_dvr_appointments_update_last_seen_on: True
+get_dvr_appointments_update_case_status: True
+get_dvr_case_events_close_appointments: True
+get_dvr_payments_update_last_seen_on: True
+get_dvr_multiple_case_groups    : False
+get_dvr_id_code_pattern         : '(?P<label>[^,]*),(?P<family>[^,]*),(?P<last_name>[^,]*),(?P<first_name>[^,]*),(?P<date_of_birth>[^,]*),.*'
+get_dvr_event_registration_checkin_warning: True
+get_dvr_activity_use_service_type: False
+get_dvr_activity_types          : False
+get_dvr_activity_types_hierarchical: False
+get_edu_school_code_unique      : False
+get_event_label                 : None
+get_event_exercise              : False
+get_event_types_hierarchical    : False
+get_incident_types_hierarchical : False
+get_event_collection_tab        : True
+get_event_target_tab            : True
+get_event_impact_tab            : True
+get_incident_impact_tab         : False
+get_event_dispatch_tab          : False
+get_incident_dispatch_tab       : True
+get_incident_teams_tab          : False
+get_evr_group_types             : {1: <lazyT 'other'>, 2: <lazyT 'Family'>, 3: <lazyT 'Tourist group'>, 4: <lazyT 'Society'>, 5: <lazyT 'Company'>, 6: <lazyT 'Convent'>, 7: <lazyT 'Hotel'>, 8: <lazyT 'Hospital'>, 9: <lazyT 'Orphanage'>}
+get_evr_show_physical_description: True
+get_evr_link_to_organisation    : False
+get_fire_station_code_unique    : False
+get_hms_track_ctc               : False
+get_hms_activity_reports        : False
+get_hrm_course_grades           : {8: <lazyT 'Pass'>, 9: <lazyT 'Fail'>}
+get_hrm_course_pass_marks       : False
+get_hrm_course_types            : {1: <lazyT 'Staff'>, 2: <lazyT 'Volunteers'>, 3: <lazyT 'Deployables'>, 4: <lazyT 'Members'>}
+get_hrm_staff_label             : <lazyT 'Staff'>
+get_hrm_organisation_label      : <lazyT 'Organization'>
+get_hrm_root_organisation_label : <lazyT 'Top-level Organization'>
+get_hrm_email_required          : True
+get_hrm_location_staff          : 'site_id'
+get_hrm_location_vol            : 'person_id'
+get_hrm_multiple_contracts      : False
+get_hrm_org_dependent_job_titles: False
+get_hrm_org_required            : True
+get_hrm_multiple_orgs           : True
+get_hrm_compose_button          : True
+get_hrm_deletable               : True
+get_hrm_multiple_job_titles     : False
+get_hrm_show_staff              : True
+get_hrm_mix_staff               : False
+get_hrm_site_contact_unique     : True
+get_hrm_skill_types             : False
+get_hrm_staff_departments       : True
+get_hrm_staff_experience        : 'experience'
+get_hrm_salary                  : False
+get_hrm_show_organisation       : False
+get_hrm_teams                   : 'Teams'
+get_hrm_teams_orgs              : 1
+get_hrm_trainings_external      : False
+get_hrm_cv_tab                  : False
+get_hrm_record_tab              : True
+get_hrm_record_label            : 'Staff Record'
+get_hrm_use_awards              : True
+get_hrm_use_certificates        : True
+get_hrm_create_certificates_from_courses: False
+get_hrm_filter_certificates     : False
+get_hrm_use_address             : True
+get_hrm_use_code                : False
+get_hrm_use_credentials         : True
+get_hrm_use_description         : 'Description'
+get_hrm_use_education           : False
+get_hrm_use_id                  : True
+get_hrm_use_job_titles          : True
+get_hrm_use_skills              : True
+get_hrm_certificate_skill       : False
+get_hrm_use_trainings           : True
+get_hrm_training_instructors    : 'external'
+get_hrm_activity_types          : None
+get_hrm_vol_active              : False
+get_hrm_vol_active_tooltip      : None
+get_hrm_vol_availability_tab    : None
+get_hrm_vol_experience          : 'programme'
+get_hrm_vol_departments         : False
+get_hrm_vol_roles               : True
+get_hrm_vol_service_record_manager: <lazyT 'Branch Coordinator'>
+get_inv_collapse_tabs           : True
+get_inv_facility_label          : 'Facility'
+get_inv_facility_manage_staff   : False
+get_inv_recv_tab_label          : 'Receive'
+get_inv_send_tab_label          : 'Send'
+get_inv_direct_stock_edits      : False
+get_inv_org_dependent_warehouse_types: False
+get_inv_send_show_mode_of_transport: False
+get_inv_send_show_org           : True
+get_inv_send_show_time_in       : False
+get_inv_stock_count             : True
+get_inv_track_pack_values       : True
+get_inv_shipment_name           : 'shipment'
+get_inv_send_types              : {21: <lazyT 'Distribution'>}
+get_inv_send_type_default       : 0
+get_inv_recv_types              : {32: <lazyT 'Donation'>, 34: <lazyT 'Purchase'>}
+get_inv_send_form_name          : 'Waybill'
+get_inv_send_ref_field_name     : 'Waybill Number'
+get_inv_send_shortname          : 'WB'
+get_inv_recv_form_name          : 'Goods Received Note'
+get_inv_recv_shortname          : 'GRN'
+get_inv_warehouse_code_unique   : False
+get_irs_vehicle                 : False
+get_member_cv_tab               : False
+get_member_membership_types     : True
+get_mobile_forms                : []
+get_org_autocomplete            : False
+get_org_sector                  : False
+get_org_branches                : False
+get_org_branches_tree_view      : False
+get_org_facility_types_hierarchical: False
+get_org_organisation_location_context: 'site.location_id'
+get_org_organisation_types_hierarchical: False
+get_org_organisation_types_multiple: False
+get_org_facilities_tab          : True
+get_org_groups                  : False
+get_org_group_team_represent    : False
+get_org_needs_tab               : False
+get_org_offices_tab             : True
+get_org_regions                 : False
+get_org_region_countries        : False
+get_org_regions_hierarchical    : False
+get_org_resources_tab           : False
+get_org_services_hierarchical   : False
+get_org_service_locations       : False
+get_org_site_code_len           : 10
+get_org_site_label              : <lazyT 'Facility'>
+get_org_site_inv_req_tabs       : True
+get_org_site_autocomplete       : False
+get_org_site_autocomplete_fields: ('instance_type',)
+get_org_site_last_contacted     : False
+get_org_site_volunteers         : False
+get_org_site_check              : <function org_site_check at 0xaf17a09c>
+get_org_summary                 : False
+get_org_office_code_unique      : False
+get_org_facility_code_unique    : False
+get_org_tags                    : False
+get_police_station_code_unique  : False
+get_pr_person_availability_options: None
+get_pr_hide_third_gender        : False
+get_pr_import_update_requires_email: True
+get_pr_label_fullname           : 'Name'
+get_pr_lookup_duplicates        : False
+get_pr_request_dob              : True
+get_pr_dob_required             : False
+get_pr_request_email            : True
+get_pr_request_father_name      : False
+get_pr_request_grandfather_name : False
+get_pr_request_gender           : True
+get_pr_request_home_phone       : False
+get_pr_request_mobile_phone     : True
+get_pr_request_year_of_birth    : False
+get_pr_name_format              : '%(last_name)s, %(first_name)s'
+get_pr_search_shows_hr_details  : True
+get_pr_select_existing          : True
+get_pr_separate_name_fields     : 2
+get_pr_use_address              : True
+get_pr_show_emergency_contacts  : True
+get_pr_contacts_tabs            : ('all',)
+get_proc_form_name              : 'Purchase Order'
+get_proc_shortname              : 'PO'
+get_project_mode_3w             : False
+get_project_mode_task           : True
+get_project_mode_drr            : False
+get_project_activities          : False
+get_project_activity_sectors    : False
+get_project_activity_types      : False
+get_project_activity_filter_year: False
+get_project_assign_staff_tab    : True
+get_project_budget_monitoring   : False
+get_project_codes               : False
+get_project_community           : False
+get_project_community_volunteers: False
+get_project_demographics        : False
+get_project_details_tab         : False
+get_project_goals               : False
+get_project_hazards             : False
+get_project_hfa                 : False
+get_project_indicators          : False
+get_project_milestones          : False
+get_project_outcomes            : False
+get_project_outputs             : 'inline'
+get_project_planning_ondelete   : 'CASCADE'
+get_project_projects            : False
+get_project_programmes          : False
+get_project_programme_budget    : False
+get_project_sectors             : False
+get_project_themes              : False
+get_project_theme_percentages   : False
+get_project_multiple_budgets    : False
+get_project_multiple_organisations: False
+get_project_organisation_roles  : {1: <lazyT 'Lead Implementer'>, 2: <lazyT 'Partner'>, 3: <lazyT 'Donor'>}
+get_project_organisation_lead_role: 1
+get_project_task_tag            : False
+get_project_task_status_opts    : {2: <lazyT 'New'>, 3: <lazyT 'Assigned'>, 12: <lazyT 'Completed'>, 6: <lazyT 'On Hold'>, 7: <lazyT 'Canceled'>}
+get_project_task_priority_opts  : {1: <lazyT 'Urgent'>, 2: <lazyT 'High'>, 3: <lazyT 'Normal'>, 4: <lazyT 'Low'>}
+get_project_task_time           : False
+get_req_req_type                : ('Stock',)
+get_req_type_inv_label          : <lazyT 'Warehouse Stock'>
+get_req_type_hrm_label          : <lazyT 'People'>
+get_req_copyable                : False
+get_req_recurring               : False
+get_req_requester_label         : <lazyT 'Requester'>
+get_req_requester_optional      : False
+get_req_requester_is_author     : True
+get_req_requester_from_site     : False
+get_req_requester_to_site       : False
+get_req_date_writable           : True
+get_req_status_writable         : True
+get_req_item_quantities_writable: False
+get_req_skill_quantities_writable: False
+get_req_pack_values             : True
+get_req_multiple_req_items      : True
+get_req_show_quantity_transit   : True
+get_req_prompt_match            : True
+get_req_use_commit              : False
+get_req_commit_people           : False
+get_req_commit_value            : False
+get_req_commit_without_request  : False
+get_req_committer_is_author     : True
+get_req_ask_security            : False
+get_req_ask_transport           : False
+get_req_items_ask_purpose       : True
+get_req_use_req_number          : True
+get_req_generate_req_number     : True
+get_req_form_name               : 'Requisition Form'
+get_req_shortname               : 'REQ'
+get_req_restrict_on_complete    : False
+get_supply_catalog_default      : 'Default'
+get_supply_use_alt_name         : True
+get_vulnerability_indicator_hierarchical: False
+get_transport_airport_code_unique: False
+get_transport_heliport_code_unique: False
+get_transport_seaport_code_unique: False
+get_xforms_resources            : None
+get_frontpage()                 : None
+asseek: <Storage {'module_type': 2, 'name_nice': <lazyT 'Asylumseeker'>}>
+... printing the settings ... end
+2016-11-20 14:58:26 S3LOG WARNING: ansible module needed for Setup
+msw: call to S3HousingDataModel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

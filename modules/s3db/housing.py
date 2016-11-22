@@ -5,16 +5,16 @@
     appropriate, e.g. a short module description and a license statement.
 
     The module prefix is the same as the filename (without the ".py"), in this
-    case "skeleton". Remember to always add an import statement for your module
+    case "housing". Remember to always add an import statement for your module
     to:
 
     models/00_tables.py
 
     like:
 
-    import eden.skeleton
+    import eden.housing
 
-    (Yeah - not this one of course :P it's just an example)
+    (Yeah - not this one of course :P it's just an flat)
 """
 
 # mandatory __all__ statement:
@@ -28,8 +28,8 @@
 # - all other names in the name list will be added to response.s3
 #   if their names start with the module prefix plus underscore
 #
-__all__ = ("SkeletonDataModel",
-           "skeleton_example_represent"
+__all__ = ("S3HousingDataModel",
+           "housing_flat_represent"
            )
 
 # The following import statements are needed in almost every model
@@ -49,20 +49,26 @@ from s3layouts import S3PopupLink
 # => remember to list all model classes in __all__, otherwise they won't ever
 #    be loaded.
 #
-class S3SkeletonDataModel(S3Model):
+class S3HousingDataModel(S3Model):
 
+    print 'msw: call to S3HousingDataModel\n'
+    
     # Declare all the names this model can auto-load, i.e. all tablenames
     # and all response.s3 names which are defined here. If you omit the "names"
     # variable, then this class will serve as a fallback model for this module
     # in case a requested name cannot be found in one of the other model classes
     #
-    names = ("skeleton_example",
-             "skeleton_example_id",
+    names = ("housing_flat",
+             "housing_flat_id",
              )
+    #msw: does not work, as s3db is made after this is called (see 00_
+    #s3db = current.s3db
 
     # Define a function model() which takes no parameters (except self):
     def model(self):
-
+        
+        print 'msw: call to S3HousingDataModel.model(self)\n'
+        
         # You will most likely need (at least) these:
         db = current.db
         T = current.T
@@ -76,10 +82,49 @@ class S3SkeletonDataModel(S3Model):
         #    makes sure the table won't be re-defined if it's already in db
         # -> use s3_meta_fields to include meta fields (not s3_meta_fields!),
         #    of course this needs the s3 assignment above
-        tablename = "skeleton_example"
+        tablename = "housing_flat"
         self.define_table(tablename,
-                          Field("name"),
-                          *s3_meta_fields())
+                Field("name", label=T("Name")),# A 'name' field
+                Field("address",label=T("Address")),
+                Field("zip",label=T("Zip")),
+                ##s3db.pr_person_id(label=T("Contact 1")),
+                # Link to the Site resource
+                self.super_link("site_id", "org_site",
+                                label = T("Organisation"),
+                                # superlink fields are normally invisible
+                                readable = True,
+                                writable = True,
+                                # we want users to see the site name
+                                # rather than just the ID
+                                represent = self.org_site_represent,
+                                ),
+                Field("capacity",label=T("Capacity")),
+                Field("telefoneno",label=T("Telefone Number")),
+                Field("No1",label=T("No1")),
+                Field("No2",label=T("No3")),
+                Field("No3",label=T("No4")),
+                Field("No4",label=T("No5")),
+                Field("No5",label=T("No6")),
+                Field("No6",label=T("No6")),
+                Field("No7",label=T("No7")),
+                Field("No8",label=T("No8")),
+                Field("No9",label=T("No9")),
+                Field("Noaa",label=T("Noaa")),
+                Field("No11",label=T("No11")),
+                Field("No12",label=T("No12")),
+                Field("No13",label=T("No13")),
+                Field("No14",label=T("No14")),
+                Field("No15",label=T("No15")),
+                Field("No16",label=T("No16")),
+                Field("No17",label=T("No17")),
+                Field("No18",label=T("No18")),
+                Field("No19",label=T("No19")),
+                
+                # This adds all the metadata to store
+                # information on who created/updated
+                # the record & when
+                *s3_meta_fields())
+
 
         # Use self.configure to configure your model (or current.s3db.configure)
         self.configure(tablename,
@@ -100,29 +145,29 @@ class S3SkeletonDataModel(S3Model):
         # If you need to reference external tables, always use the table-method.
         # This will automatically load the respective model unless it is already
         # loaded at this point:
-        xy_table = self.table("xy_table")
+#        xy_table = self.table("xy_table")
         # Alternatively, you can also use on of these:
-        xy_table = self.xy_table
-        xy_table = self["xy_table"]
+#        xy_table = self.xy_table
+#        xy_table = self["xy_table"]
 
         # The following two are equivalent:
-        xy_variable = self.xy_variable
+#        xy_variable = self.xy_variable
         # and:
-        xy_variable = response.s3.xy_variable
+#        xy_variable = response.s3.xy_variable
         # However, if "xy_variable" is also a tablename, then the first
         # variant would return that table instead. Thus, make sure your
         # response.s3-global variables do not use tablenames as names
 
         # You can define ReusableFields,
         # -> make sure you prefix their names properly with the module prefix:
-        skeleton_example_id = S3ReusableField("skeleton_example_id", "reference %s" % tablename,
-                                               label = T("Skeleton Example"),
+        housing_flat_id = S3ReusableField("housing_flat_id", "reference %s" % tablename,
+                                               label = T("Housing flat"),
                                                requires = IS_EMPTY_OR(IS_ONE_OF(db,
-                                                                      "skeleton_example.id")))
+                                                                      "housing_flat.id")))
 
         # Pass names back to global scope (s3.*)
         return dict(
-            skeleton_example_id=skeleton_example_id,
+            housing_flat_id=housing_flat_id,
         )
 
     # -------------------------------------------------------------------------
@@ -137,7 +182,7 @@ class S3SkeletonDataModel(S3Model):
         """
 
         return dict(
-            skeleton_example_id = S3ReusableField("skeleton_example_id",
+            housing_flat_id = S3ReusableField("housing_flat_id",
                                                   "integer",
                                                   readable=False,
                                                   writable=False),
@@ -147,13 +192,13 @@ class S3SkeletonDataModel(S3Model):
     # ---------------------------------------------------------------------
     # Static so that calling it doesn't require loading the models
     @staticmethod
-    def skeleton_example_onvalidation(form):
+    def housing_flat_onvalidation(form):
         """ Form validation """
 
         db = current.db
         # Note that we don't need to use s3db here since this is a method of the class,
         # so the table must have loaded
-        table = db.skeleton_example
+        table = db.housing_flat
         query = (table.id == form.vars.id)
         record = db(query).select(table.name,
                                   limitby=(0, 1)).first()
@@ -167,7 +212,7 @@ class S3SkeletonDataModel(S3Model):
 # Represents are good to put here as they can be put places without loading the
 # models at that time
 #
-def skeleton_example_represent(id):
+def housing_flat_represent(id):
 
     if not id:
         # Don't do a DB lookup if we have no id
@@ -177,7 +222,9 @@ def skeleton_example_represent(id):
     # Your function may need to access tables. If a table isn't defined
     # at the point when this function gets called, then this:
     s3db = current.s3db
-    table = s3db.skeleton_table
+    table = s3db.housing_table # thislooks strange, is however how it's found in skelleton
+    #table = s3db.housing_flat # msw: this looks better, but is it correct??
+
     # will load the table. This is the same function as self.table described in
     # the model class except that "self" is not available here, so you need to
     # use the class instance as reference instead

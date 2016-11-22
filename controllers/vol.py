@@ -15,13 +15,18 @@ s3db.hrm_vars()
 # =============================================================================
 def index():
     """ Dashboard """
+    # msw: only for testing, this would give a plain .../vol page
+    #return dict()
+    # however, wie like to redirect
 
     mode = session.s3.hrm.mode
     if mode is not None:
         # Go to Personal Profile
+        # prints seem to get lost ... print 'msw: we go to personal profile'
         s3_redirect_default(URL(f="person"))
     else:
         # Bypass home page & go direct to Volunteers Summary
+        print 'msw: we bypass and got to the volunteer summary'
         s3_redirect_default(URL(f="volunteer", args=["summary"]))
 
 # =============================================================================

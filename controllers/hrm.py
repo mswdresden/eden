@@ -219,7 +219,7 @@ def person():
         - used for access to component Tabs, Personal Profile & Imports
         - includes components relevant to HRM
     """
-
+    #return dict() mswtest
     return s3db.hrm_person_controller()
 
 # -----------------------------------------------------------------------------

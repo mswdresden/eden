@@ -1,0 +1,5 @@
+id,function,role,controller,autostart,code,name
+"1","yes","ADMIN","yes","True","12345","Tour"
+"2","no","ADMIN","yes","False","33322","Tour"
+"3","no","ADMIN","yes","False","33322","Tour"
+

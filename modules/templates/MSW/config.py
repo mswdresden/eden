@@ -4,6 +4,8 @@ from collections import OrderedDict
 
 from gluon import current
 from gluon.storage import Storage
+#from  msw import *
+
 
 def config(settings):
     """
@@ -13,6 +15,26 @@ def config(settings):
     """
 
     T = current.T
+
+    def print_settings():
+        # simple example
+        # print 'start of printing the setting'
+        # print 'settings.base.system_name:', settings.base.system_name
+
+        for sthing in settings:
+            #print '\nsettings -> ', sthing
+            try:
+                iterator = iter(getattr(settings, str(sthing)))
+            except TypeError:
+                #print 'i am not iterable'
+                print '%s %s: %s' % ('settings', sthing, getattr(settings, str(sthing)))
+            else:
+                # iterable
+                #if (str(sthing) == str('_bool')) or (str(sthing) == str('bool')) or (str(sthing) == str('_debug')):
+                #print 'found bool and not using it'
+                for bthing in getattr(settings, str(sthing)):
+                    #print '\t{0:s} -> {1:s}'.format(sthing, bthing)
+                    print '%-26s: %s' % (str('settings.' + sthing + '.' + bthing), getattr(settings, sthing)[bthing])
 
     # Pre-Populate
     # http://eden.sahanafoundation.org/wiki/DeveloperGuidelines/PrePopulate
@@ -230,7 +252,7 @@ def config(settings):
     # Restrict the Location Selector to just certain countries
     # NB This can also be over-ridden for specific contexts later
     # e.g. Activities filtered to those of parent Project
-    #settings.gis.countries = ("US",)
+    settings.gis.countries = ("DE",)
     # Uncomment to pass Addresses imported from CSV to a Geocoder to try and automate Lat/Lon
     #settings.gis.geocode_imported_addresses = "google"
     # Hide the Map-based selection tool in the Location Selector
@@ -443,6 +465,7 @@ def config(settings):
     #settings.ui.label_permalink = "Permalink"
     # Uncomment to modify the main menu logo
     #settings.ui.menu_logo = URL(c="static", f="img", args=["S3menulogo.png"])
+    #settings.ui.menu_logo = "static/img/green_circle_16px.png" #msw: so ginge das, aber URL will nicht (inport irgendwas?)
 
     # -------------------------------------------------------------------------
     # Asset
@@ -550,7 +573,7 @@ def config(settings):
     # Uncomment to allow person imports to match even without email addresses
     #settings.pr.import_update_requires_email = False
     # Uncomment this to enable support for third gender
-    #settings.pr.hide_third_gender = False
+    settings.pr.hide_third_gender = False
     # Uncomment to a fuzzy search for duplicates in the new AddPersonWidget2
     #settings.pr.lookup_duplicates = True
     # Uncomment to hide fields in S3AddPersonWidget[2]
@@ -1089,13 +1112,13 @@ def config(settings):
             restricted = True,
             module_type = 5,
         )),
-        # Vehicle depends on Assets
-        ("vehicle", Storage(
-            name_nice = T("Vehicles"),
-            #description = "Manage Vehicles",
-            restricted = True,
-            module_type = 10,
-        )),
+        ## Vehicle depends on Assets
+        #("vehicle", Storage(
+        #    name_nice = T("Vehicles"),
+        #    #description = "Manage Vehicles",
+        #    restricted = True,
+        #    module_type = 10,
+        #)),
         ("req", Storage(
             name_nice = T("Requests"),
             #description = "Manage requests for supplies, assets, staff or other resources. Matches against Inventories where supplies are requested.",
@@ -1126,12 +1149,12 @@ def config(settings):
             restricted = True,
             module_type = 10
         )),
-        ("hms", Storage(
-            name_nice = T("Hospitals"),
-            #description = "Helps to monitor status of hospitals",
-            restricted = True,
-            module_type = 10
-        )),
+        #("hms", Storage(
+        #    name_nice = T("Hospitals"),
+        #    #description = "Helps to monitor status of hospitals",
+        #    restricted = True,
+        #    module_type = 10
+        #)),
         #("disease", Storage(
         #    name_nice = T("Disease Tracking"),
         #    #description = "Helps to track cases and trace contacts in disease outbreaks",
@@ -1150,11 +1173,11 @@ def config(settings):
             restricted = True,
             module_type = 10,
         )),
-        ("transport", Storage(
-        name_nice = T("Transport"),
-        restricted = True,
-        module_type = 10,
-        )),
+        #("transport", Storage(
+        #name_nice = T("Transport"),
+        #restricted = True,
+        #module_type = 10,
+        #)),
         ("stats", Storage(
             name_nice = T("Statistics"),
             #description = "Manages statistics",
@@ -1167,12 +1190,12 @@ def config(settings):
         restricted = True,
         module_type = 10,
         )),
-        ("budget", Storage(
-            name_nice = T("Budgeting Module"),
-            #description = "Allows a Budget to be drawn up",
-            restricted = True,
-            module_type = 10
-        )),
+        #("budget", Storage(
+        #    name_nice = T("Budgeting Module"),
+        #    #description = "Allows a Budget to be drawn up",
+        #    restricted = True,
+        #    module_type = 10
+        #)),
         #("deploy", Storage(
         #    name_nice = T("Deployments"),
         #    #description = "Manage Deployments",
@@ -1199,12 +1222,12 @@ def config(settings):
         #    restricted = True,
         #    module_type = 10
         #)),
-        #("mpr", Storage(
-        #   name_nice = T("Missing Person Registry"),
-        #   #description = "Helps to report and search for missing persons",
-        #   restricted = True,
-        #   module_type = 10,
-        #)),
+        ("mpr", Storage(
+           name_nice = T("Missing Person Registry"),
+           #description = "Helps to report and search for missing persons",
+           restricted = True,
+           module_type = 10,
+        )),
         #("scenario", Storage(
         #    name_nice = T("Scenarios"),
         #    #description = "Define Scenarios for allocation of appropriate Resources (Human, Assets & Facilities).",
@@ -1308,7 +1331,13 @@ def config(settings):
         ("residential", Storage(
         name_nice = T("Residential"),
         module_type = 10,
-        )),                            
+        )),   
+        ("housing", Storage(
+        name_nice = T("Housing"),
+        module_type = 10,
+        )),   
+                                    
+                                                             
     ])
     
     # msw change label in organisation 
@@ -1341,5 +1370,18 @@ def config(settings):
     settings.modules["residential"] = Storage(
         name_nice=T("Residential"),
         module_type=2)
+
+    # msw: adding housing to main menue (above)
+    settings.modules["housing"] = Storage(
+        name_nice=T("Housing"),
+        module_type=2)
+
+
+    # print the settings (under construction!)
+    print '\n\n printing the settings ...'
+    print_settings()
+    print 'asseek:', settings.modules["asylumseeker"]
+
+    print '... printing the settings ... end'
 
 # END =========================================================================

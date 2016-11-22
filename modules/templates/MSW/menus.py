@@ -13,9 +13,9 @@ import s3menus as default
 # - there are also other examples in the other templates folders
 
 # =============================================================================
-#class S3MainMenu(default.S3MainMenu):
-    #"""
-        #Custom Application Main Menu:
+class S3MainMenu(default.S3MainMenu):
+    """
+        Custom Application Main Menu:
 
         #The main menu consists of several sub-menus, each of which can
         #be customised separately as a method of this class. The overall
@@ -39,45 +39,110 @@ import s3menus as default
 
         #Each sub-menu function returns a list of menu items, only the menu()
         #function must return a layout class instance.
-    #"""
+    """
 
     # -------------------------------------------------------------------------
-    #@classmethod
-    #def menu(cls):
-        #""" Compose Menu """
+    @classmethod
+    def menu(cls):
+        """ Compose Menu """
 
-        #main_menu = MM()(
+        main_menu = MM()(
 
-            ## Modules-menu, align-left
-            #cls.menu_modules(),
+            # Modules-menu, align-left
+            cls.menu_modules(),
 
-            ## Service menus, align-right
-            ## Note: always define right-hand items in reverse order!
-            #cls.menu_help(right=True),
-            #cls.menu_auth(right=True),
-            #cls.menu_lang(right=True),
-            #cls.menu_admin(right=True),
-            #cls.menu_gis(right=True)
-        #)
-        #return main_menu
+            # Service menus, align-right
+            # Note: always define right-hand items in reverse order!
+            cls.menu_help(right=True),
+            cls.menu_auth(right=True),
+            cls.menu_lang(right=True),
+            cls.menu_admin(right=True),
+            cls.menu_gis(right=True)
+        )
+        return main_menu
 
     # -------------------------------------------------------------------------
+    # msw: this is a simple way to overwrite the default menu_modules function
     #@classmethod
     #def menu_modules(cls):
-        #""" Custom Modules Menu """
+    #    """ Custom Modules Menu """
+    #
+    #    return [
+    #        homepage(),
+    #        homepage("gis"),
+    #        homepage("pr")(
+    #            MM("Persons", f="person"),
+    #            MM("Groups", f="group")
+    #        ),
+    #        MM("more", link=False)(
+    #            homepage("dvi"),
+    #            homepage("irs")
+    #        ),
+    #    ]
+# -------------------------------------------------------------------------
+    @classmethod
+    def menu_modules(cls): 
 
-        #return [
-            #homepage(),
-            #homepage("gis"),
-            #homepage("pr")(
-                #MM("Persons", f="person"),
-                #MM("Groups", f="group")
-            #),
-            #MM("more", link=False)(
-                #homepage("dvi"),
-                #homepage("irs")
-            #),
-        #]
+        # ---------------------------------------------------------------------
+        # Modules Menu
+        # @todo: this is very ugly - cleanup or make a better solution
+        # @todo: probably define the menu explicitly?
+        #
+        
+        print 'msw: calling menu_modules(cls) in MSW/menus.py'
+        
+        menu_modules = []
+        all_modules = current.deployment_settings.modules
+        
+        #msw
+        #print 's3menus.py, menu_modules(cls):\n\t cls=',cls,'\n\t all_modules', all_modules
+        
+        # Home always 1st (commented because redundant/unnecessary)
+        # msw
+        module = all_modules["default"]
+        menu_modules.append(MM(module.name_nice, c="default", f="index"))
+
+        # Modules to hide due to insufficient permissions
+        hidden_modules = current.auth.permission.hidden_modules()
+
+        # The Modules to display at the top level (in order)
+        for module_type in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+            for module in all_modules:
+                if module in hidden_modules:
+                    continue
+                _module = all_modules[module]
+                if (_module.module_type == module_type):
+                    if not _module.access:
+                        menu_modules.append(MM(_module.name_nice, c=module, f="index"))
+                    else:
+                        groups = re.split("\|", _module.access)[1:-1]
+                        menu_modules.append(MM(_module.name_nice,
+                                               c=module,
+                                               f="index",
+                                               restrict=groups))
+
+        # Modules to display off the 'more' menu
+        modules_submenu = []
+        for module in all_modules:
+            if module in hidden_modules:
+                continue
+            _module = all_modules[module]
+            if (_module.module_type == 10):
+                if not _module.access:
+                    modules_submenu.append(MM(_module.name_nice, c=module, f="index"))
+                else:
+                    groups = re.split("\|", _module.access)[1:-1]
+                    modules_submenu.append(MM(_module.name_nice,
+                                              c=module,
+                                              f="index",
+                                              restrict=groups))
+
+        if modules_submenu:
+            # Only show the 'more' menu if there are entries in the list
+            module_more_menu = MM("more", link=False)(modules_submenu)
+            menu_modules.append(module_more_menu)
+
+        return menu_modules
 
 # =============================================================================
 class S3OptionsMenu(default.S3OptionsMenu):
@@ -161,5 +226,14 @@ class S3OptionsMenu(default.S3OptionsMenu):
             ),
         )
         
+     # msw
+    def housing(self):
+        return M(c="housing")(
+            M("Housing", f="flat")(
+                M("Create", m="create", right=True),
+                M("Import", m="import", right=True),
+                M("Report", m="report", right=True),
+            )
+        ) 
         
 # END =========================================================================

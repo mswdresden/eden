@@ -141,6 +141,8 @@ def index():
 
     # Default Homepage
     title = settings.get_system_name()
+	#msw
+	#title = 'Ich bin ein schoener Titel'
     response.title = title
 
     # CMS Contents for homepage

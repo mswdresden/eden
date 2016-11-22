@@ -1,0 +1,64 @@
+##
+## where are thing defined/controlled
+##
+s3menus.py:
+	class S3MainMenu location and existance of main menu items (the upper menue)
+
+	However, it is not a good idea to edit the official s3 code!
+	There is the possibility, to redefine the functions placed there locally
+	for your template => menus.py (see info there for more detail)
+	
+	BUT: the home button is deactivated in standard sahana-eden. So either
+	     uncomment it - or better - paseNcopy the code there to your template's
+		 menus.py and uncomment there
+
+# DIV, URL, LI, HTML, ...
+ methods like DIV, URL, LI, HTML are defined in gluon/html.py
+ 
+
+# possible important directories (http://www.flossmanuals.net/sahana-eden/installation/): 
+
+web2py/application/eden
+	- static
+		- controllers
+		- languages
+		- models
+			- 000_config.py  <=== basic settings
+							 <=== Any template setting can be over-ridden within 000_config.py for further fine-tuning as-required. 
+		- modules
+			- S3
+			- S3db
+		- private
+			- templates
+		- static
+		- views
+			- img
+			- script
+			- styles
+			- themes
+ 'template' seems to have moved to modules (probably in order to have multipe
+ templates, or just to have all templates in one place?)			
+		
+		- img
+
+# koennte (muss aber nicht) wichtig fuer import sein 
+( http://eden.sahanafoundation.org/wiki/DeveloperGuidelines/PrePopulate )
+/modules/template/MSW/tasks.cfg
+
+# error-log in in .../web2py/mswFLR.log
+
+# controllers and homepage
+if nothing is done, the default homepage is taken /eden/controllers/default.py (index())
+you somehow should give args ... then (probably) /modules/templates/<template>/controllers.py is used
+
+# themes seem to be in static, hmm:
+/eden/static/themes/DRK/homepage.css
+
+
+
+# WTF is M and MM when a make a menue, what are the parameters
+	- both are 'copies of classes' (shortcut)
+	- both look alike but are different
+		- MM is some layout (modules/s3layout.py) while M is a navigation item
+		  (S3NavigationItem, modules/s3/s3navigation.py)
+S3NavigationItem

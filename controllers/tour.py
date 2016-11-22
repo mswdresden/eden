@@ -14,7 +14,6 @@ def index():
     """
         Application Home page
     """
-
     module_name = settings.modules[module].name_nice
     response.title = module_name
     return dict(module_name=module_name)

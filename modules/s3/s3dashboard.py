@@ -289,7 +289,7 @@ class S3DashboardConfig(object):
                 (table.active == True) & \
                 (table.deleted != True)
         row = current.db(query).select(table.id,
-                                       table.layout,
+                                       layout,
                                        table.title,
                                        table.version,
                                        table.next_id,
@@ -304,7 +304,7 @@ class S3DashboardConfig(object):
                 self.next_id = row.next_id
 
             # Layout and title
-            self.layout = row.layout
+            self.layout = layout
             if row.title:
                 self.title = row.title
 
@@ -924,7 +924,7 @@ class S3Dashboard(object):
             @return: an instance of the active layout
         """
 
-        layout = self.available_layouts.get(config.layout)
+        layout = self.available_layouts.get(layout)
 
         if layout is None:
             layout = S3DashboardBoxesLayout

@@ -178,7 +178,7 @@ namebody    : something 'bigger' than your task
 	
 	- now it should be possible to see: eden/<namebody>
 
-4. Add a link in the main menu
+4. Add model to system (also create a link in the main menu)
 add to your config.py (in your template directory)
 settings.modules["<namebody>"] = Storage(
         name_nice=T("<Namebody>"),
@@ -196,4 +196,28 @@ settings.modules["<namebody>"] = Storage(
 	- edit 
 	- save
 7. Read data from file
+
+
+questions:
+ - how to incorporate upload facility for user classes?
+ - where to steer the look-and-feel of the page (number of entries, search, downlowd-options,...)
+ - how to make user classes work with 'standard' classes.
+ - where to alter the frontpage?
+ - should one edit s3dm, ... or something else
+ - new modules like in 'book' or as a new class?
+ - is there a 'read more' button for classes with many data-points?
+ - where is the 'homepage'
+ - what isy module_type? (config.py)
+ settings.modules["housing"] = Storage(
+        name_nice=T("Housing"),
+        module_type=2)
+ - do we need ansible  http://docs.ansible.com/ansible/quickstart.html
+ - ... 
 		
+
+
+// skeleton to own class
+1. change skeleton case sensitive to your name (e.g. housing)
+2. add new module in models/00_tables.py
+3. add controller and index functions in ./controller/housing.py
+4. edit eden/views/housing/index.html

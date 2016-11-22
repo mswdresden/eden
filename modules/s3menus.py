@@ -64,7 +64,7 @@ class S3MainMenu(object):
 
     # -------------------------------------------------------------------------
     @classmethod
-    def menu_modules(cls):
+    def menu_modules(cls): 
 
         # ---------------------------------------------------------------------
         # Modules Menu
@@ -73,8 +73,12 @@ class S3MainMenu(object):
         #
         menu_modules = []
         all_modules = current.deployment_settings.modules
-
+        
+        #msw
+        #print 's3menus.py, menu_modules(cls):\n\t cls=',cls,'\n\t all_modules', all_modules
+		
         # Home always 1st (commented because redundant/unnecessary)
+        # msw
         #module = all_modules["default"]
         #menu_modules.append(MM(module.name_nice, c="default", f="index"))
 
@@ -156,6 +160,7 @@ class S3MainMenu(object):
         # Now add the available guided tours to the help menu
 
         # check that a guided_tour is enabled
+        print 'msw,menu_help(...): current.deployment_settings.get_base_guided_tour()=',current.deployment_settings.get_base_guided_tour()
         if current.deployment_settings.get_base_guided_tour():
             # load the guided tour configuration from the database
             table = current.s3db.tour_config

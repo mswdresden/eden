@@ -64,7 +64,8 @@ from s3resource import S3Resource
 from s3utils import S3ModuleDebug, s3_mark_required, s3_has_foreign_key, s3_get_foreign_key, s3_unicode, s3_auth_user_represent_name
 from s3xml import S3XML
 
-DEBUG = False
+# msw
+DEBUG = True # False
 if DEBUG:
     print >> sys.stderr, "S3IMPORTER: DEBUG MODE"
     _debug = S3ModuleDebug.on
@@ -215,6 +216,7 @@ class S3Importer(S3Method):
             self.uploadTitle = current.response.s3.crud_strings[tablename].title_upload or T("Import")
         except:
             self.uploadTitle = T("Import")
+        _debug("Dmsw: self.uploadTitle= %s", str(self.uploadTitle))
 
         # @todo: correct to switch this off for the whole session?
         current.session.s3.ocr_enabled = False
@@ -230,6 +232,9 @@ class S3Importer(S3Method):
             self.csv_stylesheet = None
         self.csv_extra_fields = None
         self.csv_extra_data = None
+
+        _debug("Dmsw: self.csv_stylesheet= %s", str(self.csv_stylesheet))
+        #_debug("Dmsw: = %r", str())
 
         # XSLT Path
         self.xslt_path = os.path.join(r.folder, r.XSLT_PATH)
@@ -265,7 +270,11 @@ class S3Importer(S3Method):
         self.ajax = current.request.ajax and r.post_vars.approach == "ajax"
 
         # Now branch off to the appropriate controller function
+
+        _debug("Dmsw: r.http= %r", str(r.http))
         if r.http == "GET":
+            _debug("Dmsw: source   = %r", str(source))
+            _debug("Dmsw: upload_id= %r", str(upload_id))
             if source != None:
                 self.commit(source, transform)
                 output = self.upload(r, **attr)
@@ -308,13 +317,17 @@ class S3Importer(S3Method):
         _debug("S3Importer.upload()")
 
         request = self.request
-
+        _debug('1')
         form = self._upload_form(r, **attr)
+        _debug('2')
         output = self._create_upload_dataTable()
+        _debug('3')
         if request.representation == "aadata":
+            _debug('4')
             return output
-
+        _debug('5')
         output.update(form=form, title=self.uploadTitle)
+        _debug('6: output= %r', str(output))
         return output
 
     # -------------------------------------------------------------------------

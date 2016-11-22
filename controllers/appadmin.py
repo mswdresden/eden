@@ -570,7 +570,7 @@ def bg_graph_model():
                 n2 = graph.get_node(referenced_table)
                 graph.add_edge(n1, n2, color="#4C4C4C", label='')
 
-    graph.layout()
+    layout()
     #return graph.draw(format='png', prog='dot')
     if not request.args:
         return graph.draw(format='png', prog='dot')

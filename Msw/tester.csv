@@ -1,0 +1,4 @@
+hrm_human_resource.id,hrm_human_resource.department_id,hrm_human_resource.organisation_id,hrm_human_resource.person_id,hrm_human_resource.comments,hrm_human_resource.site_contact,hrm_human_resource.end_date,hrm_human_resource.essential,hrm_human_resource.job_title_id,hrm_human_resource.start_date,hrm_human_resource.site_id,hrm_human_resource.status
+1,<NULL>,1,2,<NULL>,<NULL>,<NULL>,<NULL>,1,<NULL>,<NULL>,1
+2,<NULL>,2,3,<NULL>,<NULL>,2017-02-28,<NULL>,2,2016-11-01,2,1
+4,<NULL>,6,11,<NULL>,<NULL>,<NULL>,<NULL>,<NULL>,<NULL>,<NULL>,1

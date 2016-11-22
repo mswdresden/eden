@@ -1,0 +1,36 @@
+
+we have the following structure: an entity is something from a bigger level, e.g.
+asylumseeker_person or housing_flat
+
+the python code for this custom data structure is:
+	- either in modules/s3db as a class or in models
+
+
+# a module (i.e. class) will be displayed by a pair of files:
+	- views/<class>/index.html
+	- controllers/<class>.py
+	
+# within the controller, functions are defined:
+	def <class>():
+		# return SOME dict
+		return dict()	
+		
+# if we now make a new controller fuction (e.g. wurbel()) 
+we need to make also views/<class>/wurbel.html
+
+
+
+
+### eingabefeld und sprung zu einer url
+<form action="{{=URL(f="person")}}">
+  	<input name="visitor_name" />
+	  <input type="submit" />
+  </form>
+  
+<form action="http://www.spiegel.de")}}">
+  	<input name="visitor_name" />
+	  <input type="submit" />	  
+  </form>
+  
+# info to URL  
+http://www.web2py.com/books/default/chapter/29/04#markmin_URL

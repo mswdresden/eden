@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="medium-6 small-12 columns">
+    {{=current.menu.about}}
+  </div>
+  <div class="medium-6 columns hide-for-small">
+    <p id="poweredby" class="right">
+     {{poweredby=T("Powered by Sahana")}}
+     <img src='/{{=appname}}/static/img/S3menu_logo.png' width='20' height='20' style='vertical-align:middle' alt='{{=poweredby}}' /><a target='_blank' href='http://eden.sahanafoundation.org' title='{{=poweredby}}'>{{=poweredby}}</a>
+    </p>
+  </div>
+  <!--
+  <div class="medium-6 small-12 columns">
+  	<ul>
+  		{{for i in [2,3,4,5]:}}<li>{{=("footer test:", (i))}}</li>{{pass}}
+	</ul>
+  </div>
+  
+  <div>
+  {{if settings.base.debug:}}{{="AAAAAAAAAAA True"}}{{else:}}{{="BBBBBBB False"}}{{pass}}
+  </div>
+  -->
+</div>
