@@ -32,10 +32,10 @@ __all__ = ("DVRCaseModel",
            "DVRCaseActivityModel",
            "DVRCaseAllowanceModel",
            "DVRCaseAppointmentModel",
-           "DVRCaseBeneficiaryModel",
+           "DVRHouseholdModel",
            "DVRCaseEconomyInformationModel",
            "DVRCaseEventModel",
-           "DVRCaseFundingModel",
+           "DVRActivityFundingModel",
            "DVRNeedsModel",
            "DVRNotesModel",
            "DVRSiteActivityModel",
@@ -253,11 +253,6 @@ class DVRCaseModel(S3Model):
                               (1, T("Low")),
                               )
 
-        # Case beneficiary options
-        case_beneficiary_opts = {"INDIVIDUAL": T("Individual"),
-                                 "HOUSEHOLD": T("Household"),
-                                 }
-
         # Consent flag options
         consent_opts = {"N/A": T("n/a"),
                         "Y": T("yes"),
@@ -364,6 +359,12 @@ class DVRCaseModel(S3Model):
                             readable = not default_organisation,
                             writable = not default_organisation,
                             ),
+                     self.project_project_id(
+                            ondelete = "SET NULL",
+                            # Enable in template as required:
+                            readable = False,
+                            writable = False,
+                            ),
                      self.super_link("site_id", "org_site",
                             default = default_site,
                             filterby = "site_id",
@@ -451,48 +452,6 @@ class DVRCaseModel(S3Model):
                            writable = manage_transferability,
                            ),
 
-                     # STL Extensions
-                     # @todo: move into component(s)
-                     Field("beneficiary",
-                           default = "INDIVIDUAL",
-                           label = T("Assistance for"),
-                           represent = S3Represent(options=case_beneficiary_opts),
-                           requires = IS_IN_SET(case_beneficiary_opts,
-                                                zero = None,
-                                                ),
-                           # Enable in template if required
-                           readable = False,
-                           writable = False,
-                           ),
-                     # Simplified "head of household" fields:
-                     # (if not tracked as separate case beneficiaries)
-                     Field("head_of_household", "boolean",
-                           default = True,
-                           label = T("Head of Household"),
-                           represent = s3_yes_no_represent,
-                           # Enable in template if required
-                           readable = False,
-                           writable = False,
-                           ),
-                     Field("hoh_name",
-                           label = T("Head of Household Name"),
-                           # Enable in template if required
-                           readable = False,
-                           writable = False,
-                           ),
-                     self.pr_gender("hoh_gender",
-                                    label = T("Head of Household Gender"),
-                                    # Enable in template if required
-                                    readable = False,
-                                    writable = False,
-                                    ),
-                     Field("hoh_relationship",
-                           label = T("Head of Household Relationship"),
-                           # Enable in template if required
-                           readable = False,
-                           writable = False,
-                           ),
-
                      # Standard comments and meta fields
                      s3_comments(),
                      *s3_meta_fields())
@@ -530,15 +489,11 @@ class DVRCaseModel(S3Model):
 
         # Components
         self.add_components(tablename,
-                            dvr_beneficiary_data = "case_id",
                             dvr_case_activity = "case_id",
                             dvr_case_details = {"joinby": "case_id",
                                                 "multiple": False,
                                                 },
                             dvr_case_event = "case_id",
-                            dvr_case_funding = {"joinby": "case_id",
-                                                "multiple": False,
-                                                },
                             dvr_case_service_contact = "case_id",
                             dvr_economy = {"joinby": "case_id",
                                            "multiple": False,
@@ -547,13 +502,6 @@ class DVRCaseModel(S3Model):
                                          "joinby": "case_id",
                                          "key": "need_id",
                                          },
-                            project_project = {"link": "project_case_project",
-                                               "joinby": "case_id",
-                                               "key": "project_id",
-                                               "multiple": False,
-                                               "actuate": "link",
-                                               "autodelete": False,
-                                               },
                             )
 
         # Report options FIXME
@@ -1088,10 +1036,13 @@ class DVRNeedsModel(S3Model):
         T = current.T
         db = current.db
 
+        settings = current.deployment_settings
         crud_strings = current.response.s3.crud_strings
 
         define_table = self.define_table
         configure = self.configure
+
+        hierarchical_needs = settings.get_dvr_needs_hierarchical()
 
         # ---------------------------------------------------------------------
         # Needs
@@ -1102,8 +1053,33 @@ class DVRNeedsModel(S3Model):
                            label = T("Name"),
                            requires = IS_NOT_EMPTY(),
                            ),
+                     # This form of hierarchy may not work on all Databases:
+                     Field("parent", "reference dvr_need",
+                           label = T("Subtype of"),
+                           ondelete = "RESTRICT",
+                           readable = hierarchical_needs,
+                           writable = hierarchical_needs,
+                           ),
                      s3_comments(),
                      *s3_meta_fields())
+
+        # Hierarchy
+        if hierarchical_needs:
+            hierarchy = "parent"
+            widget = S3HierarchyWidget(multiple = False,
+                                       leafonly = False,
+                                       )
+        else:
+            hierarchy = None
+            widget = None
+
+        # Table configuration
+        configure(tablename,
+                  deduplicate = S3Duplicate(primary = ("name",),
+                                            secondary = ("parent",),
+                                            ),
+                  hierarchy = hierarchy,
+                  )
 
         # CRUD Strings
         ADD_NEED = T("Create Need Type")
@@ -1120,11 +1096,6 @@ class DVRNeedsModel(S3Model):
             msg_list_empty = T("No Need Types found"),
             )
 
-        # Table configuration
-        configure(tablename,
-                  deduplicate = S3Duplicate(),
-                  )
-
         # Reusable field
         represent = S3Represent(lookup=tablename, translate=True)
         need_id = S3ReusableField("need_id", "reference %s" % tablename,
@@ -1133,12 +1104,14 @@ class DVRNeedsModel(S3Model):
                                   represent = represent,
                                   requires = IS_EMPTY_OR(
                                                 IS_ONE_OF(db, "dvr_need.id",
-                                                          represent)),
-                                  comment=S3PopupLink(c = "dvr",
-                                                      f = "need",
-                                                      title = ADD_NEED,
-                                                      tooltip = T("Choose the need type from the drop-down, or click the link to create a new type"),
-                                                      ),
+                                                          represent,
+                                                          )),
+                                  comment = S3PopupLink(c = "dvr",
+                                                        f = "need",
+                                                        title = ADD_NEED,
+                                                        tooltip = T("Choose the need type from the drop-down, or click the link to create a new type"),
+                                                        ),
+                                  widget = widget
                                   )
 
         # ---------------------------------------------------------------------
@@ -1286,6 +1259,7 @@ class DVRCaseActivityModel(S3Model):
              "dvr_case_activity",
              "dvr_case_service_contact",
              "dvr_activity_type_represent",
+             "dvr_case_activity_id",
              )
 
     def model(self):
@@ -1455,19 +1429,12 @@ class DVRCaseActivityModel(S3Model):
                      s3_comments(),
                      *s3_meta_fields())
 
-        # CRUD Strings
-        crud_strings[tablename] = Storage(
-            label_create = T("Create Activity"),
-            title_display = T("Activity Details"),
-            title_list = T("Activities"),
-            title_update = T("Edit Activity"),
-            label_list_button = T("List Activities"),
-            label_delete_button = T("Delete Activity"),
-            msg_record_created = T("Activity added"),
-            msg_record_modified = T("Activity updated"),
-            msg_record_deleted = T("Activity deleted"),
-            msg_list_empty = T("No Activities currently registered"),
-            )
+        # Components
+        self.add_components(tablename,
+                            dvr_activity_funding = {"joinby": "activity_id",
+                                                    "multiple": False,
+                                                    },
+                            )
 
         # List fields
         list_fields = ["start_date",
@@ -1558,6 +1525,28 @@ class DVRCaseActivityModel(S3Model):
                   report_options = report_options,
                   )
 
+        # CRUD Strings
+        crud_strings[tablename] = Storage(
+            label_create = T("Create Activity"),
+            title_display = T("Activity Details"),
+            title_list = T("Activities"),
+            title_update = T("Edit Activity"),
+            label_list_button = T("List Activities"),
+            label_delete_button = T("Delete Activity"),
+            msg_record_created = T("Activity added"),
+            msg_record_modified = T("Activity updated"),
+            msg_record_deleted = T("Activity deleted"),
+            msg_list_empty = T("No Activities currently registered"),
+            )
+
+        # Reusable field
+        activity_id = S3ReusableField("activity_id", "reference %s" % tablename,
+                                      ondelete = "CASCADE",
+                                      requires = IS_EMPTY_OR(
+                                                    IS_ONE_OF(db, "%s.id" % tablename,
+                                                              )),
+                                      )
+
         # ---------------------------------------------------------------------
         # Case Service Contacts (other than case activities)
         #
@@ -1597,6 +1586,7 @@ class DVRCaseActivityModel(S3Model):
         # Pass names back to global scope (s3.*)
         #
         return {"dvr_activity_type_represent": activity_type_represent,
+                "dvr_case_activity_id": activity_id,
                 }
 
     # -------------------------------------------------------------------------
@@ -1604,7 +1594,14 @@ class DVRCaseActivityModel(S3Model):
     def defaults():
         """ Safe defaults for names in case the module is disabled """
 
+        dummy = S3ReusableField("dummy_id", "integer",
+                                readable = False,
+                                writable = False,
+                                )
+
         return {"dvr_activity_type_represent": lambda v: "",
+                "dvr_case_activity_id": lambda name="activity_id", **attr: \
+                                               dummy(name, **attr),
                 }
 
     # -------------------------------------------------------------------------
@@ -2030,13 +2027,13 @@ class DVRCaseAppointmentModel(S3Model):
                     dvr_update_last_seen(person_id)
 
 # =============================================================================
-class DVRCaseBeneficiaryModel(S3Model):
+class DVRHouseholdModel(S3Model):
     """
-        Model for Case Beneficiary Data (=statistical data about beneficiaries
-        of the case besides the main beneficiary, e.g. household members)
+        Model to document the household situation of a case
     """
 
-    names = ("dvr_beneficiary_type",
+    names = ("dvr_household",
+             "dvr_beneficiary_type",
              "dvr_beneficiary_data",
              )
 
@@ -2049,6 +2046,58 @@ class DVRCaseBeneficiaryModel(S3Model):
 
         configure = self.configure
         define_table = self.define_table
+
+        # ---------------------------------------------------------------------
+        tablename = "dvr_household"
+        define_table(tablename,
+                     # Main Beneficiary (component link):
+                     # @todo: populate from case and hide in case perspective
+                     self.pr_person_id(empty = False,
+                                       ondelete = "CASCADE",
+                                       ),
+                     Field("hoh_name",
+                           label = T("Head of Household Name"),
+                           ),
+                     self.pr_gender("hoh_gender",
+                                    label = T("Head of Household Gender"),
+                                    ),
+                     s3_date("hoh_date_of_birth",
+                             label = T("Head of Household Date of Birth"),
+                             future = 0,
+                             past = 1320,
+                             ),
+                     Field("hoh_relationship",
+                           label = T("Head of Household Relationship"),
+                           ),
+                     s3_comments(),
+                     *s3_meta_fields())
+
+        # Components
+        self.add_components(tablename,
+                            dvr_beneficiary_data = "household_id",
+                            )
+
+        # CRUD Strings
+        crud_strings[tablename] = Storage(
+            label_create = T("Add Household Details"),
+            title_display = T("Household Details"),
+            title_list = T("Household Details"),
+            title_update = T("Edit Household Details"),
+            label_list_button = T("List Household Details"),
+            label_delete_button = T("Delete Household Details"),
+            msg_record_created = T("Household Details added"),
+            msg_record_modified = T("Household Details updated"),
+            msg_record_deleted = T("Household Details deleted"),
+            msg_list_empty = T("No Household Details currently registered"),
+            )
+
+        # Reusable field
+        household_id = S3ReusableField("household_id", "reference %s" % tablename,
+                                       ondelete = "CASCADE",
+                                       requires = IS_EMPTY_OR(
+                                                    IS_ONE_OF(db, "%s.id" % tablename,
+                                                              )),
+                                       )
 
         # ---------------------------------------------------------------------
         # Beneficiary Types (e.g. Age Groups)
@@ -2096,15 +2145,7 @@ class DVRCaseBeneficiaryModel(S3Model):
 
         tablename = "dvr_beneficiary_data"
         define_table(tablename,
-                     # Main Beneficiary (component link):
-                     # @todo: populate from case and hide in case perspective
-                     self.pr_person_id(empty = False,
-                                       ondelete = "CASCADE",
-                                       ),
-                     self.dvr_case_id(empty = False,
-                                      label = T("Case Number"),
-                                      ondelete = "CASCADE",
-                                      ),
+                     household_id(),
                      beneficiary_type_id(),
                      Field("total", "integer",
                            label = T("Number of Beneficiaries"),
@@ -3099,11 +3140,11 @@ class DVRCaseEventModel(S3Model):
                 dvr_update_last_seen(person_id)
 
 # =============================================================================
-class DVRCaseFundingModel(S3Model):
+class DVRActivityFundingModel(S3Model):
     """ Model to manage funding needs for cases """
 
-    names = ("dvr_case_funding_reason",
-             "dvr_case_funding",
+    names = ("dvr_activity_funding_reason",
+             "dvr_activity_funding",
              )
 
     def model(self):
@@ -3119,7 +3160,7 @@ class DVRCaseFundingModel(S3Model):
         # ---------------------------------------------------------------------
         # Reasons for case funding
         #
-        tablename = "dvr_case_funding_reason"
+        tablename = "dvr_activity_funding_reason"
         define_table(tablename,
                      Field("name",
                            label = T("Reason"),
@@ -3147,9 +3188,10 @@ class DVRCaseFundingModel(S3Model):
         reason_id = S3ReusableField("reason_id", "reference %s" % tablename,
                                     label = T("Reason"),
                                     represent = represent,
-                                    requires = IS_ONE_OF(db, "dvr_case_funding_reason.id",
-                                                         represent,
-                                                         ),
+                                    requires = IS_EMPTY_OR(
+                                                IS_ONE_OF(db, "%s.id" % tablename,
+                                                          represent,
+                                                          )),
                                     sortby = "name",
                                     comment = S3PopupLink(c="dvr",
                                                           f="case_funding_reason",
@@ -3160,9 +3202,9 @@ class DVRCaseFundingModel(S3Model):
         # ---------------------------------------------------------------------
         # Case funding proposal
         #
-        tablename = "dvr_case_funding"
+        tablename = "dvr_activity_funding"
         define_table(tablename,
-                     self.dvr_case_id(),
+                     self.dvr_case_activity_id(),
                      Field("funding_required", "boolean",
                            default = False,
                            label = T("Funding Required"),
@@ -3938,6 +3980,9 @@ class DVRRegisterCaseEvent(S3Method):
     # Action to check flag restrictions for
     ACTION = "id-check"
 
+    # Whether to show profile picture by default
+    SHOW_PICTURE = False
+
     # -------------------------------------------------------------------------
     def apply_method(self, r, **attr):
         """
@@ -4030,6 +4075,7 @@ class DVRRegisterCaseEvent(S3Method):
         if person:
             # Person details
             person_details = self.person_details(person)
+            profile_picture = self.profile_picture(person)
 
             # Blocking periods for events
             event_types = self.get_event_types()
@@ -4057,6 +4103,7 @@ class DVRRegisterCaseEvent(S3Method):
                                   })
         else:
             person_details = ""
+            profile_picture = None
             permitted = False
 
         # Identify the event type
@@ -4099,6 +4146,7 @@ class DVRRegisterCaseEvent(S3Method):
                   "permitted": json.dumps(permitted),
                   "flags": json.dumps(flags),
                   "intervals": json.dumps(intervals),
+                  "image": profile_picture,
                   }
 
         # Additional form data
@@ -4178,6 +4226,9 @@ class DVRRegisterCaseEvent(S3Method):
                                     method = "register",
                                     representation = "json",
                                     ),
+                   "showPicture": self.SHOW_PICTURE,
+                   "showPictureText": s3_str(T("Show Picture")),
+                   "hidePictureText": s3_str(T("Hide Picture")),
                    }
         self.inject_js(widget_id, options)
 
@@ -4379,12 +4430,13 @@ class DVRRegisterCaseEvent(S3Method):
 
             check = data.get("c")
             if check:
-
                 # Person details
                 person_details = self.person_details(person)
+                profile_picture = self.profile_picture(person)
 
                 output["p"] = s3_str(person_details)
                 output["l"] = person.pe_label
+                output["b"] = profile_picture
 
                 # Family details
                 details = dvr_get_household_size(person.id,
@@ -4731,6 +4783,7 @@ class DVRRegisterCaseEvent(S3Method):
 
         # Fields to extract
         fields = ["id",
+                  "pe_id",
                   "pe_label",
                   "first_name",
                   "middle_name",
@@ -4915,6 +4968,34 @@ class DVRRegisterCaseEvent(S3Method):
         return output
 
     # -------------------------------------------------------------------------
+    @staticmethod
+    def profile_picture(person):
+        """
+            Get the profile picture URL for a person
+
+            @param person: the person record (Row)
+
+            @return: the profile picture URL (relative URL), or None if
+                     no profile picture is available for that person
+        """
+
+        try:
+            pe_id = person.pe_id
+        except AttributeError:
+            return None
+
+        table = current.s3db.pr_image
+        query = (table.pe_id == pe_id) & \
+                (table.profile == True) & \
+                (table.deleted != True)
+        row = current.db(query).select(table.image, limitby=(0, 1)).first()
+
+        if row:
+            return URL(c="default", f="download", args=row.image)
+        else:
+            return None
+
+    # -------------------------------------------------------------------------
     def get_blocked_events(self, person_id, type_id=None):
         """
             Check minimum intervals for event registration and return
@@ -5045,6 +5126,9 @@ class DVRRegisterPayment(DVRRegisterCaseEvent):
 
     # Do not check minimum intervals for consecutive registrations
     check_intervals = False
+
+    # Show profile picture by default
+    SHOW_PICTURE = True
 
     # -------------------------------------------------------------------------
     # Configuration
@@ -5196,9 +5280,11 @@ class DVRRegisterPayment(DVRRegisterCaseEvent):
             if check:
                 # Person details
                 person_details = self.person_details(person)
+                profile_picture = self.profile_picture(person)
 
                 output["p"] = s3_str(person_details)
                 output["l"] = person.pe_label
+                output["b"] = profile_picture
 
                 info = flag_info["info"]
                 for flagname, instructions in info:
@@ -5813,7 +5899,7 @@ def dvr_get_flag_instructions(person_id, action=None):
             instructions = flag.instructions
             if instructions is not None:
                 instructions = instructions.strip()
-            if instructions:
+            if not instructions:
                 instructions = current.T("No instructions for this flag")
             info.append((flag.name, instructions))
 
