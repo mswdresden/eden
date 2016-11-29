@@ -28,8 +28,9 @@
 # - all other names in the name list will be added to response.s3
 #   if their names start with the module prefix plus underscore
 #
-__all__ = ("S3AsylumDataModel",
-           "asylum_person_represent"
+__all__ = ( "S3AsylumDataModel",
+            "asylum_person_represent",
+            "asylum_ip_func"
            )
 
 # The following import statements are needed in almost every model
@@ -72,6 +73,7 @@ class S3AsylumDataModel(S3Model):
         # You will most likely need (at least) these:
         db = current.db
         T = current.T
+        gis = current.gis
         # this is the place for this call ih hrm, however, in skelleton it is further up
         s3db = current.s3db
 
@@ -82,6 +84,7 @@ class S3AsylumDataModel(S3Model):
 
         ADMIN = current.session.s3.system_roles.ADMIN
         is_admin = auth.s3_has_role(ADMIN)
+        print "asylum: my admin status is: ", is_admin
 
         messages = current.messages
         UNKNOWN_OPT = messages.UNKNOWN_OPT
@@ -99,14 +102,82 @@ class S3AsylumDataModel(S3Model):
         #    makes sure the table won't be re-defined if it's already in db
         # -> use s3_meta_fields to include meta fields (not s3_meta_fields!),
         #    of course this needs the s3 assignment above
+
+        # msw: tablename is a local variable
         tablename = "asylum_person"
+
+        # msw: self is this class which is derived form S3Model eden/modules/s3/s3model.py
+        #      S3Model has in it some Storage objects -> gluon/storage.py
+        #      and defines variables like self.prefix /cache / context/ classes
+        #      and self.model which is a storage of some storages Storage(config = Storage(),
+        #      components= St..., methods, cmethods,  hierarchies
+        #
+        # msw: the next line calls define_table from this class. Same as db.define_table except that
+        #      it does not repeat a table definition if the table is already defined.
+        #      the web2py define_table function takes the following parameters (http://www.web2py.com/books/default/chapter/29/06/the-database-abstraction-layer):
+        #      (the S3Model representation has other/additional parameters, hmmm??)
+        # db.define_table('person',
+        #            Field('name'),
+        #            id=id,
+        #            rname=None,
+        #            redefine=True
+        #            common_filter,
+        #            fake_migrate,
+        #            fields,
+        #            format,
+        #            migrate,
+        #            on_define,
+        #            plural,
+        #            polymodel,
+        #            primarykey,
+        #            redefine,
+        #            sequence_name,
+        #            singular,
+        #            table_class,
+        #            trigger_name)
+
         self.define_table(tablename,
+                # msw: a Field most probably is form dal (see gluon/tools.py -> from dal import DAL, Field)
+                # it should have the following parameter ()
+                # Field(fieldname, type='string',
+                # length=None, # msw: for BWcompatibility in the future (web2py): should always be used
+                # default=None,
+                # required=False, requires='<default>',
+                # ondelete='CASCADE', # msw: if True (or CASCADE??), deletes also all referencing data!
+                # notnull=False, unique=False,
+                # uploadfield=True, widget=None, label=None, comment=None,
+                # writable=True, readable=True, update=None, authorize=None,
+                # autodelete=False, represent=None, compute=None,
+                # uploadfolder=None, uploadseparate=None, uploadfs=None, rname=None)
+
+
                 Field("name", notnull=True, length=64,
                     label=T("Name"),
                     requires=IS_NOT_EMPTY(),
+                    comment=T("The main Name of a person")
                 ),
                 Field("firstname", label=T("Firstname")),# A 'name' field
                 Field("address",label=T("Address")),
+                Field("telno",
+                        label = T("Telephone Number")),
+                Field("email", label=T("EMail")),
+
+                          # person's birth date
+                s3_date(label=T("Birth Date")),
+                self.pr_gender(),
+
+                # Current status
+                Field("status", "integer",
+                           default = 1,
+                           label = T("Status"),
+                           ),
+                Field("native_country", label=T("Native Country")),
+                Field("nationality", label=T("Nationality")),
+                s3_date(label=T("Arrival in Germany")),
+                s3_date(label=T("Arrival in Dresden")),
+                Field("first_language", label=T("First Language")),
+                Field("oter_languages", label=T("Other Languages")),
+                s3_comments(),
 
                 # This adds all the metadata to store
                 # information on who created/updated
@@ -115,6 +186,9 @@ class S3AsylumDataModel(S3Model):
 
 
         # Use self.configure to configure your model (or current.s3db.configure)
+        # msw: Update the extra configuration of a table
+        #    @param tablename: the name of the table
+        #    @param attr: dict of attributes to update
         self.configure(tablename,
                        listadd=False)
 
@@ -227,5 +301,12 @@ def asylum_person_represent(id):
     except:
         # Data inconsistency error!
         return current.messages.UNKNOWN_OPT
+
+# a truely msw function
+#from gluon import *
+
+def asylum_ip_func():
+    print 'hi msw'
+    return current.request.client
 
 # END =========================================================================

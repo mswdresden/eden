@@ -230,3 +230,8 @@ questions:
 look at /web2py/application/welcome/private/appconfig.ini
 this seem to have someting to do with it (see: http://www.web2py.com/books/default/chapter/29/01/introduction)
 
+
+
+
+
+

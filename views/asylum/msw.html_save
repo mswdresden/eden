@@ -1,0 +1,51 @@
+{{extend "layout.html"}}
+
+<h2>Welcome to the Asylum Module (Persons)</h2>
+<ul>
+ <li>{{=bummi}} </li>
+ <li>{{=I(bummi)}} </li>
+ <li>{{=I(bummi, XML('<b>world</b>'), _class='test', _id=0)}} </li>
+</ul>
+
+<!--	
+{{=HR()}}
+
+{{
+contents = ['this','is','a','bummnotlikethis']
+attributes = {'_id':'123', '_class':'myclass'}
+=DIV(*contents,**attributes)
+}}
+
+{{=IFRAME(_src='http://www.web2py.com')}}
+
+
+{{=HR()}}
+{{=B("A     ")}} This helper is used to build links <br>
+{{="A('<click>', XML('<b>me</b>'), _href='http://www.web2py.com'"}}<br>
+{{=A('<click>', XML('<b>me</b>'), _href='http://www.web2py.com')}}
+
+	
+
+
+{{=HR()}}
+{{=B("     ")}} This helper performs syntax highlighting for Python, C, C++, HTML and web2py code, and is preferable to PRE for code listings. CODE also has the ability to create links to the web2py API documentation. <br>
+{{=""}}<br>
+{{=}}
+
+{{=HR()}}
+{{=B("COL     ")}} COL('a','b')<br>
+{{="COL('a','b')"}}<br>
+{{=COL('a','b')}}
+
+{{=HR()}}
+{{=B("DIV     ")}} <br>
+{{="DIV('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=DIV('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+
+
+
+
+<br><br><br><br><br>
+{{=B("A('<click>', XML('<b>me</b>'), _href='http://www.web2py.com'")}}
+-->

@@ -62,3 +62,17 @@ you somehow should give args ... then (probably) /modules/templates/<template>/c
 		- MM is some layout (modules/s3layout.py) while M is a navigation item
 		  (S3NavigationItem, modules/s3/s3navigation.py)
 S3NavigationItem
+
+###
+homepage/new-page
+you need:
+ 1. a function in your template's file controllers:
+ def <name>:
+ 	# ... code ...
+	return dict( .... ) # some kind of dict which the viewer can digest
+	example: testmsw()
+	
+ 2. eden/views/<name>/<name>.html
+ 	the view file testmsw.html	
+	
+ 3. http://127.0.0.1:8000/eden/testmsw/testmsw

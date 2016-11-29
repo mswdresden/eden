@@ -753,31 +753,4 @@ def update_transferability(site_id=None):
 
     return result
 
-###############################################################################
-# msw
-def testmsw():
-    #print 1/0
-    #return dict()
- # msw: works ... NO
-    response.title = "Msw changed Title in the controllerfunction wurbel() for class asylumseeker"
-
-    # no effect
-    response.menu = [('Google', False, 'http://www.google.com',[]),
-                 ('Index',  True,  URL('index'), [])]
-
-    # hmmm
-    #globals.left_sidebar_enabled = 1
-    #globals.right_sidebar_enabled = 1
-
-    # works
-    mswtext="Hallo, ich bin ein Text"
-    menu = MENU([
-        ['One broken link', False, 'link1'],
-        ['Two', False, 'assets'],
-        ['Three', False, 'www.spiegel.de']],
-    )
-    return dict(mswtext=mswtext,mswmenu=menu)
-
-
-
 # END =========================================================================

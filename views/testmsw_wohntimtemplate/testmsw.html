@@ -1,35 +1,14 @@
-{{extend "layout.html"}}{{theme=response.s3.theme}}
+{{left_sidebar_enable=True}}
+{{extend 'layout.html'}}
 
-<div class='row intro-row homepage-row'>
-  <div class='small-12 medium-2 large-2 columns'>
-    <img src='/{{=appname}}/static/themes/{{=theme}}/img/logo.png' alt=''/>
-  </div>
-  <div class='small-12 medium-10 large-10 columns'>
-    <div class='row'>
-      <h2 id='homepage-title'> {{=title}}</h2>
-      <hr>
-      <div class='panel'>
-        <p>
-        {{=T("Sahana Sunflower is the Sahana Software Foundation’s Community Management Tool. It is built using the Sahana Eden Open Source Disaster Management Platform.")}}
-        </p>
-        <div>
-          {{if not auth.is_logged_in():}}
-          <a class='button small radius' href='/{{=appname}}/default/user/login' role='button'>
-            {{=T("Login")}}
-          </a>
-          <a class='button small info radius' href='/{{=appname}}/default/user/register' role='button'>
-            {{=T("Register")}}
-          </a>
-          {{else:}}
-          <a class='button small radius' role='button' href='/{{=appname}}/pr/person/{{=s3_logged_in_person()}}'>
-            {{=T("Profile")}}
-          </a>
-          {{pass}}
-        </div>
-      </div>    
-    </div>
-  </div>
+This text goes in centerrrrrrrrrrrrr
+<div>
+{{"hallo"}}
 </div>
+<div>
+{{"welt"}}
+</div>
+<!--
 <div class='row about-row homepage-row'>
   <div class='small-12 medium-12 large-7 columns'>
     <div class='row' id='contribute-div'>
@@ -81,3 +60,8 @@
     </div>
   </div>
 </div>
+-->
+
+{{block left_sidebar}}
+This text goes in sidebar
+{{end}}

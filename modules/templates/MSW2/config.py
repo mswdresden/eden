@@ -33,11 +33,11 @@ def config(settings):
 
     # Authentication settings
     # Should users be allowed to register themselves?
-    settings.security.self_registration = False
+    settings.security.self_registration = True # <===
     # Do new users need to verify their email address?
-    #settings.auth.registration_requires_verification = True
+    settings.auth.registration_requires_verification = False
     # Do new users need to be approved by an administrator prior to being able to login?
-    #settings.auth.registration_requires_approval = True
+    settings.auth.registration_requires_approval = False
     settings.auth.registration_requests_organisation = True
     settings.auth.registration_link_user_to = {"staff": T("Staff"),
                                                "volunteer": T("Volunteer"),
@@ -2621,17 +2621,17 @@ def config(settings):
             restricted = False,
             module_type = None  # No Menu
         )),
-        #("sync", Storage(
-        #    name_nice = T("Synchronization"),
-        #    #description = "Synchronization",
-        #    restricted = True,
-        #    access = "|1|",     # Only Administrators can see this module in the default menu & access the controller
-        #    module_type = None  # This item is handled separately for the menu
-        #)),
-        ("tour", Storage(
-            name_nice = T("Guided Tour Functionality"),
-            module_type = 6,
+        ("sync", Storage(
+            name_nice = T("Synchronization"),
+            #description = "Synchronization",
+            restricted = True,
+            access = "|1|",     # Only Administrators can see this module in the default menu & access the controller
+            module_type = None  # This item is handled separately for the menu
         )),
+        #("tour", Storage(
+        #    name_nice = T("Guided Tour Functionality"),
+        #    module_type = 6,
+        #)),
         #("translate", Storage(
         #    name_nice = T("Translation Functionality"),
         #    #description = "Selective translation of strings based on module.",
@@ -2640,8 +2640,8 @@ def config(settings):
         ("gis", Storage(
             name_nice = T("Map"),
             #description = "Situation Awareness & Geospatial Analysis",
-            restricted = True,
-            module_type = 6,     # 6th item in the menu
+            restricted = False,
+            module_type = 10,     # 6th item in the menu
         )),
         ("pr", Storage(
             name_nice = T("Person Registry"),
@@ -2666,7 +2666,7 @@ def config(settings):
            name_nice = T("Volunteers"),
            #description = "Human Resources Management",
            restricted = True,
-           module_type = 2,
+           module_type = 10,
         )),
         ("cms", Storage(
          name_nice = T("Content Management"),
@@ -2697,13 +2697,13 @@ def config(settings):
            name_nice = T("Warehouses"),
            #description = "Receiving and Sending Items",
            restricted = True,
-           module_type = 4
+           module_type = 10
         )),
         ("asset", Storage(
            name_nice = T("Assets"),
            #description = "Recording and Assigning Assets",
            restricted = True,
-           module_type = 5,
+           module_type = 10,
         )),
         # Vehicle depends on Assets
         #("vehicle", Storage(
@@ -2722,7 +2722,7 @@ def config(settings):
            name_nice = T("Projects"),
            #description = "Tracking of Projects, Activities and Tasks",
            restricted = True,
-           module_type = 2
+           module_type = 10
         )),
         ("cr", Storage(
             name_nice = T("Shelters"),
@@ -2769,22 +2769,31 @@ def config(settings):
         # msw's new modules
         ("asylumseeker", Storage(
             name_nice=T("Asylumseeker"),
-            module_type=2,
+            restricted=True,
+            module_type=10,
         )),
         ("residential", Storage(
             name_nice=T("Residential"),
-            module_type=2,
+            restricted=True,
+            access = "|2|",
+            module_type=10,
         )),
         ("housing", Storage(
             name_nice=T("Housing"),
-            module_type=2,
+            restricted=True,
+            module_type=4,
         )),
         ("asylum", Storage(
             name_nice=T("Asylum"),
-            module_type=2,
+            restricted= True,
+            #access = "|Editor|",
+            module_type=3,
         )),
 
     ])
+    # msw ... prints nothing ... hmm ... ?
+    #print 'msw: printing all exisiting date tables:'
+    #print current.db.tables
 
 # =============================================================================
 def drk_default_shelter():

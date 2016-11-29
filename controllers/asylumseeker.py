@@ -27,7 +27,11 @@ def wurbel():
 
     # works
     mswtext="Hallo, ich bin ein Text"
-    menu = MENU([['One', False, 'link1'], ['Two', False, 'link2']])
+    menu = MENU([
+        ['One broken link', False, 'link1'],
+        ['Two', False, 'assets'],
+        ['Three', False, 'www.spiegel.de']],
+    )
     return dict(mswtext=mswtext,mswmenu=menu)
 
 def bortsch():

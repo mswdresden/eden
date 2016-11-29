@@ -1,0 +1,301 @@
+{{extend "layout.html"}}
+
+<h2>Welcome to the Asylum Module (Persons)</h2>
+<ul>
+ <li>{{=bummi}} </li>
+ <li>{{=I(bummi)}} </li>
+ <li>{{=I(bummi, XML('<b>world</b>'), _class='test', _id=0)}} </li>
+</ul>
+
+<div>
+{{=HR()}}
+{{
+contents = ['this','is','a','bummnotlikethis']
+attributes = {'_id':'123', '_class':'myclass'}
+=DIV(*contents,**attributes)
+}}
+
+
+{{=HR()}}
+{{=B("A     ")}} This helper is used to build links <br>
+{{="A('<click>', XML('<b>me</b>'), _href='http://www.web2py.com')"}}<br>
+{{=A('<click>', XML('<b>me</b>'), _href='http://www.web2py.com')}}
+
+{{=HR()}}
+{{=B("B     ")}}This helper makes its contents bold<br>
+{{="B('<hello>', XML('<i>world</i>'), _class='test', _id=0)"}}<br>
+{{=B('<hello>', XML('<i>world</i>'), _class='test', _id=0)}}
+
+{{=HR()}} 
+{{=B("BODY     ")}} This helper makes the body of a page. <br> 
+{{="BODY('<hello>', XML('<b>world</b>'), _bgcolor='red')"}}<br>
+{{=BODY('<hello>', XML('<b>world</b>'), _bgcolor='red')}}
+
+{{=HR()}}
+{{=B("BR     ")}} This helper creates a line break (Notice that helpers can be repeated using the multiplication operator)<br>
+{{="BR()*5"}}<br>
+{{=BR()*5}}
+
+{{=HR()}}
+{{=B("CAT     ")}} This helper concatenates other helpers, same as TAG['']. <br>
+{{="CAT('Here is a ', A('link',_href=URL()), ', and here is some ', B('bold text'), '.')"}}<br>
+{{=CAT('Here is a ', A('link',_href=URL()), ', and here is some ', B('bold text'), '.')}}
+
+{{=HR()}}
+{{=B("CENTER     ")}} This helper centers its content. <br>
+{{="CENTER('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=CENTER('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+
+{{=HR()}}
+{{=B("CODE     ")}} This helper performs syntax highlighting for Python, C, C++, HTML and web2py code, and is preferable to PRE for code listings. CODE also has the ability to create links to the web2py API documentation.<br>
+see documentation<br>
+ 
+{{=HR()}}
+{{=B("COL	 ")}} STRANGE<br>
+
+{{=HR()}}
+{{=B("COLGROUP")}} COLGROUP<br>
+{{="COLGROUP('a','b')"}}<br>
+{{=COLGROUP('a','b')}}
+
+{{=HR()}}
+{{=B("DIV	 ")}}All helpers apart from XML are derived from DIV and inherit its basic methods. <br>
+{{="DIV('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=DIV('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+
+{{=HR()}}
+{{=B("EM     ")}} Emphasizes its content. <br>
+{{="EM('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=EM('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("     ")}} This is used to create an input field together with its label. <br>
+{aaa{="FIELDSET('Height:', INPUT(_name='height'), _class='test')"}}<br>
+{enablingmaytriggerwarningduringreload_notgoodfordevelopment{=FIELDSET('Height:', INPUT(_name='height'), _class='test')}}
+
+{{=HR()}}
+{{=B("FORM     ")}} This is one of the most important helpers. 
+In its simple form, it just makes a form...form> tag, 
+but because helpers are objects and have knowledge of what 
+they contain, they can process submitted forms (for example, 
+perform validation of the fields). 
+This will be discussed in detail in Chapter 7. <br>
+{aaa{="FORM(INPUT(_type='submit'), _action='', _method='post')"}}<br>
+{enablingmaytriggerwarningduringreload_notgoodfordevelopment{=FORM(INPUT(_type='submit'), _action='', _method='post')}}
+
+
+{{=HR()}}
+{{=B("H1, H2, H3, H4, H5, H6     ")}}These helpers are for paragraph headings and subheadings: <br>
+{{="H1('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=H1('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("HEAD     ")}} For tagging the HEAD of an HTML page.<br>
+{{="HEAD(TITLE('<hello>', XML('<b>world</b>')))"}}<br>
+{{=HEAD(TITLE('<hello>', XML('<b>world</b>')))}}
+
+{{=HR()}}
+{{=B("HTML     ")}}This helper is a little different. In addition to making the <html> tags, it prepends the tag with a doctype string <br>
+{{="HTML(BODY('<hello>', XML('<b>world</b>')))"}}<br>
+{{=HTML(BODY('<hello>', XML('<b>world</b>')))}}
+
+
+{{=HR()}}
+{{=B("XHTML     ")}} XHTML is similar to HTML but it creates an XHTML doctype instead.<br>
+
+{{=HR()}}
+{{=B("HR     ")}} This helper creates a horizontal line in an HTML page<br>
+{{="HR()"}}<br>
+{{=HR()}}
+
+{{=HR()}}
+{{=B("I     ")}} This helper makes its contents italic. <br>
+{{="I('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=I('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("IFRAME     ")}} This helper includes another web page in the current page. The url of the other page is specified via the "_src" attribute.<br>
+{{="IFRAME(_src='http://www.web2py.com')"}}<br>
+{{=IFRAME(_src='http://www.web2py.com')}}
+
+{{=HR()}}
+{{=B("IMG     ")}} It can be used to embed images into HTML:<br>
+{{="IMG(_src='http://example.com/image.png',_alt='test')"}}<br>
+{{=IMG(_src='http://example.com/image.png',_alt='test')}}
+
+{{=HR()}}
+{{=B("INPUT     ")}} Creates an input tag.<br>
+{{="INPUT(_name='test', _value='a')"}}<br>
+{{=INPUT(_name='test', _value='a')}}
+
+{{=HR()}}
+{{=B("LABEL     ")}} It is used to create a LABEL tag for an INPUT field.<br>
+{{="LABEL('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=LABEL('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("LEGEND     ")}} It is used to create a legend tag for a field in a form.<br>
+{{="LEGEND('Name', _for='myfield')"}}<br>
+{{=LEGEND('Name', _for='myfield')}}
+
+{{=HR()}}
+{{=B("LI     ")}}It makes a list item and should be contained in a ui or oi tag <br>
+{{="LI('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+<ol>
+{{=LI('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+{{=LI('<hello2>', XML('<b>world</b>'), _class='test', _id=0)}}
+</ol>
+
+
+{{=HR()}}
+{{=B("META     ")}}To be used for building META tags in the HTML head. For example <br>
+{{="META(_name='security', _content='high')"}}<br>
+{{=META(_name='security', _content='high')}}
+
+{{=HR()}}
+{{=B("MARKMIN	  ")}} Implements the markmin wiki syntax. 
+It converts the input text into output html according to the markmin rules 
+described in the example below<br>
+{{=B("does not work out of the box! see documentation and test!")}}
+
+{{=HR()}}
+{{=B("OBJECT	 ")}} Used to embed objects (for example, a flash player) in the HTML<br>
+{{="OBJECT('<hello>', XML('<b>world</b>'), _src='http://www.web2py.com')"}}<br>
+{{=OBJECT('<hello>', XML('<b>world</b>'), _src='http://www.web2py.com')}}
+
+
+{{=HR()}}
+{{=B("OL	 ")}} It stands for Ordered List. The list should contain LI tags. OL arguments that are not 
+LI objects are automatically enclosed in li...li tags<br>
+{{="OL('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=OL('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("ON	 ")}} This is here for backward compatibility and it is simply an alias for True. 
+It is used exclusively for checkboxes and deprecated since True is more Pythonic.<br>
+{{="INPUT(_type='checkbox', _name='test', _checked=ON)"}}<br>
+{{=INPUT(_type='checkbox', _name='test', _checked=ON)}}
+
+
+{{=HR()}}
+{{=B("OPTGROUP     ")}}Allows you to group multiple options in a SELECT and it 
+is useful to customize the fields using CSS. <br>
+see documentation
+
+{{=HR()}}
+{{=B("OPTION	 ")}} This should only be used as part of a SELECT/OPTION combination.<br>
+{{="OPTION('<hello>', XML('<b>world</b>'), _value='a')"}}<br>
+{{=OPTION('<hello>', XML('<b>world</b>'), _value='a')}}
+
+{{=HR()}}
+{{=B("P 	")}} This is for tagging a paragraph.<br>
+{{="P('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=P('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+
+{{=HR()}}
+{{=B("PRE     ")}} Generates a pre...pre tag for displaying pre-formatted text. The CODE helper is generally preferable for code listings.<br>
+{{="PRE('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=PRE('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("SCRIPT     ")}} This is include or link a script, such as JavaScript. The content between the tags is rendered as an HTML comment, for the benefit of really old browsers.<br>
+please debug this<br>
+{a{="SCRIPT('alert("hello world");', _type='text/javascript')"}}<br>
+{a{=SCRIPT('alert("hello world");', _type='text/javascript')}}
+
+{{=HR()}}
+{{=B("SELECT     ")}} Makes a select...select tag. This is used with the OPTION helper. 
+Those SELECT arguments that are not OPTION objects are automatically converted to options. <br>
+{{="SELECT('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=SELECT('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("SPAN     ")}}Similar to DIV but used to tag inline (rather than block) content. <br>
+{{="SPAN('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=SPAN('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("STYLE 	")}} Similar to script, but used to either include or link CSS code. Here the CSS is included:<br>
+please create working example<br>
+{a{="STYLE(XML('body {color: white}'))"}}<br>
+{a{=STYLE(XML('body {color: white}'))}}
+
+{{=HR()}}
+{{=B("TABLE, TR, TD 	")}} These tags (along with the optional THEAD, TBODY and TFOOTER helpers) are used to build HTML tables. <br>
+{{="TABLE(TR(TD('a'), TD('b')), TR(TD('c'), TD('d')))"}}<br>
+{{=TABLE(TR(TD('a'), TD('b')), TR(TD('c'), TD('d')))}}
+
+
+{{=HR()}}
+{{=B("TBODY 	")}} This is used to tag rows contained in the table body, as opposed to header or footer rows. It is optional.<br>
+{{="TBODY(TR('<hello>'), _class='test', _id=0)"}}<br>
+{{=TBODY(TR('<hello>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("TEXTAREA     ")}} This helper makes a textarea...textarea tag.<br>
+{{="TEXTAREA('<hello>', XML('<b>world</b>'), _class='test')"}}<br>
+{{=TEXTAREA('<hello>', XML('<b>world</b>'), _class='test')}}
+
+{{=HR()}}
+{{=B("TFOOT     ")}} This is used to tag table footer rows.<br>
+{{="TFOOT(TR(TD('<hello>')), _class='test', _id=0)"}}<br>
+{{=TFOOT(TR(TD('<hello>')), _class='test', _id=0)}}
+
+
+
+{{=HR()}}
+{{=B("TH     ")}} This is used instead of TD in table headers.<br>
+{{="TH('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=TH('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("THEAD     ")}} This is used to tag table header rows <br>
+{{="THEAD(TR(TH('<hello>')), _class='test', _id=0)"}}<br>
+{{=THEAD(TR(TH('<hello>')), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("TITLE     ")}} This is used to tag the title of a page in an HTML header.<br>
+{{="TITLE('<hello>', XML('<b>world</b>'))"}}<br>
+{{=TITLE('<hello>', XML('<b>world</b>'))}}
+
+{{=HR()}}
+{{=B("TR     ")}} Tags a table row. It should be rendered inside a table and contain td...td tags. TR arguments that are not TD objects will be automatically converted.<br>
+{{="TR('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=TR('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("TT     ")}} Tags text as typewriter (monospaced) text.<br>
+{{="TT('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=TT('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("UL     ")}} Signifies an Unordered List and should contain LI items. If its content is not tagged as LI, UL does it automatically.<br>
+{{="UL('<hello>', XML('<b>world</b>'), _class='test', _id=0)"}}<br>
+{{=UL('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+
+{{=HR()}}
+{{=B("URL     ")}} The URL helper is documented in Chapter 4 URL<br>
+
+{{=HR()}}
+{{=B("embed64     ")}} embed64(filename=None, file=None, data=None, extension=image/gif) 
+encodes the provided (binary) data into base64 filename: if provided, opens and reads 
+this file in 'rb' mode. file: if provided, reads this file. data: if provided, uses the provided data.<br>
+
+{{=HR()}}
+{{=B("xmlescape     ")}} xmlescape(data, quote=True) returns an escaped string of the provided data. <br>
+{{="xmlescape('<hello>')"}}<br>
+{{=xmlescape('<hello>')}}
+
+{{=H4("Custom helpers")}}
+
+will come here ... please implement
+
+<!--
+-->
+
+
+
+</div>

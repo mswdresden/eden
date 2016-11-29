@@ -9,6 +9,12 @@
 "List of Dormitories":"Liste der Schlafhallen",
 "Here we organize our dormitories":"Hier organisieren wir unsere Schlafhallen",
 "Welcome to the Residential Module":"Willkommen beim Schlafhallen Modul",
+"Asylumseeker":"Asylsuchende",
+"Asylumperson":"Asylsuchende",
+"Firstname":"Vorname",
+"Birth Date":"Geburtstag",
+"Housing":"Unterkunft",
+"Native Country":"Ursprungsland",
 #"":"",
 #
 "'Cancel' will indicate an asset log entry did not occur": "'Abbrechen' zeigt an, dass ein Asset Log Eintrag nicht eingetreten ist",

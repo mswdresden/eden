@@ -84,7 +84,7 @@ class S3HousingDataModel(S3Model):
         #    of course this needs the s3 assignment above
         tablename = "housing_flat"
         self.define_table(tablename,
-                Field("name", label=T("Name")),# A 'name' field
+                Field("name", label=T("Name"),requires = IS_NOT_EMPTY(),),# A 'name' field
                 Field("address",label=T("Address")),
                 Field("zip",label=T("Zip")),
                 ##s3db.pr_person_id(label=T("Contact 1")),
@@ -98,28 +98,22 @@ class S3HousingDataModel(S3Model):
                                 # rather than just the ID
                                 represent = self.org_site_represent,
                                 ),
-                Field("capacity",label=T("Capacity")),
+                #??? msw: how would the gis mechanism work (lat/lon) self.location_id(
+                #    widget = S3LocationSelector(levels = [],
+                #                                    show_address = True,
+                #                                    show_postcode = True,
+                #                                    show_latlon = True,
+                #                                    show_map = True,
+                #                                    ),
+                #    ),
+                self.super_link("pe_id", "pr_pentity"),
+                Field("capacity","integer",label=T("Capacity")),
+                Field("occupancy", "integer", label=T("Occupancy")),
                 Field("telefoneno",label=T("Telefone Number")),
                 Field("No1",label=T("No1")),
                 Field("No2",label=T("No3")),
                 Field("No3",label=T("No4")),
-                Field("No4",label=T("No5")),
-                Field("No5",label=T("No6")),
-                Field("No6",label=T("No6")),
-                Field("No7",label=T("No7")),
-                Field("No8",label=T("No8")),
-                Field("No9",label=T("No9")),
-                Field("Noaa",label=T("Noaa")),
-                Field("No11",label=T("No11")),
-                Field("No12",label=T("No12")),
-                Field("No13",label=T("No13")),
-                Field("No14",label=T("No14")),
-                Field("No15",label=T("No15")),
-                Field("No16",label=T("No16")),
-                Field("No17",label=T("No17")),
-                Field("No18",label=T("No18")),
-                Field("No19",label=T("No19")),
-                
+
                 # This adds all the metadata to store
                 # information on who created/updated
                 # the record & when

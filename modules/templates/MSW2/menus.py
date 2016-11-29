@@ -368,16 +368,26 @@ class S3OptionsMenu(default.S3OptionsMenu):
                 M("Report", m="report")
             )
         )
-        # msw
 
+    # msw
     def asylum(self):
         return M(c="asylum")(
             M("Asylumpperson", f="person")(
                 M("Create", m="create"),
                 M("Import", m="import"),
-                #M("Report", m="report")
-                M("Import Updates", m="import", p="create"),
-                M("Bulk Status Update", m="manage", p="update"),
+                M("Report", m="report")
+                #M("Import Updates", m="import", p="create"),
+                #M("Bulk Status Update", m="manage", p="update"),
+            )
+        )
+
+    # msw
+    def housing(self):
+        return M(c="housing")(
+            M("Unterkunft", f="flat")(
+                M("Create", m="create"),
+                M("Import", m="import"),
+                # M("Report", m="report")
             )
         )
 # END =========================================================================

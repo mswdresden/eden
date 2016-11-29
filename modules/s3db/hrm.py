@@ -42,6 +42,7 @@ __all__ = ("S3HRModel",
            "hrm_AssignMethod",
            "hrm_HumanResourceRepresent",
            "hrm_TrainingEventRepresent",
+           # msw "hrm_asylumseeker,"
            #"hrm_position_represent",
            "hrm_vars",
            "hrm_compose",
