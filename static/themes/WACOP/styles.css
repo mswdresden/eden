@@ -48,14 +48,80 @@ fieldset {
   padding: 0.5625em;
 }
 
-/**
-* Top Bar
-*/
-/*
-.top-bar,
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background-color: #112e51;
-}*/
+/* Incident Profile page */
+#incident-profile table.s3-groupedopts-widget {
+    border: 0;
+}
+#incident-profile .dl-header {
+   display: none;
+}
+
+#content .incident-profile h3 {
+    font-size: 1.6875rem;
+    padding-bottom: 0;
+}
+
+/* Incident Summary page */
+#incident-summary h2 {
+    color: #112e51;
+    font-family: "Merriweather",serif;
+    font-size: 2.3125rem;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+    text-rendering: optimizelegibility;
+}
+#incident-summary .callout {
+    background-color: #dce4ef;
+    border-color: #8ba6ca;
+    margin-top: 1.5rem;
+}
+#incident-summary table.s3-groupedopts-widget {
+    border: 0;
+}
+
+#summary-tab-headers .ui-tabs-nav {
+    margin: 0;
+}
+.ui-tabs .ui-tabs-nav {
+    padding: 0;
+}
+#summary-tab-headers li {
+    margin-right: 0;
+}
+#summary-tab-headers li a {
+    background-color: #d6d7d9;
+    color: #5b616b;
+    padding: 1em 6em;
+}
+#summary-tab-headers li.ui-state-active > a {
+    background-color: #fff;
+    color: #5b616b;
+    cursor: default;
+}
+.dataTables_length option {
+    margin-right: 5px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 0;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 0;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 0;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 0;
+}
+/* Map */
+.x-toolbar table {
+    width: auto;
+}
 
 /* Logo */
 .name h1 {
@@ -124,33 +190,6 @@ fieldset {
 #content > .callout .button.button-info {
   background-color: #4773aa;
   margin: 0.5em auto 0 0;
-}
-
-.incident-profile input[type="text"],
-.incident-profile input[type="password"],
-.incident-profile input[type="date"],
-.incident-profile input[type="datetime"],
-.incident-profile input[type="datetime-local"],
-.incident-profile input[type="month"],
-.incident-profile input[type="week"],
-.incident-profile input[type="email"],
-.incident-profile input[type="number"],
-.incident-profile input[type="search"],
-.incident-profile input[type="tel"],
-.incident-profile input[type="time"],
-.incident-profile input[type="url"],
-.incident-profile textarea,
-.incident-profile select {
-  height: 2.3125rem;
-  padding: 0.5rem;
-  margin: 0 0 1rem;
-  display: block;
-  font-weight: normal;
-}
-
-#content .incident-profile h3 {
-    font-size: 1.6875rem;
-    padding-bottom: 0;
 }
 
 /**
