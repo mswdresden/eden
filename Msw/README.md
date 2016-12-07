@@ -28,18 +28,49 @@ sudo apt-get clean
 # Python
 sudo apt-get install libgeos-c1
 sudo apt-get install libgeos-dev
-
 sudo apt-get install python-dev
 sudo apt-get install python-lxml python-setuptools python-dateutil python-pip
 sudo apt-get install python-serial
 sudo apt-get install python-imaging
-sudo apt-get -y install python-imaging
-sudo apt-get -y install python-matplotlib
-sudo apt-get -y install python-requests
-sudo apt-get -y install python-xlwt
-sudo apt-get -y install build-essential
+sudo apt-get install python-matplotlib
+sudo apt-get install python-requests
+sudo apt-get install python-xlwt
+sudo apt-get install build-essential
 sudo apt-get clean
 
+
+# from an installation on a different laptop (64-debian)
+# for web2py (does not work do to two missing sources): apt-get install -y unzip psmisc mlocate telnet lrzsz vim elinks-lite rcconf htop sudo p7zip dos2unix curl
+=> sudo apt-get install -y unzip psmisc mlocate telnet lrzsz vim  htop sudo p7zip dos2unix cur
+sudo apt-get install libgeos-c1v5
+sudo apt-get install python-lxml python-setuptools python-dateutil python-pip
+sudo apt-get install libgeos-dev
+sudo apt-get install python-dev
+sudo apt-get install python-lxml python-setuptools python-dateutil python-pip
+sudo apt-get install python-serial
+sudo apt-get install python-imaging
+sudo apt-get install python-matplotlib
+sudo apt-get install python-requests
+sudo apt-get install python-xlwt
+sudo apt-get install build-essential
+sudo apt-get install libodbc1
+sudo apt-get install python-openid
+from: http://eden.sahanafoundation.org/wiki/InstallationGuidelines/Linux/Developer/Manual#InstallPythonLibraries
+sudo apt-get install python-lxml
+sudo apt-get install python-shapely
+sudo apt-get install python-reportlab
+sudo apt-get install python-imaging
+sudo apt-get install python-imaging
+sudo apt-get install python-dateutil
+sudo apt-get install python-xlwt
+sudo apt-get install python-xlrd
+sudo apt-get install python-numpy
+sudo apt-get install python-matplotlib
+sudo apt-get install python-setuptools
+sudo apt-get install python-serial
+sudo apt-get install python-tz
+sudo apt-get install python-mysqldb
+  	
 # Web2Py
 sudo apt-get install libodbc1
 
