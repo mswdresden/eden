@@ -12,13 +12,6 @@ if not settings.has_module(module):
 
 # -------------------------------------------------------------------------
 def index():
-    #"Your ip is " + asylum.msw_ip_func()
-    #"Your ip is " + current.asylum_ip_func()
-    #"Your ip isaaa " + response.s3.asylum_ip_func()
-    print "Your ip isaaa " + s3db.asylum_ip_func()
-    return dict(bummi = str("Your ip isaaa " + s3db.asylum_ip_func()))
-
-    return dict()
     """
         Application Home page
     """
@@ -27,24 +20,55 @@ def index():
     response.title = module_name
     return dict(module_name=module_name)
 
+
+
+def person_rheader(r, tabs=[]):
+    if r.representation != "html":
+        # RHeader is a UI facility & so skip for other formats
+        return None
+    if r.record is None:
+        # List or Create form: rheader makes no sense here
+        return None
+
+    tabs = [(T("Basic Details"), None),
+            (T("Status"), "asylum_status")]
+    rheader_tabs = s3_rheader_tabs(r, tabs)
+
+    person = r.record
+
+    rheader = DIV(TABLE(
+        TR(
+            TH("%s: " % T("Name")),
+            person.name,
+            TH("%s: " % T("First Name")),
+            person.firstname,
+            ),
+        TR(
+            TH("%s: " % T("Is this a status ...")),
+            #person.name,
+            #s3db.pr_person_represent(course.person_id),
+            #s3db.asylum_person_represent(asylum_status.person_id),
+            s3db.asylum_person_represent(0),
+            #s3db.asylum_status.person_id,
+            #val = s3db.asylum_ip_func,
+            #"aaaaaa",
+            #"bbbbbb",
+            #print val
+            #s3db.person_represent(person.person_id),
+            )
+        ), rheader_tabs)
+
+    return rheader
+
+
 # -------------------------------------------------------------------------
 def person():
-    #return s3_rest_controller()
-    #return current.rest_controller("pr", "person", **_attr)
+    print 'hallo msw (asylum person controller)'
+    return s3_rest_controller(rheader=person_rheader)
 
-    _attr = dict(csv_stylesheet = ("hrm", "person.xsl"),
-        csv_template = "staff",
-        #msw csv_extra_fields = [dict(label="Type",field=s3db.hrm_human_resource.type), ],
-        # Better in the native person controller (but this isn't always accessible):
-        #deduplicate = "",
-        #msw orgname = orgname,
-        replace_option = T("Remove existing data before import"),
-        #rheader = hrm_rheader,
-        )
-    #return current.rest_controller("asylum", "person",**_attr)
-    #return current.rest_controller("asylum", "person")
-    return s3_rest_controller("asylum", "person")
-
+# -------------------------------------------------------------------------
+def status():
+    return s3_rest_controller()
 
 # -------------------------------------------------------------------------
 def msw():

@@ -29,8 +29,9 @@
 #   if their names start with the module prefix plus underscore
 #
 __all__ = ( "S3AsylumDataModel",
-            "asylum_person_represent",
-            "asylum_ip_func"
+            #"asylum_person_represent",
+            "asylum_ip_func", # this is only a first test for implementing a function that does something
+            "asylum_person_represent"
            )
 
 # The following import statements are needed in almost every model
@@ -61,6 +62,8 @@ class S3AsylumDataModel(S3Model):
     #
     names = ("asylum_person",
              "asylum_person_id",
+             "asylum_status",
+             "asylum_person_represent"
              )
     #msw: does not work, as s3db is made after this is called (see 00_
     #s3db = current.s3db
@@ -164,6 +167,7 @@ class S3AsylumDataModel(S3Model):
 
                           # person's birth date
                 s3_date(label=T("Birth Date")),
+                Field("testentry", label=T("Ein Feld zum Testen")),
                 self.pr_gender(),
 
                 # Current status
@@ -222,14 +226,50 @@ class S3AsylumDataModel(S3Model):
 
         # You can define ReusableFields,
         # -> make sure you prefix their names properly with the module prefix:
-        asylum_person_id = S3ReusableField("asylum_person_id", "reference %s" % tablename,
-                                               label = T("Asylum person"),
-                                               requires = IS_EMPTY_OR(IS_ONE_OF(db,
-                                                                      "asylum_person.id")))
+        #asylum_person_represent = S3Represent(lookup=tablename)
+        person_id = S3ReusableField("person_id", "reference %s" % tablename,
+                                                label = T("Asylum person"),
+                                                ondelete = "RESTRICT",
+                                                represent = asylum_person_represent,
+                                                requires = IS_ONE_OF(db,"asylum_person.id",
+                                                                     asylum_person_represent
+                                                                      ))
+
+
+
+        # --------------
+        # msw: status
+        person_status_opts = {
+            1: T("Asylumseeker"),
+            2: T("Accepted Asylum"),
+            3: T("Fixation Number"),
+            4: T("Refused"),
+            5: T("Deported")
+        }
+
+        tablename = "asylum_status"
+        self.define_table(tablename,
+                            person_id(label=T("Asylum-Person")),
+                            Field("status", "integer",
+                                label = T("Status"),
+                                requires=IS_IN_SET(person_status_opts)),
+                            *s3_meta_fields())
+
+
+        # You can define ReusableFields,
+        # -> make sure you prefix their names properly with the module prefix:
+        #status_id = S3ReusableField("status_id", "reference %s" % tablename,
+        #                                       label = T("Asylum status"),
+        #                                       requires = IS_EMPTY_OR(IS_ONE_OF(db,
+        #                                                              "status.id")))
+
+        s3db.add_components("asylum_status",
+                    asylum_person = "person_id")
 
         # Pass names back to global scope (s3.*)
         return dict(
-            asylum_person_id=asylum_person_id,
+            asylum_person_id=person_id,
+            #asylum_status_id=status_id
         )
 
     # -------------------------------------------------------------------------
@@ -274,6 +314,8 @@ class S3AsylumDataModel(S3Model):
 # Represents are good to put here as they can be put places without loading the
 # models at that time
 #
+
+
 def asylum_person_represent(id):
 
     if not id:
@@ -301,6 +343,8 @@ def asylum_person_represent(id):
     except:
         # Data inconsistency error!
         return current.messages.UNKNOWN_OPT
+
+
 
 # a truely msw function
 #from gluon import *

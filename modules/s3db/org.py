@@ -391,13 +391,13 @@ class S3OrganisationModel(S3Model):
                            label = T("Facebooook")),
                      
                      Field("year", "integer",
-                           label = T("Year"),
+                           label = T("Year Founded"),
                            represent = lambda v: v or NONE,
                            requires = IS_EMPTY_OR(
                                         IS_INT_IN_RANGE(1850, 2100)),
                            comment = DIV(_class="tooltip",
-                                         _title="%s|%s" % (T("Year"),
-                                                           T("Year that the organization was founded"))),
+                                         _title="%s|%s" % (T("Year Founded"),
+                                                           T("Year after christ that the organization was founded"))),
                            ),
                      Field("logo", "upload",
                            label = T("Logo"),

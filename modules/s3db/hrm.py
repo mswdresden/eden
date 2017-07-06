@@ -8263,7 +8263,7 @@ def hrm_configure_salary(r):
 
         # Filter field options
         field.requires = IS_ONE_OF(current.db, "hrm_human_resource.id",
-                                   current.s3db.hrm_human_resource_represent,
+                                   current.s3db.hrm_human_settingse_represent,
                                    sort=True,
                                    filterby="id",
                                    filter_opts = hr_id,

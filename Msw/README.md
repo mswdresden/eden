@@ -134,6 +134,9 @@ http://eden.sahanafoundation.org/wiki/GIS
 http://pub.nursix.org/eden/s3/
 http://eden.sahanafoundation.org/wiki/S3/S3Model/SuperEntities
 
+# web-course (7 parts) on web2py
+https://www.youtube.com/watch?v=bW9lpN95zwQ&index=5&list=PL5E2E223FE3777851
+
 ########
 # TODO #
 ########
@@ -230,3 +233,8 @@ questions:
 look at /web2py/application/welcome/private/appconfig.ini
 this seem to have someting to do with it (see: http://www.web2py.com/books/default/chapter/29/01/introduction)
 
+
+# some info (18.12.16) on working installarion scripts (from the ML-digest):
+Normally for Developer mode, I install manually all the required libraries and install web2py and then EDEN. That should not be much of work.
+For production mode, the scripts are maintained here: https://github.com/sahana/eden_deploy. I used this few month ago and they worked out of the box.
+You can use it for developer mode as well for installing libraries and configuring them.
