@@ -1,0 +1,955 @@
+# -*- coding: utf-8 -*-
+
+"""
+    Machine-specific settings
+    All settings which are typically edited for a specific machine should be done here
+
+    Deployers should ideally not need to edit any other files outside of their template folder
+
+    Note for Developers:
+        /models/000_config.py is NOT in the Git repository, to avoid leaking of
+        sensitive or irrelevant information into the repository.
+    For changes to be committed, please also edit:
+        modules/templates/000_config.py
+"""
+
+#import sys
+#
+#pathmsw = '/home/topf/Refugees/Git/web2py/applications/eden/modules/templates/MSW2'
+#if not pathmsw in sys.path:
+#    sys.path.append(pathmsw)
+#
+#from msw import print_settings3
+
+# Remove this line when you have edited this file sufficiently to proceed to the web interface
+FINISHED_EDITING_CONFIG_FILE = True
+
+#def print_test():
+#    keys1 = settings.keys()
+#    values1 = settings.values()
+#    intems1 = settings.items()
+#
+#    for key1 in keys1:
+#
+#    print "\n\n keys1:"
+#    print keys1
+#
+#    print "\n\n values1:"
+#    print values1
+#
+#    print "\n\n intems1:"
+#    print intems1
+#
+#print_test()
+
+def print_settings2():
+    # simple example
+    # print 'start of printing the setting'
+    # print 'settings.base.system_name:', settings.base.system_name
+
+    count = -1
+    for sthing in settings:
+        count += 1
+        # print '\nsettings -> ', sthing
+        try:
+            iterator = iter(getattr(settings, str(sthing)))
+        except TypeError:
+            # print 'i am not iterable'
+            print '%-4d%-26s: %s' % (count, str('settings' + '.' + sthing), getattr(settings, str(sthing)))
+        else:
+            # iterable
+            # if (str(sthing) == str('_bool')) or (str(sthing) == str('bool')) or (str(sthing) == str('_debug')):
+            # print 'found bool and not using it'
+            for bthing in getattr(settings, str(sthing)):
+                # print '\t{0:s} -> {1:s}'.format(sthing, bthing)
+                print "%-4d%-26s: %s" % (count, str('settings.' + sthing + '.' + bthing), getattr(settings, sthing)[bthing])
+
+    # all getters from s3cfg (class S3Config)
+    print "%-32s: %r" % ('get_template()', settings.get_template())
+    print "%-32s: %r" % ('get_template_location', settings.get_template_location())
+    print "%-32s: %r" % ('get_frontpage()'						    , settings.get_frontpage())
+    print "%-32s: %r" % ('get_theme'                                        , settings.get_theme())
+    print "%-32s: %r" % ('get_base_xtheme'                                  , settings.get_base_xtheme())
+    print "%-32s: %r" % ('get_auth_password_changes', settings.get_auth_password_changes())
+    print "%-32s: %r" % ('get_auth_password_min_length', settings.get_auth_password_min_length())
+    print "%-32s: %r" % ('get_auth_gmail_domains', settings.get_auth_gmail_domains())
+    print "%-32s: %r" % ('get_auth_office365_domains', settings.get_auth_office365_domains())
+    print "%-32s: %r" % ('get_auth_google', settings.get_auth_google())
+    print "%-32s: %r" % ('get_auth_humanitarian_id', settings.get_auth_humanitarian_id())
+    print "%-32s: %r" % ('get_auth_openid', settings.get_auth_openid())
+    print "%-32s: %r" % ('get_security_self_registration', settings.get_security_self_registration())
+    print "%-32s: %r" % ('get_security_registration_visible', settings.get_security_registration_visible())
+    print "%-32s: %r" % ('get_security_version_info', settings.get_security_version_info())
+    print "%-32s: %r" % ('get_security_version_info_requires_login', settings.get_security_version_info_requires_login())
+    print "%-32s: %r" % ('get_auth_registration_requires_verification', settings.get_auth_registration_requires_verification())
+    print "%-32s: %r" % ('get_auth_registration_requires_approval', settings.get_auth_registration_requires_approval())
+    print "%-32s: %r" % ('get_auth_always_notify_approver', settings.get_auth_always_notify_approver())
+    print "%-32s: %r" % ('get_auth_login_next', settings.get_auth_login_next())
+    print "%-32s: %r" % ('get_auth_show_link', settings.get_auth_show_link())
+    print "%-32s: %r" % ('get_auth_registration_link_user_to', settings.get_auth_registration_link_user_to())
+    print "%-32s: %r" % ('get_auth_registration_link_user_to_default', settings.get_auth_registration_link_user_to_default())
+    print "%-32s: %r" % ('get_auth_opt_in_team_list', settings.get_auth_opt_in_team_list())
+    print "%-32s: %r" % ('get_auth_opt_in_to_email', settings.get_auth_opt_in_to_email())
+    print "%-32s: %r" % ('get_auth_opt_in_default', settings.get_auth_opt_in_default())
+    print "%-32s: %r" % ('get_auth_registration_requests_home_phone', settings.get_auth_registration_requests_home_phone())
+    print "%-32s: %r" % ('get_auth_registration_requests_mobile_phone'	, settings.get_auth_registration_requests_mobile_phone())
+    print "%-32s: %r" % ('get_auth_registration_mobile_phone_mandatory'	, settings.get_auth_registration_mobile_phone_mandatory())
+    print "%-32s: %r" % ('get_auth_registration_requests_organisation'	, settings.get_auth_registration_requests_organisation())
+    print "%-32s: %r" % ('get_auth_admin_sees_organisation'         		, settings.get_auth_admin_sees_organisation())
+    print "%-32s: %r" % ('get_auth_registration_organisation_required'	, settings.get_auth_registration_organisation_required())
+    print "%-32s: %r" % ('get_auth_registration_organisation_hidden'	, settings.get_auth_registration_organisation_hidden())
+    print "%-32s: %r" % ('get_auth_registration_organisation_default'	, settings.get_auth_registration_organisation_default())
+    print "%-32s: %r" % ('get_auth_registration_organisation_id_default', settings.get_auth_registration_organisation_id_default())
+    print "%-32s: %r" % ('get_auth_registration_requests_organisation_group', settings.get_auth_registration_requests_organisation_group())
+    print "%-32s: %r" % ('get_auth_registration_organisation_group_required', settings.get_auth_registration_organisation_group_required())
+    print "%-32s: %r" % ('get_auth_registration_requests_site', settings.get_auth_registration_requests_site())
+    print "%-32s: %r" % ('get_auth_registration_site_required', settings.get_auth_registration_site_required())
+    print "%-32s: %r" % ('get_auth_registration_requests_image', settings.get_auth_registration_requests_image())
+    print "%-32s: %r" % ('get_auth_registration_pending', settings.get_auth_registration_pending())
+    print "%-32s: %r" % ('get_auth_registration_pending_approval', settings.get_auth_registration_pending_approval())
+    print "%-32s: %r" % ('get_auth_registration_roles', settings.get_auth_registration_roles())
+    print "%-32s: %r" % ('get_auth_org_admin_to_first', settings.get_auth_org_admin_to_first())
+    print "%-32s: %r" % ('get_auth_terms_of_service', settings.get_auth_terms_of_service())
+    print "%-32s: %r" % ('get_auth_registration_volunteer', settings.get_auth_registration_volunteer())
+    print "%-32s: %r" % ('get_auth_record_approval', settings.get_auth_record_approval())
+    print "%-32s: %r" % ('get_auth_record_approval_required_for', settings.get_auth_record_approval_required_for())
+    print "%-32s: %r" % ('get_auth_record_approval_manual', settings.get_auth_record_approval_manual())
+    print "%-32s: %r" % ('get_auth_realm_entity_types', settings.get_auth_realm_entity_types())
+    print "%-32s: %r" % ('get_auth_realm_entity', settings.get_auth_realm_entity())
+    #print "%-32s: %r" % ('get_auth_person_real_MISSINGMSW_ource_site_then_org', settings.get_auth_person_real....ource_site_then_org())
+    print "%-32s: %r" % ('get_auth_person_realm_member_org', settings.get_auth_person_realm_member_org())
+    print "%-32s: %r" % ('get_auth_entity_role_manager', settings.get_auth_entity_role_manager())
+    print "%-32s: %r" % ('get_auth_role_modules', settings.get_auth_role_modules())
+    print "%-32s: %r" % ('get_auth_access_levels', settings.get_auth_access_levels())
+    print "%-32s: %r" % ('get_auth_set_presence_on_login', settings.get_auth_set_presence_on_login())
+    print "%-32s: %r" % ('get_auth_ignore_levels_for_presence', settings.get_auth_ignore_levels_for_presence())
+    print "%-32s: %r" % ('get_auth_create_unknown_locations', settings.get_auth_create_unknown_locations())
+    print "%-32s: %r" % ('get_auth_show_utc_offset', settings.get_auth_show_utc_offset())
+    print "%-32s: %r" % ('get_security_archive_not_delete', settings.get_security_archive_not_delete())
+    print "%-32s: %r" % ('get_security_audit_read', settings.get_security_audit_read())
+    print "%-32s: %r" % ('get_security_audit_write', settings.get_security_audit_write())
+    print "%-32s: %r" % ('get_security_policy', settings.get_security_policy())
+    print "%-32s: %r" % ('get_security_strict_ownership', settings.get_security_strict_ownership())
+    print "%-32s: %r" % ('get_security_map', settings.get_security_map())
+    print "%-32s: %r" % ('get_instance_name', settings.get_instance_name())
+    print "%-32s: %r" % ('get_system_name', settings.get_system_name())
+    print "%-32s: %r" % ('get_system_name_short', settings.get_system_name_short())
+    print "%-32s: %r" % ('get_base_debug', settings.get_base_debug())
+    print "%-32s: %r" % ('get_base_allow_testing', settings.get_base_allow_testing())
+    print "%-32s: %r" % ('get_base_migrate', settings.get_base_migrate())
+    print "%-32s: %r" % ('get_base_fake_migrate', settings.get_base_fake_migrate())
+    print "%-32s: %r" % ('get_base_prepopulate', settings.get_base_prepopulate())
+    print "%-32s: %r" % ('get_base_guided_tour', settings.get_base_guided_tour())
+    print "%-32s: %r" % ('get_base_public_url', settings.get_base_public_url())
+    print "%-32s: %r" % ('get_base_cdn', settings.get_base_cdn())
+    print "%-32s: %r" % ('get_chat_server', settings.get_chat_server())
+    #print "%-32s: %r" % ('get_chatdb_string', settings.get_chatdb_string())
+    print "%-32s: %r" % ('get_base_session_db', settings.get_base_session_db())
+    print "%-32s: %r" % ('get_base_session_memcache', settings.get_base_session_memcache())
+    print "%-32s: %r" % ('get_base_solr_url', settings.get_base_solr_url())
+    # parameters needed: get_import_callback(self, tablename, callback):			   et_import_callback(self,tablename,callback):
+    print "%-32s: %r" % ('get_log_level', settings.get_log_level())
+    print "%-32s: %r" % ('get_log_console', settings.get_log_console())
+    print "%-32s: %r" % ('get_log_logfile', settings.get_log_logfile())
+    print "%-32s: %r" % ('get_log_caller_info', settings.get_log_caller_info())
+    print "%-32s: %r" % ('get_database_type', settings.get_database_type())
+    print "%-32s: %r" % ('get_database_airegex', settings.get_database_airegex())
+    print "%-32s: %r" % ('get_database_string', settings.get_database_string())
+    print "%-32s: %r" % ('get_fin_currency_writable', settings.get_fin_currency_writable())
+    print "%-32s: %r" % ('get_fin_currencies', settings.get_fin_currencies())
+    print "%-32s: %r" % ('get_fin_currency_default', settings.get_fin_currency_default())
+    print "%-32s: %r" % ('get_gis_api_bing', settings.get_gis_api_bing())
+    print "%-32s: %r" % ('get_gis_api_google', settings.get_gis_api_google())
+    print "%-32s: %r" % ('get_gis_bbox_min_size', settings.get_gis_bbox_min_size())
+    print "%-32s: %r" % ('get_gis_bbox_inset', settings.get_gis_bbox_inset())
+    print "%-32s: %r" % ('get_gis_building_name', settings.get_gis_building_name())
+    print "%-32s: %r" % ('get_gis_check_within_parent_boundaries', settings.get_gis_check_within_parent_boundaries())
+    print "%-32s: %r" % ('get_gis_cluster_fill', settings.get_gis_cluster_fill())
+    print "%-32s: %r" % ('get_gis_cluster_label', settings.get_gis_cluster_label())
+    print "%-32s: %r" % ('get_gis_cluster_stroke', settings.get_gis_cluster_stroke())
+    print "%-32s: %r" % ('get_gis_select_fill', settings.get_gis_select_fill())
+    print "%-32s: %r" % ('get_gis_select_stroke', settings.get_gis_select_stroke())
+    print "%-32s: %r" % ('get_gis_clear_layers', settings.get_gis_clear_layers())
+    print "%-32s: %r" % ('get_gis_config_screenshot', settings.get_gis_config_screenshot())
+    print "%-32s: %r" % ('get_gis_countries', settings.get_gis_countries())
+    print "%-32s: %r" % ('get_gis_display_l0', settings.get_gis_display_l0())
+    print "%-32s: %r" % ('get_gis_display_l1', settings.get_gis_display_l1())
+    print "%-32s: %r" % ('get_gis_duplicate_features', settings.get_gis_duplicate_features())
+    print "%-32s: %r" % ('get_gis_edit_group', settings.get_gis_edit_group())
+    print "%-32s: %r" % ('get_gis_geocode_imported_addresses', settings.get_gis_geocode_imported_addresses())
+    print "%-32s: %r" % ('get_gis_ignore_geocode_errors', settings.get_gis_ignore_geocode_errors())
+    print "%-32s: %r" % ('get_gis_geolocate_control', settings.get_gis_geolocate_control())
+    print "%-32s: %r" % ('get_gis_geonames_username', settings.get_gis_geonames_username())
+    print "%-32s: %r" % ('get_gis_geoserver_url', settings.get_gis_geoserver_url())
+    print "%-32s: %r" % ('get_gis_geoserver_username', settings.get_gis_geoserver_username())
+    print "%-32s: %r" % ('get_gis_geoserver_password', settings.get_gis_geoserver_password())
+    print "%-32s: %r" % ('get_gis_getfeature_control', settings.get_gis_getfeature_control())
+    print "%-32s: %r" % ('get_gis_latlon_selector', settings.get_gis_latlon_selector())
+    print "%-32s: %r" % ('get_gis_layer_metadata', settings.get_gis_layer_metadata())
+    print "%-32s: %r" % ('get_gis_layer_properties', settings.get_gis_layer_properties())
+    print "%-32s: %r" % ('get_gis_layer_tree_base', settings.get_gis_layer_tree_base())
+    print "%-32s: %r" % ('get_gis_layer_tree_overlays', settings.get_gis_layer_tree_overlays())
+    print "%-32s: %r" % ('get_gis_layer_tree_expanded', settings.get_gis_layer_tree_expanded())
+    print "%-32s: %r" % ('get_gis_layer_tree_radio', settings.get_gis_layer_tree_radio())
+    print "%-32s: %r" % ('get_gis_layers_label', settings.get_gis_layers_label())
+    print "%-32s: %r" % ('get_gis_location_represent_address_only', settings.get_gis_location_represent_address_only())
+    print "%-32s: %r" % ('get_gis_map_height', settings.get_gis_map_height())
+    print "%-32s: %r" % ('get_gis_map_width', settings.get_gis_map_width())
+    print "%-32s: %r" % ('get_gis_map_selector', settings.get_gis_map_selector())
+    print "%-32s: %r" % ('get_gis_map_selector_height', settings.get_gis_map_selector_height())
+    print "%-32s: %r" % ('get_gis_map_selector_width', settings.get_gis_map_selector_width())
+    print "%-32s: %r" % ('get_gis_marker_max_height', settings.get_gis_marker_max_height())
+    print "%-32s: %r" % ('get_gis_marker_max_width', settings.get_gis_marker_max_width())
+    print "%-32s: %r" % ('get_gis_max_features', settings.get_gis_max_features())
+    print "%-32s: %r" % ('get_gis_legend', settings.get_gis_legend())
+    print "%-32s: %r" % ('get_gis_menu', settings.get_gis_menu())
+    print "%-32s: %r" % ('get_gis_mouse_position', settings.get_gis_mouse_position())
+    print "%-32s: %r" % ('get_gis_nav_controls', settings.get_gis_nav_controls())
+    print "%-32s: %r" % ('get_gis_label_overlays', settings.get_gis_label_overlays())
+    print "%-32s: %r" % ('get_gis_overview', settings.get_gis_overview())
+    print "%-32s: %r" % ('get_gis_permalink', settings.get_gis_permalink())
+    print "%-32s: %r" % ('get_gis_poi_create_resources', settings.get_gis_poi_create_resources())
+    print "%-32s: %r" % ('get_gis_poi_export_resources', settings.get_gis_poi_export_resources())
+    print "%-32s: %r" % ('get_gis_postcode_selector', settings.get_gis_postcode_selector())
+    print "%-32s: %r" % ('get_gis_print', settings.get_gis_print())
+    # def get_gis_print_service'                                         , settings._service())
+    print "%-32s: %r" % ('get_gis_save', settings.get_gis_save())
+    print "%-32s: %r" % ('get_gis_scaleline', settings.get_gis_scaleline())
+    print "%-32s: %r" % ('get_gis_search_geonames', settings.get_gis_search_geonames())
+    print "%-32s: %r" % ('get_gis_simplify_tolerance', settings.get_gis_simplify_tolerance())
+    print "%-32s: %r" % ('get_gis_precision', settings.get_gis_precision())
+    print "%-32s: %r" % ('get_gis_spatialdb', settings.get_gis_spatialdb())
+    print "%-32s: %r" % ('get_gis_widget_catalogue_layers', settings.get_gis_widget_catalogue_layers())
+    print "%-32s: %r" % ('get_gis_widget_wms_browser', settings.get_gis_widget_wms_browser())
+    print "%-32s: %r" % ('get_gis_toolbar', settings.get_gis_toolbar())
+    print "%-32s: %r" % ('get_gis_zoomcontrol', settings.get_gis_zoomcontrol())
+    print "%-32s: %r" % ('get_gis_lookup_code', settings.get_gis_lookup_code())
+    print "%-32s: %r" % ('get_gis_popup_location_link', settings.get_gis_popup_location_link())
+    print "%-32s: %r" % ('get_L10n_default_language', settings.get_L10n_default_language())
+    print "%-32s: %r" % ('get_L10n_display_toolbar', settings.get_L10n_display_toolbar())
+    print "%-32s: %r" % ('get_L10n_extra_codes', settings.get_L10n_extra_codes())
+    print "%-32s: %r" % ('get_L10n_languages', settings.get_L10n_languages())
+    print "%-32s: %r" % ('get_L10n_languages_readonly', settings.get_L10n_languages_readonly())
+    print "%-32s: %r" % ('get_L10n_religions', settings.get_L10n_religions())
+    print "%-32s: %r" % ('get_L10n_date_format', settings.get_L10n_date_format())
+    print "%-32s: %r" % ('get_L10n_time_format', settings.get_L10n_time_format())
+    print "%-32s: %r" % ('get_L10n_datetime_separator', settings.get_L10n_datetime_separator())
+    print "%-32s: %r" % ('get_L10n_datetime_format', settings.get_L10n_datetime_format())
+    print "%-32s: %r" % ('get_L10n_utc_offset', settings.get_L10n_utc_offset())
+    print "%-32s: %r" % ('get_L10n_firstDOW', settings.get_L10n_firstDOW())
+    print "%-32s: %r" % ('get_L10n_calendar', settings.get_L10n_calendar())
+    print "%-32s: %r" % ('get_L10n_lat_lon_format', settings.get_L10n_lat_lon_format())
+    print "%-32s: %r" % ('get_L10n_default_country_code', settings.get_L10n_default_country_code())
+    print "%-32s: %r" % ('get_L10n_mandatory_lastname', settings.get_L10n_mandatory_lastname())
+    print "%-32s: %r" % ('get_L10n_mandatory_middlename', settings.get_L10n_mandatory_middlename())
+    print "%-32s: %r" % ('get_L10n_decimal_separator', settings.get_L10n_decimal_separator())
+    print "%-32s: %r" % ('get_L10n_thousands_separator', settings.get_L10n_thousands_separator())
+    print "%-32s: %r" % ('get_L10n_thousands_grouping', settings.get_L10n_thousands_grouping())
+    print "%-32s: %r" % ('get_L10n_translate_cms_series', settings.get_L10n_translate_cms_series())
+    print "%-32s: %r" % ('get_L10n_translate_gis_layer', settings.get_L10n_translate_gis_layer())
+    print "%-32s: %r" % ('get_L10n_translate_gis_location', settings.get_L10n_translate_gis_location())
+    print "%-32s: %r" % ('get_L10n_name_alt_gis_location', settings.get_L10n_name_alt_gis_location())
+    print "%-32s: %r" % ('get_L10n_translate_org_organisation', settings.get_L10n_translate_org_organisation())
+    print "%-32s: %r" % ('get_L10n_translate_org_site', settings.get_L10n_translate_org_site())
+    print "%-32s: %r" % ('get_L10n_translate_cap_area', settings.get_L10n_translate_cap_area())
+    print "%-32s: %r" % ('get_L10n_pootle_url', settings.get_L10n_pootle_url())
+    print "%-32s: %r" % ('get_L10n_pootle_username', settings.get_L10n_pootle_username())
+    print "%-32s: %r" % ('get_L10n_pootle_password', settings.get_L10n_pootle_password())
+    print "%-32s: %r" % ('get_paper_size', settings.get_paper_size())
+    print "%-32s: %r" % ('get_pdf_bidi', settings.get_pdf_bidi())
+    print "%-32s: %r" % ('get_pdf_logo', settings.get_pdf_logo())
+    print "%-32s: %r" % ('get_pdf_export_font', settings.get_pdf_export_font())
+    # parameters needed: get_pdf_excluded_fields(self, resourcename):				   et_pdf_excluded_fields(self,resourcename):
+    print "%-32s: %r" % ('get_xls_title_row', settings.get_xls_title_row())
+    print "%-32s: %r" % ('get_ui_formstyle', settings.get_ui_formstyle())
+    print "%-32s: %r" % ('get_ui_formstyle_read', settings.get_ui_formstyle_read())
+    print "%-32s: %r" % ('get_ui_filter_formstyle', settings.get_ui_filter_formstyle())
+    print "%-32s: %r" % ('get_ui_report_formstyle', settings.get_ui_report_formstyle())
+    print "%-32s: %r" % ('get_ui_inline_formstyle', settings.get_ui_inline_formstyle())
+    print "%-32s: %r" % ('get_ui_datatables_dom', settings.get_ui_datatables_dom())
+    print "%-32s: %r" % ('get_ui_datatables_initComplete', settings.get_ui_datatables_initComplete())
+    print "%-32s: %r" % ('get_ui_datatables_pagingType', settings.get_ui_datatables_pagingType())
+    print "%-32s: %r" % ('get_ui_datatables_responsive', settings.get_ui_datatables_responsive())
+    print "%-32s: %r" % ('get_ui_default_cancel_button', settings.get_ui_default_cancel_button())
+    print "%-32s: %r" % ('get_ui_filter_clear', settings.get_ui_filter_clear())
+    print "%-32s: %r" % ('get_ui_icons', settings.get_ui_icons())
+    print "%-32s: %r" % ('get_ui_custom_icons', settings.get_ui_custom_icons())
+    print "%-32s: %r" % ('get_ui_icon_layout', settings.get_ui_icon_layout())
+    print "%-32s: %r" % ('get_ui_auto_keyvalue', settings.get_ui_auto_keyvalue())
+    print "%-32s: %r" % ('get_ui_auth_user_represent', settings.get_ui_auth_user_represent())
+    print "%-32s: %r" % ('get_ui_confirm', settings.get_ui_confirm())
+    print "%-32s: %r" % ('get_ui_export_formats', settings.get_ui_export_formats())
+    print "%-32s: %r" % ('get_ui_hide_report_filter_options', settings.get_ui_hide_report_filter_options())
+    print "%-32s: %r" % ('get_ui_hide_report_options', settings.get_ui_hide_report_options())
+    print "%-32s: %r" % ('get_ui_iframe_opens_full', settings.get_ui_iframe_opens_full())
+    print "%-32s: %r" % ('get_ui_interim_save', settings.get_ui_interim_save())
+    print "%-32s: %r" % ('get_ui_label_attachments', settings.get_ui_label_attachments())
+    print "%-32s: %r" % ('get_ui_label_camp', settings.get_ui_label_camp())
+    print "%-32s: %r" % ('get_ui_label_cluster', settings.get_ui_label_cluster())
+    print "%-32s: %r" % ('get_ui_label_locationselector_map_point_add', settings.get_ui_label_locationselector_map_point_add())
+    print "%-32s: %r" % ('get_ui_label_locationselector_map_point_view', settings.get_ui_label_locationselector_map_point_view())
+    print "%-32s: %r" % ('get_ui_label_locationselector_map_polygon_add', settings.get_ui_label_locationselector_map_polygon_add())
+    print "%-32s: %r" % ('get_ui_label_locationselector_map_polygon_view', settings.get_ui_label_locationselector_map_polygon_view())
+    print "%-32s: %r" % ('get_ui_label_mobile_phone', settings.get_ui_label_mobile_phone())
+    print "%-32s: %r" % ('get_ui_label_permalink', settings.get_ui_label_permalink())
+    print "%-32s: %r" % ('get_ui_label_postcode', settings.get_ui_label_postcode())
+    print "%-32s: %r" % ('get_ui_label_read', settings.get_ui_label_read())
+    print "%-32s: %r" % ('get_ui_label_update', settings.get_ui_label_update())
+    print "%-32s: %r" % ('get_ui_multiselect_widget', settings.get_ui_multiselect_widget())
+    print "%-32s: %r" % ('get_ui_navigate_away_confirm', settings.get_ui_navigate_away_confirm())
+    print "%-32s: %r" % ('get_ui_search_submit_button', settings.get_ui_search_submit_button())
+    print "%-32s: %r" % ('get_ui_social_buttons', settings.get_ui_social_buttons())
+    print "%-32s: %r" % ('get_ui_summary', settings.get_ui_summary())
+    print "%-32s: %r" % ('get_ui_autocomplete_delay', settings.get_ui_autocomplete_delay())
+    print "%-32s: %r" % ('get_ui_autocomplete_min_chars', settings.get_ui_autocomplete_min_chars())
+    print "%-32s: %r" % ('get_ui_filter_auto_submit', settings.get_ui_filter_auto_submit())
+    print "%-32s: %r" % ('get_ui_report_auto_submit', settings.get_ui_report_auto_submit())
+    print "%-32s: %r" % ('get_ui_report_timeout', settings.get_ui_report_timeout())
+    print "%-32s: %r" % ('get_ui_use_button_icons', settings.get_ui_use_button_icons())
+    print "%-32s: %r" % ('get_ui_hierarchy_theme', settings.get_ui_hierarchy_theme())
+    print "%-32s: %r" % ('get_ui_hierarchy_cascade_option_in_tree', settings.get_ui_hierarchy_cascade_option_in_tree())
+    print "%-32s: %r" % ('get_ui_hierarchy_filter_bulk_select_option', settings.get_ui_hierarchy_filter_bulk_select_option())
+    print "%-32s: %r" % ('get_ui_location_filter_bulk_select_option', settings.get_ui_location_filter_bulk_select_option())
+    print "%-32s: %r" % ('get_ui_inline_component_layout', settings.get_ui_inline_component_layout())
+    # parameter needed: get_ui_profile_header(self, r): 							   t_ui_profile_header(self,r):
+    print "%-32s: %r" % ('get_ui_menu_logo', settings.get_ui_menu_logo())
+    print "%-32s: %r" % ('get_msg_max_send_retries', settings.get_msg_max_send_retries())
+    print "%-32s: %r" % ('get_msg_basestation_code_unique', settings.get_msg_basestation_code_unique())
+    print "%-32s: %r" % ('get_mail_server', settings.get_mail_server())
+    print "%-32s: %r" % ('get_mail_server_login', settings.get_mail_server_login())
+    print "%-32s: %r" % ('get_mail_server_tls', settings.get_mail_server_tls())
+    print "%-32s: %r" % ('get_mail_sender', settings.get_mail_sender())
+    print "%-32s: %r" % ('get_mail_approver', settings.get_mail_approver())
+    print "%-32s: %r" % ('get_mail_default_subject', settings.get_mail_default_subject())
+    print "%-32s: %r" % ('get_mail_auth_user_in_subject', settings.get_mail_auth_user_in_subject())
+    print "%-32s: %r" % ('get_mail_limit', settings.get_mail_limit())
+    print "%-32s: %r" % ('get_msg_parser', settings.get_msg_parser())
+    print "%-32s: %r" % ('get_msg_notify_subject', settings.get_msg_notify_subject())
+    print "%-32s: %r" % ('get_msg_notify_email_format', settings.get_msg_notify_email_format())
+    print "%-32s: %r" % ('get_msg_notify_renderer', settings.get_msg_notify_renderer())
+    print "%-32s: %r" % ('get_msg_require_international_phone_numbers', settings.get_msg_require_international_phone_numbers())
+    print "%-32s: %r" % ('get_search_max_results', settings.get_search_max_results())
+    print "%-32s: %r" % ('get_search_filter_manager', settings.get_search_filter_manager())
+    print "%-32s: %r" % ('get_search_filter_manager_allow_delete', settings.get_search_filter_manager_allow_delete())
+    print "%-32s: %r" % ('get_search_filter_manager_save', settings.get_search_filter_manager_save())
+    print "%-32s: %r" % ('get_search_filter_manager_update', settings.get_search_filter_manager_update())
+    print "%-32s: %r" % ('get_search_filter_manager_delete', settings.get_search_filter_manager_delete())
+    print "%-32s: %r" % ('get_search_filter_manager_load', settings.get_search_filter_manager_load())
+    print "%-32s: %r" % ('get_sync_mcb_resource_identifiers', settings.get_sync_mcb_resource_identifiers())
+    print "%-32s: %r" % ('get_sync_mcb_domain_identifiers', settings.get_sync_mcb_domain_identifiers())
+    print "%-32s: %r" % ('get_sync_upload_filename', settings.get_sync_upload_filename())
+    print "%-32s: %r" % ('get_asset_telephones', settings.get_asset_telephones())
+    print "%-32s: %r" % ('get_cap_identifier_prefix', settings.get_cap_identifier_prefix())
+    #print "%-32s: %r" % ('get_cap_identifier_oid', settings.get_cap_identifier_oid())
+    print "%-32s: %r" % ('get_cap_identifier_suffix', settings.get_cap_identifier_suffix())
+    print "%-32s: %r" % ('get_cap_expire_offset', settings.get_cap_expire_offset())
+    print "%-32s: %r" % ('get_cap_codes', settings.get_cap_codes())
+    print "%-32s: %r" % ('get_cap_event_codes', settings.get_cap_event_codes())
+    print "%-32s: %r" % ('get_cap_parameters', settings.get_cap_parameters())
+    print "%-32s: %r" % ('get_cap_geocodes', settings.get_cap_geocodes())
+    print "%-32s: %r" % ('get_cap_base64', settings.get_cap_base64())
+    print "%-32s: %r" % ('get_cap_languages', settings.get_cap_languages())
+    print "%-32s: %r" % ('get_cap_authorisation', settings.get_cap_authorisation())
+    print "%-32s: %r" % ('get_cap_restrict_fields', settings.get_cap_restrict_fields())
+    print "%-32s: %r" % ('get_cap_post_to_twitter', settings.get_cap_post_to_twitter())
+    print "%-32s: %r" % ('get_cap_same_code', settings.get_cap_same_code())
+    print "%-32s: %r" % ('get_cap_post_to_facebook', settings.get_cap_post_to_facebook())
+    print "%-32s: %r" % ('get_cap_rss_use_links', settings.get_cap_rss_use_links())
+    print "%-32s: %r" % ('get_cap_use_ack', settings.get_cap_use_ack())
+    print "%-32s: %r" % ('get_cap_alert_hub_title', settings.get_cap_alert_hub_title())
+    print "%-32s: %r" % ('get_cms_bookmarks', settings.get_cms_bookmarks())
+    print "%-32s: %r" % ('get_cms_filter_open', settings.get_cms_filter_open())
+    print "%-32s: %r" % ('get_cms_location_click_filters', settings.get_cms_location_click_filters())
+    print "%-32s: %r" % ('get_cms_organisation', settings.get_cms_organisation())
+    print "%-32s: %r" % ('get_cms_organisation_group', settings.get_cms_organisation_group())
+    print "%-32s: %r" % ('get_cms_person', settings.get_cms_person())
+    print "%-32s: %r" % ('get_cms_richtext', settings.get_cms_richtext())
+    print "%-32s: %r" % ('get_cms_show_events', settings.get_cms_show_events())
+    print "%-32s: %r" % ('get_cms_show_attachments', settings.get_cms_show_attachments())
+    print "%-32s: %r" % ('get_cms_show_links', settings.get_cms_show_links())
+    print "%-32s: %r" % ('get_cms_show_tags', settings.get_cms_show_tags())
+    print "%-32s: %r" % ('get_cms_show_titles', settings.get_cms_show_titles())
+    # parameter needed: get_cms_hide_index(self, module):							   t_cms_hide_index(self,module):
+    print "%-32s: %r" % ('get_cr_day_and_night', settings.get_cr_day_and_night())
+    print "%-32s: %r" % ('get_cr_shelter_people_registration', settings.get_cr_shelter_people_registration())
+    print "%-32s: %r" % ('get_cr_shelter_population_dynamic', settings.get_cr_shelter_population_dynamic())
+    print "%-32s: %r" % ('get_cr_shelter_housing_unit_management', settings.get_cr_shelter_housing_unit_management())
+    print "%-32s: %r" % ('get_cr_check_out_is_final', settings.get_cr_check_out_is_final())
+    print "%-32s: %r" % ('get_cr_tags', settings.get_cr_tags())
+    print "%-32s: %r" % ('get_dc_collection_label', settings.get_dc_collection_label())
+    print "%-32s: %r" % ('get_deploy_cc_groups', settings.get_deploy_cc_groups())
+    print "%-32s: %r" % ('get_deploy_hr_label', settings.get_deploy_hr_label())
+    print "%-32s: %r" % ('get_deploy_manual_recipients', settings.get_deploy_manual_recipients())
+    print "%-32s: %r" % ('get_deploy_post_to_twitter', settings.get_deploy_post_to_twitter())
+    print "%-32s: %r" % ('get_deploy_responses_via_web', settings.get_deploy_responses_via_web())
+    print "%-32s: %r" % ('get_deploy_select_ratings', settings.get_deploy_select_ratings())
+    print "%-32s: %r" % ('get_deploy_team_label', settings.get_deploy_team_label())
+    print "%-32s: %r" % ('get_doc_label', settings.get_doc_label())
+    print "%-32s: %r" % ('get_dvr_label', settings.get_dvr_label())
+    print "%-32s: %r" % ('get_dvr_track_transfer_sites', settings.get_dvr_track_transfer_sites())
+    print "%-32s: %r" % ('get_dvr_transfer_site_types', settings.get_dvr_transfer_site_types())
+    print "%-32s: %r" % ('get_dvr_manage_transferability', settings.get_dvr_manage_transferability())
+    print "%-32s: %r" % ('get_dvr_case_flags', settings.get_dvr_case_flags())
+    print "%-32s: %r" % ('get_dvr_household_size', settings.get_dvr_household_size())
+    print "%-32s: %r" % ('get_dvr_mandatory_appointments', settings.get_dvr_mandatory_appointments())
+    print "%-32s: %r" % ('get_dvr_appointments_update_last_seen_on', settings.get_dvr_appointments_update_last_seen_on())
+    print "%-32s: %r" % ('get_dvr_appointments_update_case_status', settings.get_dvr_appointments_update_case_status())
+    print "%-32s: %r" % ('get_dvr_case_events_close_appointments', settings.get_dvr_case_events_close_appointments())
+    print "%-32s: %r" % ('get_dvr_payments_update_last_seen_on', settings.get_dvr_payments_update_last_seen_on())
+    print "%-32s: %r" % ('get_dvr_multiple_case_groups', settings.get_dvr_multiple_case_groups())
+    print "%-32s: %r" % ('get_dvr_id_code_pattern', settings.get_dvr_id_code_pattern())
+    print "%-32s: %r" % ('get_dvr_event_registration_checkin_warning', settings.get_dvr_event_registration_checkin_warning())
+    print "%-32s: %r" % ('get_dvr_activity_use_service_type', settings.get_dvr_activity_use_service_type())
+    print "%-32s: %r" % ('get_dvr_activity_types', settings.get_dvr_activity_types())
+    print "%-32s: %r" % ('get_dvr_activity_types_hierarchical', settings.get_dvr_activity_types_hierarchical())
+    print "%-32s: %r" % ('get_edu_school_code_unique', settings.get_edu_school_code_unique())
+    print "%-32s: %r" % ('get_event_label', settings.get_event_label())
+    print "%-32s: %r" % ('get_event_exercise', settings.get_event_exercise())
+    print "%-32s: %r" % ('get_event_types_hierarchical', settings.get_event_types_hierarchical())
+    print "%-32s: %r" % ('get_incident_types_hierarchical', settings.get_incident_types_hierarchical())
+    print "%-32s: %r" % ('get_event_collection_tab', settings.get_event_collection_tab())
+    print "%-32s: %r" % ('get_event_target_tab', settings.get_event_target_tab())
+    print "%-32s: %r" % ('get_event_impact_tab', settings.get_event_impact_tab())
+    print "%-32s: %r" % ('get_incident_impact_tab', settings.get_incident_impact_tab())
+    print "%-32s: %r" % ('get_event_dispatch_tab', settings.get_event_dispatch_tab())
+    print "%-32s: %r" % ('get_incident_dispatch_tab', settings.get_incident_dispatch_tab())
+    print "%-32s: %r" % ('get_incident_teams_tab', settings.get_incident_teams_tab())
+    print "%-32s: %r" % ('get_evr_group_types', settings.get_evr_group_types())
+    print "%-32s: %r" % ('get_evr_show_physical_description', settings.get_evr_show_physical_description())
+    print "%-32s: %r" % ('get_evr_link_to_organisation', settings.get_evr_link_to_organisation())
+    print "%-32s: %r" % ('get_fire_station_code_unique', settings.get_fire_station_code_unique())
+    print "%-32s: %r" % ('get_hms_track_ctc', settings.get_hms_track_ctc())
+    print "%-32s: %r" % ('get_hms_activity_reports', settings.get_hms_activity_reports())
+    print "%-32s: %r" % ('get_hrm_course_grades', settings.get_hrm_course_grades())
+    print "%-32s: %r" % ('get_hrm_course_pass_marks', settings.get_hrm_course_pass_marks())
+    print "%-32s: %r" % ('get_hrm_course_types', settings.get_hrm_course_types())
+    print "%-32s: %r" % ('get_hrm_staff_label', settings.get_hrm_staff_label())
+    print "%-32s: %r" % ('get_hrm_organisation_label', settings.get_hrm_organisation_label())
+    print "%-32s: %r" % ('get_hrm_root_organisation_label', settings.get_hrm_root_organisation_label())
+    print "%-32s: %r" % ('get_hrm_email_required', settings.get_hrm_email_required())
+    print "%-32s: %r" % ('get_hrm_location_staff', settings.get_hrm_location_staff())
+    print "%-32s: %r" % ('get_hrm_location_vol', settings.get_hrm_location_vol())
+    print "%-32s: %r" % ('get_hrm_multiple_contracts', settings.get_hrm_multiple_contracts())
+    print "%-32s: %r" % ('get_hrm_org_dependent_job_titles', settings.get_hrm_org_dependent_job_titles())
+    print "%-32s: %r" % ('get_hrm_org_required', settings.get_hrm_org_required())
+    print "%-32s: %r" % ('get_hrm_multiple_orgs', settings.get_hrm_multiple_orgs())
+    print "%-32s: %r" % ('get_hrm_compose_button', settings.get_hrm_compose_button())
+    print "%-32s: %r" % ('get_hrm_deletable', settings.get_hrm_deletable())
+    print "%-32s: %r" % ('get_hrm_multiple_job_titles', settings.get_hrm_multiple_job_titles())
+    print "%-32s: %r" % ('get_hrm_show_staff', settings.get_hrm_show_staff())
+    print "%-32s: %r" % ('get_hrm_mix_staff', settings.get_hrm_mix_staff())
+    print "%-32s: %r" % ('get_hrm_site_contact_unique', settings.get_hrm_site_contact_unique())
+    print "%-32s: %r" % ('get_hrm_skill_types', settings.get_hrm_skill_types())
+    print "%-32s: %r" % ('get_hrm_staff_departments', settings.get_hrm_staff_departments())
+    print "%-32s: %r" % ('get_hrm_staff_experience', settings.get_hrm_staff_experience())
+    print "%-32s: %r" % ('get_hrm_salary', settings.get_hrm_salary())
+    print "%-32s: %r" % ('get_hrm_show_organisation', settings.get_hrm_show_organisation())
+    print "%-32s: %r" % ('get_hrm_teams', settings.get_hrm_teams())
+    print "%-32s: %r" % ('get_hrm_teams_orgs', settings.get_hrm_teams_orgs())
+    print "%-32s: %r" % ('get_hrm_trainings_external', settings.get_hrm_trainings_external())
+    print "%-32s: %r" % ('get_hrm_cv_tab', settings.get_hrm_cv_tab())
+    print "%-32s: %r" % ('get_hrm_record_tab', settings.get_hrm_record_tab())
+    print "%-32s: %r" % ('get_hrm_record_label', settings.get_hrm_record_label())
+    print "%-32s: %r" % ('get_hrm_use_awards', settings.get_hrm_use_awards())
+    print "%-32s: %r" % ('get_hrm_use_certificates', settings.get_hrm_use_certificates())
+    print "%-32s: %r" % ('get_hrm_create_certificates_from_courses', settings.get_hrm_create_certificates_from_courses())
+    print "%-32s: %r" % ('get_hrm_filter_certificates', settings.get_hrm_filter_certificates())
+    print "%-32s: %r" % ('get_hrm_use_address', settings.get_hrm_use_address())
+    print "%-32s: %r" % ('get_hrm_use_code', settings.get_hrm_use_code())
+    print "%-32s: %r" % ('get_hrm_use_credentials', settings.get_hrm_use_credentials())
+    print "%-32s: %r" % ('get_hrm_use_description', settings.get_hrm_use_description())
+    print "%-32s: %r" % ('get_hrm_use_education', settings.get_hrm_use_education())
+    print "%-32s: %r" % ('get_hrm_use_id', settings.get_hrm_use_id())
+    print "%-32s: %r" % ('get_hrm_use_job_titles', settings.get_hrm_use_job_titles())
+    print "%-32s: %r" % ('get_hrm_use_skills', settings.get_hrm_use_skills())
+    print "%-32s: %r" % ('get_hrm_certificate_skill', settings.get_hrm_certificate_skill())
+    print "%-32s: %r" % ('get_hrm_use_trainings', settings.get_hrm_use_trainings())
+    print "%-32s: %r" % ('get_hrm_training_instructors', settings.get_hrm_training_instructors())
+    print "%-32s: %r" % ('get_hrm_activity_types', settings.get_hrm_activity_types())
+    print "%-32s: %r" % ('get_hrm_vol_active', settings.get_hrm_vol_active())
+    print "%-32s: %r" % ('get_hrm_vol_active_tooltip', settings.get_hrm_vol_active_tooltip())
+    # def get_hrm_vol_affiliation'                                       , settings.ffiliation())
+    print "%-32s: %r" % ('get_hrm_vol_availability_tab', settings.get_hrm_vol_availability_tab())
+    print "%-32s: %r" % ('get_hrm_vol_experience', settings.get_hrm_vol_experience())
+    print "%-32s: %r" % ('get_hrm_vol_departments', settings.get_hrm_vol_departments())
+    print "%-32s: %r" % ('get_hrm_vol_roles', settings.get_hrm_vol_roles())
+    print "%-32s: %r" % ('get_hrm_vol_service_record_manager', settings.get_hrm_vol_service_record_manager())
+    print "%-32s: %r" % ('get_inv_collapse_tabs', settings.get_inv_collapse_tabs())
+    print "%-32s: %r" % ('get_inv_facility_label', settings.get_inv_facility_label())
+    print "%-32s: %r" % ('get_inv_facility_manage_staff', settings.get_inv_facility_manage_staff())
+    print "%-32s: %r" % ('get_inv_recv_tab_label', settings.get_inv_recv_tab_label())
+    print "%-32s: %r" % ('get_inv_send_tab_label', settings.get_inv_send_tab_label())
+    print "%-32s: %r" % ('get_inv_direct_stock_edits', settings.get_inv_direct_stock_edits())
+    print "%-32s: %r" % ('get_inv_org_dependent_warehouse_types', settings.get_inv_org_dependent_warehouse_types())
+    print "%-32s: %r" % ('get_inv_send_show_mode_of_transport', settings.get_inv_send_show_mode_of_transport())
+    print "%-32s: %r" % ('get_inv_send_show_org', settings.get_inv_send_show_org())
+    print "%-32s: %r" % ('get_inv_send_show_time_in', settings.get_inv_send_show_time_in())
+    print "%-32s: %r" % ('get_inv_stock_count', settings.get_inv_stock_count())
+    print "%-32s: %r" % ('get_inv_track_pack_values', settings.get_inv_track_pack_values())
+    #print "%-32s: %r" % ('get_inv_item_status', settings.get_inv_item_status())
+    print "%-32s: %r" % ('get_inv_shipment_name', settings.get_inv_shipment_name())
+    #print "%-32s: %r" % ('get_inv_shipment_types', settings.get_inv_shipment_types())
+    print "%-32s: %r" % ('get_inv_send_types', settings.get_inv_send_types())
+    print "%-32s: %r" % ('get_inv_send_type_default', settings.get_inv_send_type_default())
+    print "%-32s: %r" % ('get_inv_recv_types', settings.get_inv_recv_types())
+    print "%-32s: %r" % ('get_inv_send_form_name', settings.get_inv_send_form_name())
+    print "%-32s: %r" % ('get_inv_send_ref_field_name', settings.get_inv_send_ref_field_name())
+    print "%-32s: %r" % ('get_inv_send_shortname', settings.get_inv_send_shortname())
+    print "%-32s: %r" % ('get_inv_recv_form_name', settings.get_inv_recv_form_name())
+    print "%-32s: %r" % ('get_inv_recv_shortname', settings.get_inv_recv_shortname())
+    print "%-32s: %r" % ('get_inv_warehouse_code_unique', settings.get_inv_warehouse_code_unique())
+    print "%-32s: %r" % ('get_irs_vehicle', settings.get_irs_vehicle())
+    print "%-32s: %r" % ('get_member_cv_tab', settings.get_member_cv_tab())
+    print "%-32s: %r" % ('get_member_membership_types', settings.get_member_membership_types())
+    print "%-32s: %r" % ('get_mobile_forms', settings.get_mobile_forms())
+    print "%-32s: %r" % ('get_org_autocomplete', settings.get_org_autocomplete())
+    #print "%-32s: %r" % ('get_org_default_organisation', settings.get_org_default_organisation())
+    #print "%-32s: %r" % ('get_org_default_site', settings.get_org_default_site())
+    print "%-32s: %r" % ('get_org_sector', settings.get_org_sector())
+    print "%-32s: %r" % ('get_org_branches', settings.get_org_branches())
+    print "%-32s: %r" % ('get_org_branches_tree_view', settings.get_org_branches_tree_view())
+    print "%-32s: %r" % ('get_org_facility_types_hierarchical', settings.get_org_facility_types_hierarchical())
+    print "%-32s: %r" % ('get_org_organisation_location_context', settings.get_org_organisation_location_context())
+    print "%-32s: %r" % ('get_org_organisation_types_hierarchical', settings.get_org_organisation_types_hierarchical())
+    print "%-32s: %r" % ('get_org_organisation_types_multiple', settings.get_org_organisation_types_multiple())
+    print "%-32s: %r" % ('get_org_facilities_tab', settings.get_org_facilities_tab())
+    print "%-32s: %r" % ('get_org_groups', settings.get_org_groups())
+    print "%-32s: %r" % ('get_org_group_team_represent', settings.get_org_group_team_represent())
+    print "%-32s: %r" % ('get_org_needs_tab', settings.get_org_needs_tab())
+    print "%-32s: %r" % ('get_org_offices_tab', settings.get_org_offices_tab())
+    print "%-32s: %r" % ('get_org_regions', settings.get_org_regions())
+    print "%-32s: %r" % ('get_org_region_countries', settings.get_org_region_countries())
+    print "%-32s: %r" % ('get_org_regions_hierarchical', settings.get_org_regions_hierarchical())
+    print "%-32s: %r" % ('get_org_resources_tab', settings.get_org_resources_tab())
+    print "%-32s: %r" % ('get_org_services_hierarchical', settings.get_org_services_hierarchical())
+    print "%-32s: %r" % ('get_org_service_locations', settings.get_org_service_locations())
+    print "%-32s: %r" % ('get_org_site_code_len', settings.get_org_site_code_len())
+    print "%-32s: %r" % ('get_org_site_label', settings.get_org_site_label())
+    print "%-32s: %r" % ('get_org_site_inv_req_tabs', settings.get_org_site_inv_req_tabs())
+    print "%-32s: %r" % ('get_org_site_autocomplete', settings.get_org_site_autocomplete())
+    print "%-32s: %r" % ('get_org_site_autocomplete_fields', settings.get_org_site_autocomplete_fields())
+    print "%-32s: %r" % ('get_org_site_last_contacted', settings.get_org_site_last_contacted())
+    print "%-32s: %r" % ('get_org_site_volunteers', settings.get_org_site_volunteers())
+    print "%-32s: %r" % ('get_org_site_check', settings.get_org_site_check())
+    print "%-32s: %r" % ('get_org_summary', settings.get_org_summary())
+    print "%-32s: %r" % ('get_org_office_code_unique', settings.get_org_office_code_unique())
+    print "%-32s: %r" % ('get_org_facility_code_unique', settings.get_org_facility_code_unique())
+    print "%-32s: %r" % ('get_org_tags', settings.get_org_tags())
+    print "%-32s: %r" % ('get_police_station_code_unique', settings.get_police_station_code_unique())
+    # parameter needed: get_pr_age_group(self, age):								   t_pr_age_group(self,age):
+    print "%-32s: %r" % ('get_pr_person_availability_options', settings.get_pr_person_availability_options())
+    print "%-32s: %r" % ('get_pr_hide_third_gender', settings.get_pr_hide_third_gender())
+    print "%-32s: %r" % ('get_pr_import_update_requires_email', settings.get_pr_import_update_requires_email())
+    print "%-32s: %r" % ('get_pr_label_fullname', settings.get_pr_label_fullname())
+    print "%-32s: %r" % ('get_pr_lookup_duplicates', settings.get_pr_lookup_duplicates())
+    print "%-32s: %r" % ('get_pr_request_dob', settings.get_pr_request_dob())
+    print "%-32s: %r" % ('get_pr_dob_required', settings.get_pr_dob_required())
+    print "%-32s: %r" % ('get_pr_request_email', settings.get_pr_request_email())
+    print "%-32s: %r" % ('get_pr_request_father_name', settings.get_pr_request_father_name())
+    print "%-32s: %r" % ('get_pr_request_grandfather_name', settings.get_pr_request_grandfather_name())
+    print "%-32s: %r" % ('get_pr_request_gender', settings.get_pr_request_gender())
+    print "%-32s: %r" % ('get_pr_request_home_phone', settings.get_pr_request_home_phone())
+    print "%-32s: %r" % ('get_pr_request_mobile_phone', settings.get_pr_request_mobile_phone())
+    print "%-32s: %r" % ('get_pr_request_year_of_birth', settings.get_pr_request_year_of_birth())
+    print "%-32s: %r" % ('get_pr_name_format', settings.get_pr_name_format())
+    print "%-32s: %r" % ('get_pr_search_shows_hr_details', settings.get_pr_search_shows_hr_details())
+    print "%-32s: %r" % ('get_pr_select_existing', settings.get_pr_select_existing())
+    print "%-32s: %r" % ('get_pr_separate_name_fields', settings.get_pr_separate_name_fields())
+    print "%-32s: %r" % ('get_pr_use_address', settings.get_pr_use_address())
+    print "%-32s: %r" % ('get_pr_show_emergency_contacts', settings.get_pr_show_emergency_contacts())
+    print "%-32s: %r" % ('get_pr_contacts_tabs', settings.get_pr_contacts_tabs())
+    print "%-32s: %r" % ('get_proc_form_name', settings.get_proc_form_name())
+    print "%-32s: %r" % ('get_proc_shortname', settings.get_proc_shortname())
+    print "%-32s: %r" % ('get_project_mode_3w', settings.get_project_mode_3w())
+    print "%-32s: %r" % ('get_project_mode_task', settings.get_project_mode_task())
+    print "%-32s: %r" % ('get_project_mode_drr', settings.get_project_mode_drr())
+    print "%-32s: %r" % ('get_project_activities', settings.get_project_activities())
+    print "%-32s: %r" % ('get_project_activity_sectors', settings.get_project_activity_sectors())
+    print "%-32s: %r" % ('get_project_activity_types', settings.get_project_activity_types())
+    print "%-32s: %r" % ('get_project_activity_filter_year', settings.get_project_activity_filter_year())
+    print "%-32s: %r" % ('get_project_assign_staff_tab', settings.get_project_assign_staff_tab())
+    print "%-32s: %r" % ('get_project_budget_monitoring', settings.get_project_budget_monitoring())
+    print "%-32s: %r" % ('get_project_codes', settings.get_project_codes())
+    print "%-32s: %r" % ('get_project_community', settings.get_project_community())
+    print "%-32s: %r" % ('get_project_community_volunteers', settings.get_project_community_volunteers())
+    print "%-32s: %r" % ('get_project_demographics', settings.get_project_demographics())
+    print "%-32s: %r" % ('get_project_details_tab', settings.get_project_details_tab())
+    print "%-32s: %r" % ('get_project_goals', settings.get_project_goals())
+    print "%-32s: %r" % ('get_project_hazards', settings.get_project_hazards())
+    print "%-32s: %r" % ('get_project_hfa', settings.get_project_hfa())
+    print "%-32s: %r" % ('get_project_indicators', settings.get_project_indicators())
+    # def get_project_locations_from_countries'                          , settings.ocations_from_countries())
+    print "%-32s: %r" % ('get_project_milestones', settings.get_project_milestones())
+    print "%-32s: %r" % ('get_project_outcomes', settings.get_project_outcomes())
+    print "%-32s: %r" % ('get_project_outputs', settings.get_project_outputs())
+    print "%-32s: %r" % ('get_project_planning_ondelete', settings.get_project_planning_ondelete())
+    print "%-32s: %r" % ('get_project_projects', settings.get_project_projects())
+    print "%-32s: %r" % ('get_project_programmes', settings.get_project_programmes())
+    print "%-32s: %r" % ('get_project_programme_budget', settings.get_project_programme_budget())
+    print "%-32s: %r" % ('get_project_sectors', settings.get_project_sectors())
+    print "%-32s: %r" % ('get_project_themes', settings.get_project_themes())
+    print "%-32s: %r" % ('get_project_theme_percentages', settings.get_project_theme_percentages())
+    print "%-32s: %r" % ('get_project_multiple_budgets', settings.get_project_multiple_budgets())
+    print "%-32s: %r" % ('get_project_multiple_organisations', settings.get_project_multiple_organisations())
+    print "%-32s: %r" % ('get_project_organisation_roles', settings.get_project_organisation_roles())
+    print "%-32s: %r" % ('get_project_organisation_lead_role', settings.get_project_organisation_lead_role())
+    print "%-32s: %r" % ('get_project_task_tag', settings.get_project_task_tag())
+    print "%-32s: %r" % ('get_project_task_status_opts', settings.get_project_task_status_opts())
+    print "%-32s: %r" % ('get_project_task_priority_opts', settings.get_project_task_priority_opts())
+    print "%-32s: %r" % ('get_project_task_time', settings.get_project_task_time())
+    print "%-32s: %r" % ('get_req_req_type', settings.get_req_req_type())
+    print "%-32s: %r" % ('get_req_type_inv_label', settings.get_req_type_inv_label())
+    print "%-32s: %r" % ('get_req_type_hrm_label', settings.get_req_type_hrm_label())
+    print "%-32s: %r" % ('get_req_copyable', settings.get_req_copyable())
+    print "%-32s: %r" % ('get_req_recurring', settings.get_req_recurring())
+    print "%-32s: %r" % ('get_req_requester_label', settings.get_req_requester_label())
+    print "%-32s: %r" % ('get_req_requester_optional', settings.get_req_requester_optional())
+    print "%-32s: %r" % ('get_req_requester_is_author', settings.get_req_requester_is_author())
+    print "%-32s: %r" % ('get_req_requester_from_site', settings.get_req_requester_from_site())
+    print "%-32s: %r" % ('get_req_requester_to_site', settings.get_req_requester_to_site())
+    print "%-32s: %r" % ('get_req_date_writable', settings.get_req_date_writable())
+    print "%-32s: %r" % ('get_req_status_writable', settings.get_req_status_writable())
+    print "%-32s: %r" % ('get_req_item_quantities_writable', settings.get_req_item_quantities_writable())
+    print "%-32s: %r" % ('get_req_skill_quantities_writable', settings.get_req_skill_quantities_writable())
+    print "%-32s: %r" % ('get_req_pack_values', settings.get_req_pack_values())
+    print "%-32s: %r" % ('get_req_multiple_req_items', settings.get_req_multiple_req_items())
+    print "%-32s: %r" % ('get_req_show_quantity_transit', settings.get_req_show_quantity_transit())
+    # print "%-32s: %r" % ('get_req_inline_forms'                     				   get_req_inline_forms
+    print "%-32s: %r" % ('get_req_prompt_match', settings.get_req_prompt_match())
+    # def get_req_summary'
+    print "%-32s: %r" % ('get_req_use_commit', settings.get_req_use_commit())
+    print "%-32s: %r" % ('get_req_commit_people', settings.get_req_commit_people())
+    print "%-32s: %r" % ('get_req_commit_value', settings.get_req_commit_value())
+    print "%-32s: %r" % ('get_req_commit_without_request', settings.get_req_commit_without_request())
+    print "%-32s: %r" % ('get_req_committer_is_author', settings.get_req_committer_is_author())
+    print "%-32s: %r" % ('get_req_ask_security', settings.get_req_ask_security())
+    print "%-32s: %r" % ('get_req_ask_transport', settings.get_req_ask_transport())
+    print "%-32s: %r" % ('get_req_items_ask_purpose', settings.get_req_items_ask_purpose())
+    #print "%-32s: %r" % (
+    ####### get_req_req_crud_strings(type = None)             , settings.get_req_req_crud_strings(type=None)())
+    print "%-32s: %r" % ('get_req_use_req_number', settings.get_req_use_req_number())
+    print "%-32s: %r" % ('get_req_generate_req_number'             	, settings.get_req_generate_req_number())
+    print "%-32s: %r" % ('get_req_form_name'                                , settings.get_req_form_name())
+    print "%-32s: %r" % ('get_req_shortname'                                , settings.get_req_shortname())
+    print "%-32s: %r" % ('get_req_restrict_on_complete'                     , settings.get_req_restrict_on_complete())
+    print "%-32s: %r" % ('get_supply_catalog_default'                       , settings.get_supply_catalog_default())
+    print "%-32s: %r" % ('get_supply_use_alt_name'                          , settings.get_supply_use_alt_name())
+    print "%-32s: %r" % ('get_vulnerability_indicator_hierarchical'	        , settings.get_vulnerability_indicator_hierarchical())
+    print "%-32s: %r" % ('get_transport_airport_code_unique'		        , settings.get_transport_airport_code_unique())
+    print "%-32s: %r" % ('get_transport_heliport_code_unique'		        , settings.get_transport_heliport_code_unique())
+    print "%-32s: %r" % ('get_transport_seaport_code_unique'		        , settings.get_transport_seaport_code_unique())
+    print "%-32s: %r" % ('get_xforms_resources'						        , settings.get_xforms_resources())
+    print "%-32s: %r" % ('get_frontpage()'						            , settings.get_frontpage())
+
+# Select the Template
+# - which Modules are enabled
+# - PrePopulate data
+# - Security Policy
+# - Workflows
+# - Theme
+# - note that you should restart your web2py after changing this setting
+#settings.base.template = "ADAT"          # geht nicht
+#settings.base.template = "ARC"           # coole HP (karte), aber sinnlos
+#settings.base.template = "CERT"          # schlank, ganz nett ... nichts besonders
+#settings.base.template = "Climate"       # geht nicht
+#settings.base.template = "CRMT"          # GEILE HP, aber eher blog als arbeitstier
+#settings.base.template = "custom"        # geht nicht, config fehlt
+#settings.base.template = "default"       # kennen wir, default halt
+#settings.base.template = "Delphi"        # sehr abgesprecktes default, so gut wir nur die umfrage
+#settings.base.template = "Disease"       # module dephi disabled?!
+#settings.base.template = "DRK"           # sehr guter ausgangspunkt
+#settings.base.template = "DRMP"          # altbacken, aber slider show
+#settings.base.template = "DRRPP"         # profi page, slider show!
+#settings.base.template = "EC"            # mehr oder weniger: default theme
+#settings.base.template = "EVASS"         # default, aber mit handgemachten buttons auf der HP
+#settings.base.template = "FLR"           # kaum neues zu default (ist auch ne testinstanz von msw, oder?)
+#settings.base.template = "Haiti"         # das ist default. oder wurde zum default
+#settings.base.template = "HROpen"        # default, langweilig
+#settings.base.template = "IFRC"          # wohl eine der muetter der entwicklung, asien riesenfreaks, style dennoch mist
+#settings.base.template = "IRS"           # kaum angepasstes default, sinnlos
+#settings.base.template = "Kashmir"       # coole slide-show auf der HP, ansonsten default
+#settings.base.template = "OCHAROCCA"     # ganz was anderes
+#settings.base.template = "Philippines"   # SEHHR COOL, wenn man z.B. ne spenden und hilfenseite machen will
+#settings.base.template = "PIANGO"        # default
+#settings.base.template = "RGIMS"         # old school,. nichts neues
+#settings.base.template = "RMSAmericas"   # interessante submenues, nichts neues
+#settings.base.template = "RW"            # nunja
+#settings.base.template = "SAMBRO"        # geht nicht
+#settings.base.template = "SCPHIMS"       # extrem langweilig
+#settings.base.template = "setup"         # so gut wie default, linke grosse icons sind ausgeschaltet
+#settings.base.template = "skeleton"      # does not work
+#settings.base.template = "skeletontheme" # does not work
+#settings.base.template = "STL"           # eiggentlich nur staff verwaltung
+#settings.base.template = "test"          # geht nicht (wahrschinlich gar kein template)
+#settings.base.template = "Turkey"        # langweilig, wie default
+#settings.base.template = "VM"            # extrem langweilig, so wie default nur weniger
+#settings.base.template = "Vulnerability" # geht nicht
+#settings.base.template = "WACOP"         # default, langweilig
+
+#msw
+#settings.base.template = "MSW"
+settings.base.template = "MSW2"
+#settings.base.template = "MSW_def"
+
+# =============================================================================
+# Import the settings from the Template
+# - note: invalid settings are ignored
+#
+settings.import_template()
+
+# Database settings
+# Uncomment to use a different database, other than sqlite
+#settings.database.db_type = "postgres"
+#settings.database.db_type = "mysql"
+# Uncomment to use a different host
+#settings.database.host = "localhost"
+# Uncomment to use a different port
+#settings.database.port = 3306
+#settings.database.port = 5432
+# Uncomment to select a different name for your database
+#settings.database.database = "sahana"
+# Uncomment to select a different username for your database
+#settings.database.username = "sahana"
+# Uncomment to set the password
+# NB Web2Py doesn't like passwords with an @ in them
+#settings.database.password = "password"
+# Uncomment to use a different pool size
+#settings.database.pool_size = 30
+# Do we have a spatial DB available? (currently supports PostGIS. Spatialite to come.)
+#settings.gis.spatialdb = True
+
+# Base settings
+settings.base.system_name = T("NeuerVerein e.V.")
+settings.base.system_name_short = T("Sahana Eden MSW")
+# Set this to the Public URL of the instance
+#settings.base.public_url = "http://127.0.0.1:8000"
+
+# Switch to "False" in Production for a Performance gain
+# (need to set to "True" again when Table definitions are changed)
+settings.base.migrate = True
+# To just create the .table files (also requires migrate=True):
+#settings.base.fake_migrate = True
+
+# Set this to True to switch to Debug mode
+# Debug mode means that uncompressed CSS/JS files are loaded
+# JS Debug messages are also available in the Console
+# can also load an individual page in debug mode by appending URL with
+# ?debug=1
+settings.base.debug = True
+
+# Uncomment this to prevent automated test runs from remote
+# settings.base.allow_testing = False
+
+# Configure the log level ("DEBUG", "INFO", "WARNING", "ERROR" or "CRITICAL"), None = turn off logging
+#settings.log.level = "WARNING"
+settings.log.level = "DEBUG"
+# Uncomment to prevent writing log messages to the console (sys.stderr)
+#settings.log.console = False
+# Configure a log file (file name)
+settings.log.logfile = "mswFLR.log"
+# Uncomment to get detailed caller information
+#settings.log.caller_info = True
+
+# Uncomment to use Content Delivery Networks to speed up Internet-facing sites
+#settings.base.cdn = True
+
+# Allow language files to be updated automatically
+#settings.L10n.languages_readonly = False
+
+# This setting should be changed _before_ registering the 1st user
+# - should happen automatically if installing using supported scripts
+settings.auth.hmac_key = "9d6f2601-4c2a-4e6d-b7c3-d5dbdefc4637"
+# Minimum Password Length
+#settings.auth.password_min_length = 8
+
+# Email settings
+# Outbound server
+#settings.mail.server = "127.0.0.1:25"
+#settings.mail.tls = True
+# Useful for Windows Laptops:
+# https://www.google.com/settings/security/lesssecureapps
+#settings.mail.server = "smtp.gmail.com:587"
+#settings.mail.tls = True
+#settings.mail.login = "username:password"
+# From Address - until this is set, no mails can be sent
+#settings.mail.sender = "'Sahana' <sahana@example.org>"
+# Default email address to which requests to approve new user accounts gets sent
+# This can be overridden for specific domains/organisations via the auth_domain table
+#settings.mail.approver = "useradmin@example.org"
+# Daily Limit on Sending of emails
+#settings.mail.limit = 1000
+
+# Frontpage settings
+# RSS feeds
+settings.frontpage.rss = [
+    {"title": "Eden",
+     # Trac timeline
+     "url": "http://eden.sahanafoundation.org/timeline?ticket=on&changeset=on&milestone=on&wiki=on&max=50&daysback=90&format=rss"
+    },
+    {"title": "Twitter",
+     # @SahanaFOSS
+     #"url": "https://search.twitter.com/search.rss?q=from%3ASahanaFOSS" # API v1 deprecated, so doesn't work, need to use 3rd-party service, like:
+     "url": "http://www.rssitfor.me/getrss?name=@SahanaFOSS"
+     # Hashtag
+     #url: "http://search.twitter.com/search.atom?q=%23eqnz" # API v1 deprecated, so doesn't work, need to use 3rd-party service, like:
+     #url: "http://api2.socialmention.com/search?q=%23eqnz&t=all&f=rss"
+    }
+]
+
+# Uncomment to restrict to specific country/countries
+#settings.gis.countries= ("LK",)
+
+# Uncomment to enable a guided tour
+settings.base.guided_tour = False
+
+# Instance Name - for management scripts
+#settings.base.instance_name = "test"
+
+# Bing API Key (for Map layers)
+# http://www.microsoft.com/maps/create-a-bing-maps-key.aspx
+#settings.gis.api_bing = ""
+# Google API Key (for Earth & MapMaker Layers)
+# default works for localhost
+#settings.gis.api_google = ""
+# Yahoo API Key (for Geocoder)
+#settings.gis.api_yahoo = ""
+
+# GeoNames username
+#settings.gis.geonames_username = ""
+
+# Fill this in to get Google Analytics for your site
+#settings.base.google_analytics_tracking_id = ""
+
+# Chat server, see: http://eden.sahanafoundation.org/wiki/InstallationGuidelines/Chat
+#settings.base.chat_server = {
+#   "ip": "127.0.0.1",
+#   "port": 7070,
+#   "name": "servername",
+#	# Default group everyone is added to
+#   "groupname" : "everyone",
+#   "server_db" : "openfire",
+#   # These settings fallback to main DB settings if not specified
+#   # Only mysql/postgres supported
+#   #"server_db_type" : "mysql",
+#   #"server_db_username" : "",
+#   #"server_db_password": "",
+#   #"server_db_port" : 3306,
+#   #"server_db_ip" : "127.0.0.1",
+#   }
+
+# GeoServer (Currently used by GeoExplorer. Will allow REST control of GeoServer.)
+# NB Needs to be publically-accessible URL for querying via client JS
+#settings.gis.geoserver_url = "http://localhost/geoserver"
+#settings.gis.geoserver_username = "admin"
+#settings.gis.geoserver_password = ""
+# Print Service URL: http://eden.sahanafoundation.org/wiki/BluePrintGISPrinting
+#settings.gis.print_service = "/geoserver/pdf/"
+
+# Google OAuth (to allow users to login using Google)
+# https://code.google.com/apis/console/
+#settings.auth.google_id = ""
+#settings.auth.google_secret = ""
+
+# Pootle server
+# settings.L10n.pootle_url = "http://pootle.sahanafoundation.org/"
+# settings.L10n.pootle_username = "username"
+# settings.L10n.pootle_password = "*****"
+
+# SOLR server for Full-Text Search
+#settings.base.solr_url = "http://127.0.0.1:8983/solr/"
+
+# Memcache server to allow sharing of sessions across instances
+#settings.base.session_memcache = '127.0.0.1:11211'
+
+# UI options
+# Should user be prompted to save before navigating away?
+#settings.ui.navigate_away_confirm = False
+# Should user be prompted to confirm actions?
+#settings.ui.confirm = False
+# Should potentially large dropdowns be turned into autocompletes?
+# (unused currently)
+#settings.ui.autocomplete = True
+#settings.ui.read_label = "Details"
+#settings.ui.update_label = "Edit"
+
+# Audit settings
+# - can be a callable for custom hooks (return True to also perform normal logging, or False otherwise)
+# NB Auditing (especially Reads) slows system down & consumes diskspace
+#settings.security.audit_write = False
+#settings.security.audit_read = False
+
+# Performance Options
+# Maximum number of search results for an Autocomplete Widget
+#settings.search.max_results = 200
+# Maximum number of features for a Map Layer
+#settings.gis.max_features = 1000
+
+# CAP Settings
+# Change for different authority and organisations
+# See http://alerting.worldweather.org/ for prefix and oid
+#settings.cap.identifier_prefix = "PAGASA-DOST"
+# Country root oid. The oid for the organisation includes this base with an additional suffix
+#settings.cap.identifier_oid = "2.49.0.1.608"
+#settings.cap.identifier_suffix = "alert"
+# Change this for the offset period in days that the alert will be effective for
+# Expire Date = Effective Date + expire_offset
+# Default is 2 days
+#settings.cap.expire_offset = 2
+
+# =============================================================================
+# Import the settings from the Template
+# - note: invalid settings are ignored
+#
+#msw moved up for test: settings.import_template()
+
+# =============================================================================
+# Over-rides to the Template may be done here
+#
+
+# e.g.
+#settings.base.system_name = T("Sahana TEST")
+#settings.base.prepopulate = ("MY_TEMPLATE_ONLY")
+#settings.base.prepopulate += ("default", "default/users")
+#settings.base.theme = "default"
+#settings.L10n.default_language = "en"
+#settings.security.policy = 7 # Organisation-ACLs
+# Enable Additional Module(s)
+#settings.modules["delphi"] = Storage(
+#        name_nice = T("Delphi Decision Maker"),
+#        restricted = False,
+#        module_type = 10,
+#    )
+# msw: set here or in config.py of template
+#settings.modules["asylumseeker"] = Storage(
+#    name_nice=T("Asylumseeker"),
+#    module_type=2)
+# Disable a module which is normally used by the template
+# - NB Only templates with adaptive menus will work nicely with this!
+#del settings.modules["irs"]
+
+# After 1st_run, set this for Production to save 1x DAL hit/request
+#settings.base.prepopulate = 0
+
+# disabeling a module
+#settings.modules.pop("vol", None) # not use volunters
+#settings.modules.pop("ttt", None)
+
+
+#print '\n\n printing the settings ...'
+#print_settings2()
+#print 'asseek:', settings.modules["asylumseeker"]
+#print '... printing the settings ... end'
+
+# msw file
+#foo() # HOW DOES THIS WORK!!??
+
+# msw
+#print 'msw: printing all exisiting date tables:'
+#print current.db.tables
+
+# =============================================================================
+# A version number to tell update_check if there is a need to refresh the
+# running copy of this file
+VERSION = 1
+
+# END =========================================================================

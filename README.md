@@ -1,4 +1,4 @@
-# Sahana Eden
+# Sahana Eden (msw style)
 
 Sahana Eden is an Emergency Development Environment - an Open Source framework to rapidly build powerful applications for Emergency Management.
 
