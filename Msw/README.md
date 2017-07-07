@@ -149,6 +149,12 @@ http://booki.flossmanuals.net/sahana-eden/
 # sahana-eden google groups mailing list
 https://groups.google.com/forum/#!forum/sahana-eden
 
+# the sahana eden wiki
+http://eden.sahanafoundation.org/
+
+# demo on the net:
+http://demo.eden.sahanafoundation.org/eden/
+
 # insalling local sahana instance on suse
 https://github.com/nursix/sahana-setup/wiki/Developer-Setup#opensuse
 
@@ -168,6 +174,8 @@ http://eden.sahanafoundation.org/wiki/S3/S3Model/SuperEntities
 # web-course (7 parts) on web2py
 https://www.youtube.com/watch?v=bW9lpN95zwQ&index=5&list=PL5E2E223FE3777851
 
+
+
 ########
 # TODO #
 ########
@@ -180,9 +188,119 @@ https://www.youtube.com/watch?v=bW9lpN95zwQ&index=5&list=PL5E2E223FE3777851
 - module syntax lernen
 - styles und links und menues lernen
 
-###
-# msw's howto:
-Incorporate a new model:
+######################################################
+# msw's howto:                                       #
+######################################################
+// ---------------------------
+*0. Web2py version*
+
+	from: http://write.flossmanuals.net/sahana-eden/maintenance/
+
+	Since Sahana Eden extends Web2Py, and the two are both undergoing rapid development, 
+	the revision of Web2Py can be critical. Whilst the latest 'bleeding edge' version of Web2Py is usually stable,
+	some Web2Py revisions have bugs which break a part of Sahana Eden. You can try upgrading to the latest 
+	revision of Web2Py or else downgrading to an older version which does not exhibit this bug.
+
+	Sometimes a new version of Sahana Eden may use features from a more recent Web2py than the currently 
+	installed version.  This typically leads to an error ticket with a message indicating that some item was 
+	not found.  Update to either the latest Web2py, or the latest known-stable Web2py revision, 
+	the version number for which can be found in modules/s3_update_check.py
+
+	It is also sometimes posted in the #sahana-eden IRC channel topic (see the Community chapter for 
+	connecting to IRC).
+	
+	
+// ---------------------------
+*1. Basics*
+  - you need a running environment of web2py
+  - you need web2py/applications/eden <= your instance of eden
+  
+  - in .../web2py
+  	# python web2py.py -a pass
+  
+	- start a browser 
+		- and navigate to http://localhost:8000/welcome/default/index
+		- log in (password is pass)
+  		- go to "my applications" 
+	    - go to application -> eden
+			- log in (email/password of first registered user is admin)
+		
+		- or directly navigate to http://localhost:8000/eden
+			- log in (email/password of first registered user is admin)
+
+		- or select	'edit' and edit eden (however, you will most probably later 
+	  	  edit the files directly in an editor)
+	  
+// ---------------------------
+*2. .../models/000_config.py*
+		- is NOT part of git (gitignore). 
+		  For changes to be committed, please also edit: modules/templates/000_config.py
+
+		- basic setting
+			- the template (choose using intuition templatenames found in modules/templates)
+			- security settings must now be somewhere else!?
+			- override here the settings of your template ...
+			
+			- for that copy modules/templates/default to modules/templates/<yourtemplate>
+			  and look there in config.py which settings exist
+			
+			
+// ---------------------------
+*3. modules/templates/<yourtemplate>/config.py*
+	- vast number of options you can change. either there or override values in 000_config.py (see above)
+	- at the bottom there is the section where you can select/deselect the used modules
+	  (can also be done in 000_config.py, it is however more nice and clean to do it in the config.py files)
+	  
+// ---------------------------
+*4. Favicon, footer and basic layout*
+	- needs to be found out!
+
+// ---------------------------
+*5. Import*
+		- go to desired data (e.g. Organisation, Staff, Shelters)
+		- click 'Import' in the menue
+		- select 'download template' => it will be a .cvs file
+		- open template in libreoffice
+		    - character set: UTF-8 (unicode)
+			- selector ","
+			- text delimiter """
+			- quoted field as text
+		- edit and save file (as CSV!)
+		- upload	
+		
+	TODO: how do the many colums in the csv file correspond to the insert-mask (which contains fewer data)?	
+
+// ---------------------------
+*6. Export*
+
+    TODO: how to export CSV
+	
+	csv should be included as one of the standard export file-types (http://write.flossmanuals.net/sahana-eden/data-export/).
+	Unfortunately, I do not find the icon. It is, however, possible to export as XLS. this opens libreoffice and you can
+	save the file in the csv fomat (komma, ", and text-filed in quotes).
+	
+	TODO: try to import such a file again (after changes)
+	
+
+
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*. *
+// ---------------------------
+*2. Incorporate a new model*
 
 yourtaskhere: what you are trying to do
 namebody    : something 'bigger' than your task
